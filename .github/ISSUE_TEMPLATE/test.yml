@@ -1,0 +1,26 @@
+name: Create a test
+description: Testing for ensuring the quality of the code
+title: "test: "
+type: test
+labels:
+  - test
+assignees:
+  - Alex200207
+  - Cris281
+projects:
+  - Vital-IA
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Include the purpose of the test
+    validations:
+      required: true
+  - type: input
+    id: filename
+    attributes:
+      label: Filename / Path
+      description: Add the file or path where the test is located
+    validations:
+      required: true

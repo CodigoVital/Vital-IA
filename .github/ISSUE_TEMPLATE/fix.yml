@@ -1,0 +1,26 @@
+name: Bug Fix
+description: Issues related to bug fixes
+title: "fix: "
+type: bug
+labels:
+  - bug
+assignees:
+  - Alex200207
+  - Cris281
+projects:
+  - Vital-IA
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Include the details of the bug fix
+    validations:
+      required: true
+  - type: input
+    id: filename
+    attributes:
+      label: Filename / Path
+      description: Add the file or path where the bug is located
+    validations:
+      required: false
