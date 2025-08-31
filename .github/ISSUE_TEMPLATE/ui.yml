@@ -1,0 +1,26 @@
+name: UI Issue
+description: Issues related to the user interface
+title: "ui: "
+type: ui
+labels:
+  - ui
+assignees:
+  - Alex200207
+  - Cris281
+projects:
+  - Vital-IA
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Include the details of the UI issue
+    validations:
+      required: true
+  - type: input
+    id: filename
+    attributes:
+      label: Filename / Path
+      description: Add the file or path where the issue is located
+    validations:
+      required: false

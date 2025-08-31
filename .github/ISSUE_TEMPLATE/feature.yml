@@ -1,0 +1,26 @@
+name: New Feature
+description: Proposals for new features
+title: "feat: "
+type: feature
+labels:
+  - feature
+assignees:
+  - Alex200207
+  - Cris281
+projects:
+  - Vital-IA
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Include the details of the new feature
+    validations:
+      required: true
+  - type: input
+    id: filename
+    attributes:
+      label: Filename / Path
+      description: Add the file or path where the feature will be implemented
+    validations:
+      required: false
