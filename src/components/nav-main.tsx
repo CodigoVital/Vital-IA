@@ -34,10 +34,10 @@ export function NavMain({
           >
             <SidebarMenuItem>
               <SidebarMenuButton
-                className="p-[20px] text-[14px] text-[#475569]"
+                className="p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]"
                 tooltip={item.title}
               >
-                {item.icon && <item.icon />}
+                {item.icon && <item.icon className="!w-6 !h-6 " />}
                 <span>{item.title}</span>
               </SidebarMenuButton>
             </SidebarMenuItem>

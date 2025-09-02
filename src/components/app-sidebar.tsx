@@ -16,9 +16,9 @@ import { data } from "@/Page/config/sidebar-data";
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar className="border-none" collapsible="icon" {...props}>
-      <SidebarHeader className="m-3 flex items-center flex-row ">
+      <SidebarHeader className="mx-3 mt-3 mb-1 flex items-center flex-row ">
         <Logo />
-        <h1 className=" font-bold">Vital-IA</h1>
+        <h1 className="font-bold">Vital-IA</h1>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
