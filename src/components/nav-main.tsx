@@ -38,7 +38,7 @@ export function NavMain({
                 tooltip={item.title}
               >
                 {item.icon && <item.icon />}
-                <span>{item.title}</span>{" "}
+                <span>{item.title}</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </Collapsible>

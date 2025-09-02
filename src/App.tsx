@@ -1,10 +1,9 @@
-import Page from "./App/dashboard/page";
-
+import { HomePage } from "./Page/dashboard/home-page";
 
 function App() {
   return (
     <>
-      <Page />
+      <HomePage />
     </>
   );
 }

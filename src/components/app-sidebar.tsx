@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Bot } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -12,23 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Separator } from "@radix-ui/react-separator";
 import { Logo } from "./logo";
-
-const data = {
-  user: {
-    name: "Alex",
-    email: "alex@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-
-  navMain: [
-    {
-      title: "Chat Inteligente",
-      url: "#",
-      icon: Bot,
-      isActive: true,
-    },
-  ],
-};
+import { data } from "@/Page/config/sidebar-data";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
