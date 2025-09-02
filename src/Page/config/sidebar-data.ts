@@ -1,4 +1,4 @@
-import { Bot } from "lucide-react";
+import { Book, Bot, Calendar, Clock, MapPin, Truck } from "lucide-react";
 
 export const data = {
   user: {
@@ -13,6 +13,36 @@ export const data = {
       url: "#",
       icon: Bot,
       isActive: true,
+    },
+    {
+      title: "Clasificar enfermedad",
+      url: "#",
+      icon: Clock,
+      isActive: false,
+    },
+    {
+      title: "Información de Salud",
+      url: "#",
+      icon: Book,
+      isActive: false,
+    },
+    {
+      title: "Eventos y Ferias",
+      url: "#",
+      icon: Calendar,
+      isActive: false,
+    },
+    {
+      title: "Clinicas Moviles",
+      url: "#",
+      icon: Truck,
+      isActive: false,
+    },
+    {
+      title: "Centro mas Cercano",
+      url: "#",
+      icon: MapPin,
+      isActive: false,
     },
   ],
 };
