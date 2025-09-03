@@ -1,9 +1,12 @@
-import { HomePage } from "./Page/dashboard/home-page";
+import { DashboardLayout } from "./layout/dashboard-layout";
+import { ChatPage } from "./Page/chat/chat-page";
 
 function App() {
   return (
     <>
-      <HomePage />
+      <DashboardLayout>
+        <ChatPage />
+      </DashboardLayout>
     </>
   );
 }
