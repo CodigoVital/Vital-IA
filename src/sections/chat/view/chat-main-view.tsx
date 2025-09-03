@@ -1,5 +1,9 @@
-
+import { ChatHeader } from "../components/chat-header";
 
 export const ChatMainView = () => {
-  return <div>ChatMainView</div>;
+  return (
+    <>
+      <ChatHeader />
+    </>
+  );
 };
