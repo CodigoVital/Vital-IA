@@ -13,7 +13,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         <AppSidebar />
         <SidebarInset>
           <div className="flex  bg-slate-100 flex-1 flex-col gap-4 pr-8 pl-13  py-8 w-full h-full">
-            <div className="bg-sidebar w-full h-full py-3.5 rounded-lg ">
+            <div className="bg-sidebar w-full h-full  rounded-lg ">
               {children}
             </div>
           </div>
