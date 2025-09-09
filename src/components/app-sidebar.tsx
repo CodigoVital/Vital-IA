@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Separator } from "@radix-ui/react-separator";
 import { Logo } from "./logo";
-import { data } from "@/Page/config/sidebar-data";
+import { data } from "@/components/ui/config/sidebar-data";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
