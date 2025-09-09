@@ -7,6 +7,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { NavLink } from "react-router";
 
 export function NavMain({
   items,
@@ -33,13 +34,15 @@ export function NavMain({
             className="group/collapsible "
           >
             <SidebarMenuItem>
-              <SidebarMenuButton
-                className="p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]"
-                tooltip={item.title}
-              >
-                {item.icon && <item.icon className="!w-6 !h-6 " />}
-                <span>{item.title}</span>
-              </SidebarMenuButton>
+              <NavLink to={item.url} className="w-full">
+                <SidebarMenuButton
+                  className="p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]"
+                  tooltip={item.title}
+                >
+                  {item.icon && <item.icon className="!w-6 !h-6 " />}
+                  <span>{item.title}</span>
+                </SidebarMenuButton>
+              </NavLink>
             </SidebarMenuItem>
           </Collapsible>
         ))}

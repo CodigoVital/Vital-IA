@@ -10,13 +10,13 @@ export const data = {
   navMain: [
     {
       title: "Chat Inteligente",
-      url: "#",
+      url: "/chat",
       icon: Bot,
       isActive: true,
     },
     {
       title: "Clasificar enfermedad",
-      url: "#",
+      url: "/diagnostico",
       icon: Clock,
       isActive: false,
     },
