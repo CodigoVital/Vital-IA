@@ -1,9 +1,12 @@
-import { HomePage } from "./Page/dashboard/home-page";
+import { BrowserRouter } from "react-router";
+import { AppRouter } from "./routes/AppRouter";
 
 function App() {
   return (
     <>
-      <HomePage />
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </>
   );
 }
