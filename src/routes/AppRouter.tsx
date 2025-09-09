@@ -1,8 +1,17 @@
-
+import { DashboardLayout } from "@/layouts/dashboard-layout";
+import { ChatPage } from "@/Page/chat/chat-page";
+import { Route, Routes } from "react-router";
 
 export const AppRouter = () => {
   return (
-    //aqui sera el punto inicial de enrutamiento
-    <div>AppRouter</div>
-  )
-}
+    <>
+      <Routes>
+        <Route path="/" element={<DashboardLayout />}>
+          <Route index element={<ChatPage />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/diagnostico" element={<div>Diagnostico Page</div>} />
+        </Route>
+      </Routes>
+    </>
+  );
+};

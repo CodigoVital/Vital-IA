@@ -1,12 +1,13 @@
-import { DashboardLayout } from "./layout/dashboard-layout";
-import { ChatPage } from "./Page/chat/chat-page";
+import { BrowserRouter } from "react-router";
+import { AppRouter } from "./routes/AppRouter";
+
 
 function App() {
   return (
     <>
-      <DashboardLayout>
-        <ChatPage />
-      </DashboardLayout>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </>
   );
 }

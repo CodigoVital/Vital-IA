@@ -1,12 +1,8 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import type { ReactNode } from "react";
+import { Outlet } from "react-router";
 
-interface DashboardLayoutProps {
-  children: ReactNode;
-}
-
-export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+export const DashboardLayout = () => {
   return (
     <>
       <SidebarProvider>
@@ -14,7 +10,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         <SidebarInset>
           <div className="flex  bg-slate-100 flex-1 flex-col gap-4 pr-8 pl-13  py-8 w-full h-full">
             <div className="bg-sidebar w-full h-full  rounded-lg ">
-              {children}
+              <Outlet />
             </div>
           </div>
         </SidebarInset>
