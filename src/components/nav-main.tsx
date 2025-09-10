@@ -45,12 +45,13 @@ export function NavMain({
                     className={cn(
                       "p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]",
                       isActive &&
-                        "bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100"
+                        "bg-slate-100 text-[#73C7E3] dark:bg-slate-800 dark:text-slate-100",
+                      "hover:text-none"
                     )}
                     tooltip={item.title}
                   >
                     {item.icon && <item.icon className="!w-6 !h-6" />}
-                    <span>{item.title}</span>
+                    <span className="hover:text-inherit">{item.title}</span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
