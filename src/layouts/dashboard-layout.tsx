@@ -4,17 +4,15 @@ import { Outlet } from "react-router";
 
 export const DashboardLayout = () => {
   return (
-    <>
-      <SidebarProvider>
-        <AppSidebar />
-        <SidebarInset>
-          <div className="flex  bg-slate-100 flex-1 flex-col gap-4 pr-8 pl-13  py-8 w-full h-full">
-            <div className="bg-sidebar w-full h-full  rounded-lg ">
-              <Outlet />
-            </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <div className="flex bg-slate-100 flex-1 flex-col h-screen p-4">
+          <div className="bg-sidebar w-full h-full rounded-lg overflow-hidden">
+            <Outlet />
           </div>
-        </SidebarInset>
-      </SidebarProvider>
-    </>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 };

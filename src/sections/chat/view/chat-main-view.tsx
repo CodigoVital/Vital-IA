@@ -4,16 +4,14 @@ import { ChatWindowView } from "./chat-window-view";
 
 export const ChatMainView = () => {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-screen ">
       <div className="shrink-0">
         <ChatHeader />
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 ">
-        <ChatWindowView />
-      </div>
+      <ChatWindowView />
 
-      <div className="shrink-0  ">
+      <div className="shrink-0">
         <ChatInput />
       </div>
     </div>
