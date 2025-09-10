@@ -1,4 +1,4 @@
-import { type LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 import { Collapsible } from "@/components/ui/collapsible";
 import {
@@ -7,7 +7,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { NavLink } from "react-router";
+import { cn } from "@/lib/utils";
+import { Link, useLocation } from "react-router";
 
 export function NavMain({
   items,
@@ -23,29 +24,39 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const pathname = useLocation().pathname;
+
   return (
     <SidebarGroup>
       <SidebarMenu>
-        {items.map((item) => (
-          <Collapsible
-            key={item.title}
-            asChild
-            defaultOpen={item.isActive}
-            className="group/collapsible "
-          >
-            <SidebarMenuItem>
-              <NavLink to={item.url} className="w-full">
-                <SidebarMenuButton
-                  className="p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]"
-                  tooltip={item.title}
-                >
-                  {item.icon && <item.icon className="!w-6 !h-6 " />}
-                  <span>{item.title}</span>
-                </SidebarMenuButton>
-              </NavLink>
-            </SidebarMenuItem>
-          </Collapsible>
-        ))}
+        {items.map((item) => {
+          const isActive = pathname === item.url;
+
+          return (
+            <Collapsible
+              key={item.title}
+              asChild
+              defaultOpen={item.isActive}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <Link to={item.url} className="w-full">
+                  <SidebarMenuButton
+                    className={cn(
+                      "p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]",
+                      isActive &&
+                        "bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100"
+                    )}
+                    tooltip={item.title}
+                  >
+                    {item.icon && <item.icon className="!w-6 !h-6" />}
+                    <span>{item.title}</span>
+                  </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+            </Collapsible>
+          );
+        })}
       </SidebarMenu>
     </SidebarGroup>
   );
