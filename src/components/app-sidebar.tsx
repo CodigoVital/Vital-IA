@@ -8,6 +8,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Separator } from "@radix-ui/react-separator";
 import { Logo } from "./logo";
@@ -16,9 +17,12 @@ import { data } from "@/components/ui/config/sidebar-data";
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar className="border-none" collapsible="icon" {...props}>
-      <SidebarHeader className="mx-3 mt-3 mb-1 flex items-center flex-row ">
-        <Logo />
-        <h1 className="font-bold">Vital-IA</h1>
+      <SidebarHeader className="mx-3 mt-3 mb-1 flex flex-row items-center justify-between">
+        <div className="flex flex-row items-center gap-2">
+          <Logo />
+          <h1 className="font-bold">Vital-IA</h1>
+        </div>
+        <SidebarTrigger />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
