@@ -1,5 +1,4 @@
 import type * as React from "react";
-
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
 import {
@@ -22,17 +21,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar className="border-none" collapsible="icon" {...props}>
       <SidebarHeader
         className={cn(
-          `${open ? " justify-between" : "justify-center"}`,
-          "mx-3 mt-3 mb-1 flex flex-row items-center"
+          "mx-3 mt-3 mb-1 flex flex-row items-center transition-all duration-200",
+          open ? "justify-between" : "justify-center"
         )}
       >
         {open && (
-          <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-row items-center gap-2 transition-all duration-200 opacity-100 translate-x-0">
             <Logo bgColor="#73C7E3" strokeColor="black" />
-            <h1 className="font-bold">Vital-IA</h1>
+            <h1 className="font-bold whitespace-nowrap">Vital-IA</h1>
           </div>
         )}
-        <SidebarTrigger />
+        <SidebarTrigger className="shrink-0" />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
