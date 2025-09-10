@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -9,19 +9,29 @@ import {
   SidebarHeader,
   SidebarRail,
   SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { Separator } from "@radix-ui/react-separator";
 import { Logo } from "./logo";
 import { data } from "@/components/ui/config/sidebar-data";
+import { cn } from "@/lib/utils";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { open } = useSidebar();
   return (
     <Sidebar className="border-none" collapsible="icon" {...props}>
-      <SidebarHeader className="mx-3 mt-3 mb-1 flex flex-row items-center justify-between">
-        <div className="flex flex-row items-center gap-2">
-          <Logo bgColor="#73C7E3" strokeColor="black"/>
-          <h1 className="font-bold">Vital-IA</h1>
-        </div>
+      <SidebarHeader
+        className={cn(
+          `${open ? " justify-between" : "justify-center"}`,
+          "mx-3 mt-3 mb-1 flex flex-row items-center"
+        )}
+      >
+        {open && (
+          <div className="flex flex-row items-center gap-2">
+            <Logo bgColor="#73C7E3" strokeColor="black" />
+            <h1 className="font-bold">Vital-IA</h1>
+          </div>
+        )}
         <SidebarTrigger />
       </SidebarHeader>
       <SidebarContent>
