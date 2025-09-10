@@ -31,7 +31,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <h1 className="font-bold whitespace-nowrap">Vital-IA</h1>
           </div>
         )}
-        <SidebarTrigger className="shrink-0" />
+        <SidebarTrigger className={cn("shrink-0")} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
