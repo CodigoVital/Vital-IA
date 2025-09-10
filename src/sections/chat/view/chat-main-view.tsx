@@ -1,5 +1,6 @@
 import { ChatHeader } from "../components/chat-header";
 import ChatInput from "../components/chat-input";
+import ChatSuggestView from "./chat-suggest-view";
 import { ChatWindowView } from "./chat-window-view";
 
 export const ChatMainView = () => {
@@ -14,6 +15,7 @@ export const ChatMainView = () => {
       </div>
 
       <div className="shrink-0  ">
+        <ChatSuggestView />
         <ChatInput />
       </div>
     </section>

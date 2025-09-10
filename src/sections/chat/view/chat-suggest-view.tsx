@@ -5,7 +5,7 @@ import { suggestions } from "./data/suggest.mock";
 const ChatSuggestView = () => {
   return (
     <>
-      <section className=" text-black p-4 border-t border-t-muted/20 flex flex-col  gap-4">
+      <section className=" text-black p-4 border border-accent flex flex-col  gap-4">
         <h2>O prueba una de estas opciones:</h2>
         <div className="flex flex-row gap-2 flex-wrap mx-3">
           {suggestions.map((suggestion, index) => (
