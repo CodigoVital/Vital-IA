@@ -1,4 +1,4 @@
-import { ChatHeader } from "../components/chat-header";
+import { CustomHeader } from "@/components/custom/CustomHeader";
 import ChatInput from "../components/chat-input";
 import ChatSuggestView from "./chat-suggest-view";
 import { ChatWindowView } from "./chat-window-view";
@@ -7,7 +7,7 @@ export const ChatMainView = () => {
   return (
     <section className="flex flex-col h-full">
       <div className="shrink-0">
-        <ChatHeader />
+        <CustomHeader title="Vital-IA" />
       </div>
 
       <div className="flex-1 p-0 overflow-hidden">
