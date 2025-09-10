@@ -19,7 +19,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar className="border-none" collapsible="icon" {...props}>
       <SidebarHeader className="mx-3 mt-3 mb-1 flex flex-row items-center justify-between">
         <div className="flex flex-row items-center gap-2">
-          <Logo />
+          <Logo bgColor="#73C7E3" strokeColor="black"/>
           <h1 className="font-bold">Vital-IA</h1>
         </div>
         <SidebarTrigger />
