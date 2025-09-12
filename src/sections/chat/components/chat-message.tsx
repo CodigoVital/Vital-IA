@@ -23,7 +23,14 @@ export default function ChatMessage({
       )}
     >
       <Avatar className="w-8 h-8 flex-shrink-0">
-        <AvatarFallback className={cn("text-black  bg-[#73C7E3] text-sm ")}>
+        <AvatarFallback
+          className={cn(
+            isOwnMessage
+              ? "bg-white text-[#24B0BA]"
+              : "bg-[#24B0BA] text-white",
+            "text-sm border-1 border-[#CBD5E1]"
+          )}
+        >
           {userInitial}
         </AvatarFallback>
       </Avatar>
