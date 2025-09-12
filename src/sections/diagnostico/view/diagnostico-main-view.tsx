@@ -50,6 +50,7 @@ export const DiagnosticoView = () => {
     <div className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]">
       <div className="flex flex-col gap-2">
         <h2 className="text-[28px] font-bold text-[#1A2E46] leading-tight">Clasificar Enfermedad</h2>
+  <div className="w-full h-[2px] bg-[#E0E0E0] rounded mt-2 mb-2"></div>
         <div className="text-[#1A2E46] text-base font-normal leading-snug mt-1">
           Seleccioná los síntomas de la lista o escribilos.<br />
           Esto dara una orientación de la enfermedad que puedes estar presentando.
