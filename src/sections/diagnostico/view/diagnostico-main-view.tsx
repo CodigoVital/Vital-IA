@@ -1,134 +1,127 @@
+import { useState } from "react";
+
+const sintomasComunes = [
+  "Fiebre",
+  "Tos",
+  "Dolor de cabeza",
+  "Dolor de garganta",
+  "Resfriado",
+  "Congestión Nasal",
+  "Fatiga",
+  "Dolor muscular",
+  "Náuseas",
+];
 
 export const DiagnosticoView = () => {
+  const [sintomasSeleccionados, setSintomasSeleccionados] = useState<string[]>([]);
+  const [sintomaInput, setSintomaInput] = useState("");
+  const [mostrarAdvertencia, setMostrarAdvertencia] = useState(false);
+
+  const agregarSintoma = () => {
+    const sintoma = sintomaInput.trim();
+    if (sintoma && !sintomasSeleccionados.includes(sintoma)) {
+      setSintomasSeleccionados([...sintomasSeleccionados, sintoma]);
+      setSintomaInput("");
+      setMostrarAdvertencia(false);
+    }
+  };
+
+  const seleccionarSintomaComun = (sintoma: string) => {
+    if (!sintomasSeleccionados.includes(sintoma)) {
+      setSintomasSeleccionados([...sintomasSeleccionados, sintoma]);
+      setMostrarAdvertencia(false);
+    }
+  };
+
+  const eliminarSintoma = (sintoma: string) => {
+    setSintomasSeleccionados(sintomasSeleccionados.filter(s => s !== sintoma));
+  };
+
+  const analizarSintomas = () => {
+    if (sintomasSeleccionados.length === 0) {
+      setMostrarAdvertencia(true);
+      return;
+    }
+    // Aquí iría la lógica de análisis real
+    alert(`Analizando síntomas: ${sintomasSeleccionados.join(", ")}`);
+  };
+
   return (
-    <div className="self-stretch self-stretch p-5 inline-flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-    <div className="flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-        <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Seleccioná los sintomas de la lista o escribilos.Esto dara una orientacion de la enfermedad que puedes estar presentando.</div>
-        <div className="justify-start text-color-text-primary text-sm font-bold font-['Inter']">Esta herramienta es solo una ayuda, no reemplaza el diagnostico del medico profesional</div>
+    <div className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]">
+      <div className="flex flex-col gap-2">
+        <h2 className="text-[28px] font-bold text-[#1A2E46] leading-tight">Clasificar Enfermedad</h2>
+        <div className="text-[#1A2E46] text-base font-normal leading-snug mt-1">
+          Seleccioná los síntomas de la lista o escribilos.<br />
+          Esto dara una orientación de la enfermedad que puedes estar presentando.
+        </div>
+        <div className="text-[#1A2E46] text-base font-bold leading-snug mt-1">
+          Esta herramienta es solo ayuda, no reemplaza el diagnóstico del médico profesional
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="text-[#1A2E46] text-base font-bold mb-1">Síntomas Comunes</div>
+        <div className="flex flex-wrap gap-2">
+          {sintomasComunes.map(sintoma => (
+            <button
+              key={sintoma}
+              className={`px-4 py-2 rounded-xl border border-[#E0E0E0] bg-[#F5F7FA] text-[#1A2E46] text-base font-medium shadow-sm transition-colors duration-150 ${sintomasSeleccionados.includes(sintoma) ? "bg-[#2DC6C4] text-white border-[#2DC6C4]" : "hover:bg-[#E6F7F6]"}`}
+              onClick={() => seleccionarSintomaComun(sintoma)}
+              type="button"
+            >
+              {sintoma}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="text-[#1A2E46] text-base font-bold mb-1">Describe otros síntomas</div>
+        <div className="flex flex-wrap gap-2 mb-2">
+          {sintomasSeleccionados.map(sintoma => (
+            <div key={sintoma} className="px-4 py-2 bg-[#E6F7F6] rounded-xl flex items-center gap-2 text-[#1A2E46] text-base font-medium border border-[#B2E2E1] shadow-sm">
+              {sintoma}
+              <button
+                className="ml-2 text-[#2DC6C4] text-lg font-bold hover:text-[#1A2E46]"
+                onClick={() => eliminarSintoma(sintoma)}
+                type="button"
+                aria-label={`Eliminar ${sintoma}`}
+              >
+                ×
+              </button>
+            </div>
+          ))}
+        </div>
+        <div className="flex gap-2 items-center">
+          <input
+            className="flex-1 h-12 px-4 py-2 bg-[#F5F7FA] rounded-xl border border-[#E0E0E0] text-[#1A2E46] text-base font-normal focus:outline-none focus:border-[#2DC6C4]"
+            type="text"
+            placeholder="Escribe un síntoma..."
+            value={sintomaInput}
+            onChange={e => setSintomaInput(e.target.value)}
+            onKeyDown={e => { if (e.key === "Enter") agregarSintoma(); }}
+          />
+          <button
+            className="px-5 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] transition-colors duration-150"
+            onClick={agregarSintoma}
+            type="button"
+          >
+            <span className="material-icons text-lg">add</span>
+            Agregar
+          </button>
+        </div>
+        <button
+          className="w-full mt-4 px-4 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold flex items-center justify-center gap-2 text-lg shadow hover:bg-[#1A2E46] transition-colors duration-150"
+          onClick={analizarSintomas}
+          type="button"
+        >
+          <span className="material-icons mr-2">shield</span>
+          Analizar Síntomas
+        </button>
+      </div>
+      {mostrarAdvertencia && (
+        <div className="w-full mt-2 px-4 py-3 bg-[#FFE3C3] rounded-xl border border-[#FFB775] text-[#FFB775] text-base font-medium shadow-sm">
+          Por favor, selecciona al menos un síntoma para analizar.
+        </div>
+      )}
     </div>
-    <div className="flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-        <div className="justify-start text-color-text-primary text-sm font-bold font-['Inter']">Síntomas Comunes</div>
-        <div className="inline-flex justify-start items-start gap-2.5 overflow-hidden">
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Fiebre</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Tos</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Dolor de cabeza</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Dolor de garganta</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Resfriado</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Congestión Nasal</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Fatiga</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Dolor muscular</div>
-            </div>
-            <div className="p-2.5 bg-color-background-input rounded-xl outline outline-1 outline-offset-[-1px] outline-color-border flex justify-center items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-sm font-medium font-['Inter']">Náuseas</div>
-            </div>
-        </div>
-    </div>
-    <div className="self-stretch flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-        <div className="justify-start text-color-text-primary text-sm font-bold font-['Inter']">Describe otros síntomas</div>
-        <div className="self-stretch inline-flex justify-start items-start gap-2.5 flex-wrap content-start">
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Otro ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">sintoma con nombre largo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">si, otro mas</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">pobre tipo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">lorem</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">ipsum</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-            <div className="p-2.5 bg-color-background-highlight-20/20 rounded-xl flex justify-start items-start gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">Ejemplo</div>
-                <div className="justify-start text-color-text-primary text-[10px] font-medium font-['Inter']">×</div>
-            </div>
-        </div>
-        <div className="self-stretch py-2.5 inline-flex justify-start items-center gap-2.5 overflow-hidden">
-            <div data-state="default" className="flex-1 h-10 p-2.5 bg-color-background-input rounded outline outline-1 outline-offset-[-1px] outline-color-border flex justify-start items-center gap-2.5 overflow-hidden">
-                <div className="justify-start text-color-text-muted text-sm font-medium font-['Inter']">Escribe un síntoma...</div>
-            </div>
-            <div data-order="normal" data-show-icon="true" data-show-text="true" data-type="primary" className="p-2.5 bg-color-primary rounded-lg flex justify-start items-center gap-2.5 overflow-hidden">
-                <div className="relative inline-flex flex-col justify-start items-start overflow-hidden">
-                    <div className="w-5 h-5 left-[2.11px] top-[2px] absolute">
-                        <div className="w-5 h-5 left-0 top-0 absolute bg-color-text-on-primary" />
-                    </div>
-                </div>
-                <div className="justify-start text-color-text-on-primary text-sm font-medium font-['Inter']">Agregar</div>
-            </div>
-        </div>
-        <div data-order="normal" data-show-icon="true" data-show-text="true" data-type="primary" className="self-stretch p-2.5 bg-color-primary rounded-lg inline-flex justify-center items-center gap-2.5 overflow-hidden">
-            <div className="relative inline-flex flex-col justify-start items-start overflow-hidden">
-                <div className="w-4 h-5 left-[4px] top-[2px] absolute">
-                    <div className="w-4 h-5 left-0 top-0 absolute bg-color-text-on-primary" />
-                </div>
-            </div>
-            <div className="justify-start text-color-text-on-primary text-sm font-medium font-['Inter']">Analizar Síntomas</div>
-        </div>
-    </div>
-    <div data-show-icon="false" data-title="false" data-type="warning" className="self-stretch p-2.5 bg-color-background-warning/20 rounded-lg outline outline-1 outline-offset-[-1px] outline-color-warning inline-flex justify-start items-start gap-2.5 overflow-hidden">
-        <div className="flex-1 inline-flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-            <div className="self-stretch justify-start text-color-warning text-sm font-medium font-['Inter']">Por favor, selecciona al menos un síntoma para analizar.</div>
-        </div>
-    </div>
-</div>
   );
 };
