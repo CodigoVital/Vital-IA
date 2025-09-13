@@ -1,4 +1,37 @@
 import { useState } from "react";
+// Componente de resultados de análisis
+const ResultadoAnalisis = ({ onClose }: { onClose: () => void }) => (
+  <div className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]">
+    <div className="flex justify-between items-center mb-2">
+      <h2 className="text-[24px] font-bold text-[#1A2E46]">Resultado del Análisis</h2>
+      <button onClick={onClose} className="text-2xl text-[#1A2E46] font-bold">×</button>
+    </div>
+    <div className="w-full h-[2px] bg-[#E0E0E0] rounded mb-4"></div>
+    <div className="bg-white border border-[#E0E0E0] rounded-xl p-5 mb-4">
+      <div className="mb-2">
+        <span className="font-bold text-[#1A2E46]">Análisis General:</span>
+        <span className="text-[#1A2E46] ml-2">Los síntomas que presentas son generales.</span>
+      </div>
+      <div className="mb-2">
+        <span className="font-bold text-[#1A2E46]">Nivel de urgencia:</span>
+        <span className="text-[#E67C30] ml-2">Moderado - Observación</span>
+      </div>
+      <div className="mb-2 font-bold text-[#1A2E46]">Recomendaciones:</div>
+      <ul className="list-disc ml-6 text-[#1A2E46]">
+        <li>Monitorea tus síntomas de cerca.</li>
+        <li>Evita la automedicación sin conocer la causa.</li>
+        <li>Si los síntomas persisten o empeoran, busca atención médica.</li>
+      </ul>
+    </div>
+    <div className="flex items-center gap-2 bg-[#FDEAEA] border border-[#E67C30] rounded-xl p-4">
+      <span className="material-icons text-[#E53935] text-2xl">warning</span>
+      <div>
+        <span className="font-bold text-[#E53935]">¡Importante!</span><br />
+        <span className="text-[#E53935] text-sm">Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud.</span>
+      </div>
+    </div>
+  </div>
+);
 
 const sintomasComunes = [
   "Fiebre",
@@ -16,6 +49,7 @@ export const DiagnosticoView = () => {
   const [sintomasSeleccionados, setSintomasSeleccionados] = useState<string[]>([]);
   const [sintomaInput, setSintomaInput] = useState("");
   const [mostrarAdvertencia, setMostrarAdvertencia] = useState(false);
+  const [mostrarResultado, setMostrarResultado] = useState(false);
 
   const agregarSintoma = () => {
     const sintoma = sintomaInput.trim();
@@ -42,15 +76,16 @@ export const DiagnosticoView = () => {
       setMostrarAdvertencia(true);
       return;
     }
-    // Aquí iría la lógica de análisis real
-    alert(`Analizando síntomas: ${sintomasSeleccionados.join(", ")}`);
+    setMostrarResultado(true);
   };
 
-  return (
+  return mostrarResultado ? (
+    <ResultadoAnalisis onClose={() => setMostrarResultado(false)} />
+  ) : (
     <div className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]">
       <div className="flex flex-col gap-2">
         <h2 className="text-[28px] font-bold text-[#1A2E46] leading-tight">Clasificar Enfermedad</h2>
-  <div className="w-full h-[2px] bg-[#E0E0E0] rounded mt-2 mb-2"></div>
+        <div className="w-full h-[2px] bg-[#E0E0E0] rounded mt-2 mb-2"></div>
         <div className="text-[#1A2E46] text-base font-normal leading-snug mt-1">
           Seleccioná los síntomas de la lista o escribilos.<br />
           Esto dara una orientación de la enfermedad que puedes estar presentando.
