@@ -1,7 +1,8 @@
 
-import { useState } from "react";
+
 import useDiagnostico from "../hooks/use-diagnostico";
 import CustomPopup from "@/components/custom/custom-popup";
+import ResultadoView from "./resultado-view";
 
 // Componente de resultados de análisis
 // function ResultadoAnalisis({ onClose }: { onClose: () => void }) {
@@ -58,13 +59,10 @@ export const DiagnosticoView = () => {
     sintomasSeleccionados,
     sintomaInput,
     mostrarAdvertencia,
-    mostrarResultado,
     agregarSintoma,
     seleccionarSintomaComun,
     eliminarSintoma,
-    analizarSintomas,
     setSintomaInput,
-    setMostrarResultado
   }=useDiagnostico();
 
   
@@ -143,7 +141,7 @@ export const DiagnosticoView = () => {
           <span className="material-icons mr-2" aria-hidden="true">shield</span>
           Analizar Síntomas
         </button> */}
-        <CustomPopup title="Analizar Síntomas">text</CustomPopup>
+        <CustomPopup title="Analizar Síntomas"><ResultadoView/></CustomPopup>
       </section>
       {mostrarAdvertencia && (
         <div className="w-full mt-2 px-4 py-3 bg-[#FFE3C3] rounded-xl border border-[#FFB775] text-[#FFB775] text-base font-medium shadow-sm" role="alert">
