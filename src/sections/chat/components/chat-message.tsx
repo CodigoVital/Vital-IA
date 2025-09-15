@@ -23,13 +23,20 @@ export default function ChatMessage({
       )}
     >
       <Avatar className="w-8 h-8 flex-shrink-0">
-        <AvatarFallback className={cn("text-black  bg-[#73C7E3] text-sm ")}>
+        <AvatarFallback
+          className={cn(
+            isOwnMessage
+              ? "bg-white text-[var(--customBackground)]"
+              : "bg-[var(--customBackground)] text-white",
+            "text-sm border-1 border-[#CBD5E1]"
+          )}
+        >
           {userInitial}
         </AvatarFallback>
       </Avatar>
       <div
         className={cn(
-          "max-w-[326px]  bg-gray-200 rounded-2xl px-4 py-3 text-sm leading-relaxed"
+          "max-w-[326px]  bg-[#F0F2F2] rounded-l px-4 py-3 text-sm leading-relaxed"
         )}
       >
         <p className="text-pretty">{message}</p>
