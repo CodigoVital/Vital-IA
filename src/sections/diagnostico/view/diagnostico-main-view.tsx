@@ -1,9 +1,6 @@
-
-
 import useDiagnostico from "../hooks/use-diagnostico";
 import CustomPopup from "@/components/custom/custom-popup";
 import ResultadoView from "./resultado-view";
-
 const sintomasComunes = [
   "Fiebre",
   "Tos",
@@ -15,8 +12,6 @@ const sintomasComunes = [
   "Dolor muscular",
   "Náuseas",
 ];
-
-
 export const DiagnosticoView = () => {
   const{
     sintomasSeleccionados,
