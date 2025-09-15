@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import useDiagnostico from "../hooks/use-diagnostico";
 
 // Componente de resultados de análisis
 function ResultadoAnalisis({ onClose }: { onClose: () => void }) {
@@ -52,44 +53,20 @@ const sintomasComunes = [
 
 
 export const DiagnosticoView = () => {
-  const [sintomasSeleccionados, setSintomasSeleccionados] = useState<string[]>([]);
-  const [sintomaInput, setSintomaInput] = useState("");
-  const [mostrarAdvertencia, setMostrarAdvertencia] = useState(false);
-  const [mostrarResultado, setMostrarResultado] = useState(false);
+  const{
+    sintomasSeleccionados,
+    sintomaInput,
+    mostrarAdvertencia,
+    mostrarResultado,
+    agregarSintoma,
+    seleccionarSintomaComun,
+    eliminarSintoma,
+    analizarSintomas,
+    setSintomaInput,
+    setMostrarResultado
+  }=useDiagnostico();
 
-  // Agrega un síntoma personalizado
-  const agregarSintoma = () => {
-    const sintoma = sintomaInput.trim();
-    if (sintoma && !sintomasSeleccionados.includes(sintoma)) {
-      setSintomasSeleccionados([...sintomasSeleccionados, sintoma]);
-      setSintomaInput("");
-      setMostrarAdvertencia(false);
-    }
-  };
-
-  // Selecciona un síntoma común
-  const seleccionarSintomaComun = (sintoma: string) => {
-    if (!sintomasSeleccionados.includes(sintoma)) {
-      setSintomasSeleccionados([...sintomasSeleccionados, sintoma]);
-      setMostrarAdvertencia(false);
-    }
-  };
-
-  // Elimina un síntoma de la lista
-  const eliminarSintoma = (sintoma: string) => {
-    setSintomasSeleccionados(sintomasSeleccionados.filter(s => s !== sintoma));
-  };
-
-  // Analiza los síntomas seleccionados
-  const analizarSintomas = () => {
-    if (sintomasSeleccionados.length === 0) {
-      setMostrarAdvertencia(true);
-      return;
-    }
-    setMostrarResultado(true);
-  };
-
-  if (mostrarResultado) {
+   if (mostrarResultado) {
     return <ResultadoAnalisis onClose={() => setMostrarResultado(false)} />;
   }
 
