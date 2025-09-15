@@ -1,10 +1,14 @@
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 
-const CustomPopup = () => {
+interface CustomPopupProps {
+  title: string;
+  children: React.ReactNode;
+}
+const CustomPopup = ({title, children}: CustomPopupProps) => {
   return (
     <Popover>
-  <PopoverTrigger>Open</PopoverTrigger>
-  <PopoverContent>Place content for the popover here.</PopoverContent>
+  <PopoverTrigger>{title}</PopoverTrigger>
+  <PopoverContent>{children}</PopoverContent>
 </Popover>
   )
 }
