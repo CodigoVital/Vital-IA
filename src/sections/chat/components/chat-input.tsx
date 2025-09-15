@@ -11,7 +11,7 @@ export const ChatInput = () => {
           className="rounded  border-1 border-b-2 border-x-2 border-gray-400"
         />
 
-        <Button className="bg-blue-500 text-white">
+        <Button className="bg-[var(--customBackground)] text-white">
           <SendHorizonal />
         </Button>
       </div>

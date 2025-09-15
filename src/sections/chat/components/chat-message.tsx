@@ -26,8 +26,8 @@ export default function ChatMessage({
         <AvatarFallback
           className={cn(
             isOwnMessage
-              ? "bg-white text-[#24B0BA]"
-              : "bg-[#24B0BA] text-white",
+              ? "bg-white text-[var(--customBackground)]"
+              : "bg-[var(--customBackground)] text-white",
             "text-sm border-1 border-[#CBD5E1]"
           )}
         >
