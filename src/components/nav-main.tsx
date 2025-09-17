@@ -45,7 +45,7 @@ export function NavMain({
                 <Link to={item.url} className="w-full">
                   <SidebarMenuButton
                     className={cn(
-                      "",
+                      "rounded",
                       "p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]",
                       isActive &&
                         "bg-[#24B0BA]/20 text-[#24B0BA]  font-bold dark:bg-slate-800 dark:text-slate-100",
