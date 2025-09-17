@@ -55,7 +55,7 @@ export function NavMain({
                     tooltip={item.title}
                   >
                     {item.icon && (
-                      <item.icon className="!w-[19.77px] !h-[19.77px]" />
+                      <item.icon className="!w-[19.77px] !h-[19.77px] text-[#2E4A70]" />
                     )}
                     <span
                       className={cn("hover:text-inherit", !open && "hidden")}
