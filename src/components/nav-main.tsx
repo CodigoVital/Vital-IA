@@ -52,7 +52,7 @@ export function NavMain({
                       `hover:text-none ${
                         isActive
                           ? "hover:bg-[] active:bg-[] active:text-[]"
-                          : ""
+                          : "hover:bg-[#24B0BA]/7"
                       }`,
                       !open && "justify-center"
                     )}
