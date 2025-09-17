@@ -1,6 +1,7 @@
+import { LucideIcon } from "@/components/lucide-icon-name";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SendHorizonal } from "lucide-react";
+
 
 export const ChatInput = () => {
   return (
@@ -12,7 +13,7 @@ export const ChatInput = () => {
         />
 
         <Button className="bg-[var(--customBackground)] text-white">
-          <SendHorizonal />
+          <LucideIcon name='SendHorizontal'/>
         </Button>
       </div>
     </>

@@ -1,45 +1,32 @@
+
 import * as Icons from "lucide-react";
-import { cn } from "@/lib/utils";
+import React from "react";
 
-type LucideIconName = keyof typeof Icons;
+type LucideName = keyof typeof Icons;
 
-interface IconProps {
-  name: LucideIconName;
+export interface LucideIconProps extends React.SVGProps<SVGSVGElement> {
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  name?: LucideName;
   size?: number;
-  width?: number;
-  height?: number;
   className?: string;
-  color?: string;
 }
 
 export function LucideIcon({
+  icon: IconProp,
   name,
-  size,
-  width,
-  height,
+  size = 20,
   className,
-  color,
-}: IconProps) {
-  const IconComponent = Icons[name];
+  ...rest
+}: LucideIconProps) {
+  const IconCandidate = IconProp ?? (name ? Icons[name as LucideName] : undefined);
+  const isValidIcon =
+    typeof IconCandidate === "function" ||
+    (typeof IconCandidate === "object" && IconCandidate !== null && "render" in IconCandidate);
 
-  if (
-    !IconComponent ||
-    typeof IconComponent !== "function" ||
-    IconComponent.length > 0
-  ) {
-    return null;
-  }
+  if (!isValidIcon) return null;
 
-  const LucideElement = IconComponent as React.ComponentType<
-    React.ComponentProps<"svg">
-  >;
-
-  return (
-    <LucideElement
-      className={cn(className)}
-      width={width ?? size}
-      height={height ?? size}
-      color={color}
-    />
-  );
+  const Icon = IconCandidate as React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  return <Icon width={size} height={size} className={className} {...rest} />;
 }
+
+export default LucideIcon;
