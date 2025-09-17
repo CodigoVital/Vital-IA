@@ -8,7 +8,7 @@ export const ChatInput = () => {
       <div className="flex items-center gap-5 p-5 rounded-b-lg ">
         <Input
           placeholder={"Escribe tu consulta aqui..."}
-          className="rounded  border-1 border-b-2 border-x-2 border-gray-400"
+          className="rounded  border-1  bg-white border-[#CBD5E1]"
         />
 
         <Button className="bg-[var(--customBackground)] text-white">
