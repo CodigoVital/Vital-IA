@@ -44,19 +44,19 @@ export function NavUser({
             >
               <Avatar
                 className={cn(
-                  "h-10 w-10 rounded-lg flex items-center justify-center bg-muted",
+                  "h-[34px] w-[34px] rounded-full border-1 border-[#CBD5E1] flex items-center justify-center bg-muted",
                   open ? "" : "mx-auto"
                 )}
               >
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="text-sm font-medium">
+                <AvatarFallback className="text-sm font-light ">
                   A
                 </AvatarFallback>
               </Avatar>
 
               {open && (
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
+                  <span className="truncate font-medium h-[17px]">{user.name}</span>
                   <span className="truncate text-xs">{user.email}</span>
                 </div>
               )}
