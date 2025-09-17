@@ -48,7 +48,7 @@ export function NavMain({
                       "",
                       "p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]",
                       isActive &&
-                        "bg-slate-100 text-[#73C7E3] dark:bg-slate-800 dark:text-slate-100",
+                        "bg-[#24B0BA]/20 text-[#24B0BA]  font-bold dark:bg-slate-800 dark:text-slate-100",
                       "hover:text-none",
                       !open && "justify-center"
                     )}
