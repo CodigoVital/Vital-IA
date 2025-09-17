@@ -1,4 +1,4 @@
-import { Book, Bot, Calendar, Clock, MapPin, Truck } from "lucide-react";
+import {  BookOpenText, Bot, CalendarDays, CircleCheck,  MapPin, Truck } from "lucide-react";
 
 export const data = {
   user: {
@@ -17,19 +17,19 @@ export const data = {
     {
       title: "Clasificar enfermedad",
       url: "/diagnostico",
-      icon: Clock,
+      icon: CircleCheck,
       isActive: false,
     },
     {
       title: "Información de Salud",
       url: "#",
-      icon: Book,
+      icon: BookOpenText,
       isActive: false,
     },
     {
       title: "Eventos y Ferias",
       url: "#",
-      icon: Calendar,
+      icon: CalendarDays,
       isActive: false,
     },
     {
