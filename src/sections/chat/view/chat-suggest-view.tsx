@@ -12,7 +12,7 @@ const ChatSuggestView = () => {
             {suggestions.map((suggestion, index) => (
               <Button
                 key={index}
-                className="rounded-xl border-y-1 border-[#CBD5E1] text-sm font-normal flex-shrink-0 whitespace-nowrap bg-transparent"
+                className="rounded-xl border-y-1 bg-white border-[#CBD5E1] text-sm font-normal flex-shrink-0 whitespace-nowrap "
                 variant="outline"
               >
                 {suggestion}

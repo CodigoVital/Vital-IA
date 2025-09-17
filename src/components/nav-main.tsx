@@ -45,17 +45,21 @@ export function NavMain({
                 <Link to={item.url} className="w-full">
                   <SidebarMenuButton
                     className={cn(
-                      "",
+                      "rounded",
                       "p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]",
                       isActive &&
-                        "bg-slate-100 text-[#73C7E3] dark:bg-slate-800 dark:text-slate-100",
-                      "hover:text-none",
+                        "bg-[#24B0BA]/20 text-[#24B0BA]  font-bold dark:bg-slate-800 dark:text-slate-100",
+                      `hover:text-none ${
+                        isActive
+                          ? "hover:bg-[] active:bg-[] active:text-[]"
+                          : "hover:bg-[#24B0BA]/7"
+                      }`,
                       !open && "justify-center"
                     )}
                     tooltip={item.title}
                   >
                     {item.icon && (
-                      <item.icon className="!w-[19.77px] !h-[19.77px]" />
+                      <item.icon className="!w-[19.77px] !h-[19.77px] text-[#2E4A70]" />
                     )}
                     <span
                       className={cn("hover:text-inherit", !open && "hidden")}
