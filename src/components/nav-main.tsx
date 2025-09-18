@@ -26,7 +26,7 @@ export function NavMain({
   }[];
 }) {
   const pathname = useLocation().pathname;
-  const { open } = useSidebar();
+  const { open , toggleSidebar, openMobile } = useSidebar();
 
   return (
     <SidebarGroup>
@@ -44,6 +44,9 @@ export function NavMain({
               <SidebarMenuItem>
                 <Link to={item.url} className="w-full">
                   <SidebarMenuButton
+                    onClick={() => {
+                      if (openMobile) toggleSidebar();
+                    }}
                     className={cn(
                       "rounded",
                       "p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]",
