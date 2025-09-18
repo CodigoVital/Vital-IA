@@ -1,3 +1,5 @@
+"use client";
+
 import { AppSidebar } from "@/components/app-sidebar";
 import { CustomHeader } from "@/components/custom/custom-header";
 import {
@@ -18,8 +20,8 @@ export const DashboardLayout = () => {
       <AppSidebar />
       <SidebarInset className="overflow-hidden">
         <main
-          className={`flex flex-col gap-4 p-8 w-full h-screen bg-slate-100 ${
-            isMobile ? "pl-0 pr-0 py-0 !gap-0" : ""
+          className={`flex flex-col gap-4 p-8 w-full bg-slate-100 ${
+            isMobile ? "pl-0 pr-0 py-0 !gap-0 h-dvh" : "h-screen"
           }`}
         >
           {isMobile && (
@@ -29,10 +31,13 @@ export const DashboardLayout = () => {
           )}
           <div
             className={clsx(
-              "bg-sidebar h-full rounded-lg overflow-hidden flex flex-col w-full mx-auto",
+              "bg-sidebar rounded-lg overflow-hidden flex flex-col w-full mx-auto",
               "transition-transform duration-300 ease-in-out will-change-transform",
-              open ? "w-[calc(100vw-21.7rem)]" : "w-[calc(100vw-4rem)]",
-              isMobile ? "rounded-none" : ""
+              isMobile
+                ? "flex-1 rounded-none w-full"
+                : open
+                ? "h-full w-[calc(100vw-21.7rem)]"
+                : "h-full w-[calc(100vw-4rem)]"
             )}
             style={{
               transform: "translate3d(0, 0, 0)",
