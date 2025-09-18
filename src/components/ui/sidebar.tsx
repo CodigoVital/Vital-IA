@@ -256,7 +256,8 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, openMobile } = useSidebar();
+  const isMobile = useIsMobile();
 
   return (
     <Button
@@ -271,7 +272,25 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <LucideIcon name="PanelLeftClose"  className="w-[16px] font-bold text-[#2E4A70]   h-[19.77px]"/>
+      {isMobile ? (
+        openMobile ? (
+          <LucideIcon
+            name="X"
+            className="w-[16px] font-bold text-[#2E4A70] h-[19.77px]"
+          />
+        ) : (
+          <LucideIcon
+            name="PanelLeftOpen"
+            className="w-[16px] font-bold text-[#2E4A70] h-[19.77px]"
+          />
+        )
+      ) : (
+        <LucideIcon
+          name="PanelLeftClose"
+          className="w-[16px] font-bold text-[#2E4A70] h-[19.77px]"
+        />
+      )}
+
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
