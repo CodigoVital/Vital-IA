@@ -1,4 +1,4 @@
-import { CustomHeader } from "@/components/custom/CustomHeader";
+import { CustomHeader } from "@/components/custom/custom-header";
 import ChatInput from "../components/chat-input";
 import ChatSuggestView from "./chat-suggest-view";
 import { ChatWindowView } from "./chat-window-view";

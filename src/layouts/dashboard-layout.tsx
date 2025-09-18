@@ -1,16 +1,18 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarInset, useSidebar } from "@/components/ui/sidebar";
+import { useIsMobile } from "@/hooks/use-mobile";
 import clsx from "clsx";
 import { Outlet } from "react-router";
 
 export const DashboardLayout = () => {
   const { open } = useSidebar();
+  const isMobile = useIsMobile();
 
   return (
     <>
       <AppSidebar />
       <SidebarInset className="overflow-hidden">
-        <main className="flex flex-col gap-4 p-8 w-full h-screen bg-slate-100">
+        <main className={`flex flex-col gap-4 p-8 w-full h-screen bg-slate-100 ${isMobile ? "pl-0 pr-0" : ""}`}>
           <div
             className={clsx(
               "bg-sidebar h-full rounded-lg overflow-hidden flex flex-col w-full mx-auto",
