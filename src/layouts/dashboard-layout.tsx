@@ -31,7 +31,8 @@ export const DashboardLayout = () => {
             className={clsx(
               "bg-sidebar h-full rounded-lg overflow-hidden flex flex-col w-full mx-auto",
               "transition-transform duration-300 ease-in-out will-change-transform",
-              open ? "w-[calc(100vw-21.7rem)]" : "w-[calc(100vw-4rem)]"
+              open ? "w-[calc(100vw-21.7rem)]" : "w-[calc(100vw-4rem)]",
+              isMobile ? "rounded-none" : ""
             )}
             style={{
               transform: "translate3d(0, 0, 0)",
