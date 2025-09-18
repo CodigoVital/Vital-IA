@@ -109,8 +109,9 @@ export const DiagnosticoView = () => {
         </Button>
       </section>
       {mostrarAdvertencia && (
-        <div className="w-full mt-2 px-4 py-3 bg-[#FFE3C3] rounded-xl border border-[#FFB775] text-[#FFB775] text-base font-medium shadow-sm" role="alert">
-          Por favor, selecciona al menos un síntoma para analizar.
+        <div className="w-full mt-2 px-4 py-3 bg-[#FFF3E3] rounded-xl border border-[#FFB775] text-[#FF8800] text-base font-medium shadow-sm flex items-center gap-2" role="alert">
+          <span className="material-icons text-[#FF8800] text-xl" aria-hidden="true">warning</span>
+          <span className="flex-1 text-center">Por favor, selecciona al menos un síntoma para analizar.</span>
         </div>
       )}
     </section>
