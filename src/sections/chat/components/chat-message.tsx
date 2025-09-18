@@ -36,7 +36,7 @@ export default function ChatMessage({
       </Avatar>
       <div
         className={cn(
-          "max-w-[326px]  bg-[#F0F2F2] rounded-l px-4 py-3 text-sm leading-relaxed"
+          "max-w-[326px]  bg-[#F0F2F2] rounded px-4 py-3 text-sm leading-relaxed"
         )}
       >
         <p className="text-pretty">{message}</p>
