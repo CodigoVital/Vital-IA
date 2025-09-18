@@ -1,6 +1,7 @@
 
 import useDiagnostico from "../hooks/use-diagnostico";
 import ResultadoView from "./resultado-view";
+import { Button } from "@/components/ui/button";
 const sintomasComunes = [
   "Fiebre",
   "Tos",
@@ -51,9 +52,10 @@ export const DiagnosticoView = () => {
           {sintomasComunes.map(sintoma => (
             <button
               key={sintoma}
-              className={`px-4 py-2 rounded-xl border border-[#E0E0E0] bg-[#F5F7FA] text-[#1A2E46] text-base font-medium shadow-sm transition-colors duration-150 ${sintomasSeleccionados.includes(sintoma) ? "bg-[#2DC6C4] text-white border-[#2DC6C4]" : "hover:bg-[#E6F7F6]"}`}
+              className={`px-4 py-2 rounded-xl border border-[#E0E0E0] bg-[#F5F7FA] text-[#1A2E46] text-base font-medium shadow-sm transition-colors duration-150 ${sintomasSeleccionados.includes(sintoma) ? "bg-[#2DC6C4] text-white border-[#2DC6C4]" : "hover:bg-[#E6F7F6] hover:text-[#1A2E46] focus:text-[#1A2E46]"}`}
               onClick={() => seleccionarSintomaComun(sintoma)}
               type="button"
+              aria-label={`Seleccionar síntoma ${sintoma}`}
             >
               {sintoma}
             </button>
@@ -87,24 +89,24 @@ export const DiagnosticoView = () => {
             onKeyDown={e => { if (e.key === "Enter") agregarSintoma(); }}
             aria-label="Agregar síntoma personalizado"
           />
-          <button
-            className="px-5 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] transition-colors duration-150"
+          <Button
+            className="px-5 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
             onClick={agregarSintoma}
             type="button"
             aria-label="Agregar síntoma"
           >
             <span className="material-icons text-lg" aria-hidden="true">add</span>
             Agregar
-          </button>
+          </Button>
         </div>
-        <button
-          className="mt-6 mx-auto px-6 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold text-base shadow hover:bg-[#1A2E46] transition-colors duration-150"
+        <Button
+          className="mt-6 mx-auto px-6 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
           onClick={analizarSintomas}
           type="button"
           aria-label="Analizar síntomas"
         >
           Analizar Síntomas
-        </button>
+        </Button>
       </section>
       {mostrarAdvertencia && (
         <div className="w-full mt-2 px-4 py-3 bg-[#FFE3C3] rounded-xl border border-[#FFB775] text-[#FFB775] text-base font-medium shadow-sm" role="alert">
