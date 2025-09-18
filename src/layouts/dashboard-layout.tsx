@@ -15,7 +15,7 @@ export const DashboardLayout = () => {
       <SidebarInset className="overflow-hidden">
         <main
           className={`flex flex-col gap-4 p-8 w-full h-screen bg-slate-100 ${
-            isMobile ? "pl-0 pr-0 py-0" : ""
+            isMobile ? "pl-0 pr-0 py-0 !gap-0" : ""
           }`}
         >
           {isMobile && <CustomHeader>none</CustomHeader>}
