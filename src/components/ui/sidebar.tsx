@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/tooltip";
 import LucideIcon from "../lucide-icon-name";
 
-
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "16.375rem";
@@ -257,10 +256,8 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar, openMobile} = useSidebar(); 
+  const { toggleSidebar, openMobile } = useSidebar();
   const isMobile = useIsMobile();
-
-  console.log(open);
 
   return (
     <Button
@@ -277,9 +274,15 @@ function SidebarTrigger({
     >
       {isMobile ? (
         openMobile ? (
-          <LucideIcon name="X" />
+          <LucideIcon
+            name="X"
+            className="w-[16px] font-bold text-[#2E4A70] h-[19.77px]"
+          />
         ) : (
-          <LucideIcon name="PanelLeftOpen" />
+          <LucideIcon
+            name="PanelLeftOpen"
+            className="w-[16px] font-bold text-[#2E4A70] h-[19.77px]"
+          />
         )
       ) : (
         <LucideIcon
