@@ -1,4 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import { CustomHeader } from "@/components/custom/custom-header";
 import { SidebarInset, useSidebar } from "@/components/ui/sidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
 import clsx from "clsx";
@@ -12,7 +13,12 @@ export const DashboardLayout = () => {
     <>
       <AppSidebar />
       <SidebarInset className="overflow-hidden">
-        <main className={`flex flex-col gap-4 p-8 w-full h-screen bg-slate-100 ${isMobile ? "pl-0 pr-0" : ""}`}>
+        <main
+          className={`flex flex-col gap-4 p-8 w-full h-screen bg-slate-100 ${
+            isMobile ? "pl-0 pr-0 py-0" : ""
+          }`}
+        >
+          {isMobile && <CustomHeader>none</CustomHeader>}
           <div
             className={clsx(
               "bg-sidebar h-full rounded-lg overflow-hidden flex flex-col w-full mx-auto",
