@@ -1,37 +1,50 @@
 
-const ResultadoView = () => {
-  return (
-   <>//     <section className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]" aria-label="Resultado del análisis">
-//       <header className="flex justify-between items-center mb-2">
-//         <h2 className="text-[24px] font-bold text-[#1A2E46]">Resultado del Análisis</h2>
-//         <button className="text-2xl text-[#1A2E46] font-bold" aria-label="Cerrar resultado">×</button>
-//       </header>
-//       <hr className="w-full h-[2px] bg-[#E0E0E0] rounded mb-4" />
-//       <div className="bg-white border border-[#E0E0E0] rounded-xl p-5 mb-4">
-//         <div className="mb-2">
-//           <span className="font-bold text-[#1A2E46]">Análisis General:</span>
-//           <span className="text-[#1A2E46] ml-2">Los síntomas que presentas son generales.</span>
-//         </div>
-//         <div className="mb-2">
-//           <span className="font-bold text-[#1A2E46]">Nivel de urgencia:</span>
-//           <span className="text-[#E67C30] ml-2">Moderado - Observación</span>
-//         </div>
-//         <div className="mb-2 font-bold text-[#1A2E46]">Recomendaciones:</div>
-//         <ul className="list-disc ml-6 text-[#1A2E46]">
-//           <li>Monitorea tus síntomas de cerca.</li>
-//           <li>Evita la automedicación sin conocer la causa.</li>
-//           <li>Si los síntomas persisten o empeoran, busca atención médica.</li>
-//         </ul>
-//       </div>
-//       <div className="flex items-center gap-2 bg-[#FDEAEA] border border-[#E67C30] rounded-xl p-4">
-//         <span className="material-icons text-[#E53935] text-2xl" aria-hidden="true">warning</span>
-//         <div>
-//           <span className="font-bold text-[#E53935]">¡Importante!</span><br />
-//           <span className="text-[#E53935] text-sm">Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud.</span>
-//         </div>
-//       </div>
-//     </section></>
-  )
+
+interface ResultadoViewProps {
+  onClose?: () => void;
 }
 
-export default ResultadoView
+const ResultadoView: React.FC<ResultadoViewProps> = ({ onClose }) => {
+  return (
+    <div className="bg-white rounded-xl shadow-lg p-0 w-full border border-[#E2E8F0] relative">
+      <button
+        className="absolute right-6 top-6 text-[#334155] hover:text-[#1e293b] text-2xl focus:outline-none"
+        aria-label="Cerrar"
+        onClick={onClose}
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div className="p-6 pb-0">
+        <h2 className="text-2xl font-bold text-[#1A2E46] mb-2 text-left">Resultado del Análisis</h2>
+        <hr className="border-t border-[#E2E8F0] mb-4" />
+        <div className="bg-white border border-[#CBD5E1] rounded-md p-4 mb-6">
+          <div className="mb-2">
+            <span className="font-bold text-[#1A2E46]">Análisis General:</span>
+            <span className="text-[#1A2E46] ml-2">Los síntomas que presentas son generales.</span>
+          </div>
+          <div className="mb-2">
+            <span className="font-bold text-[#1A2E46]">Nivel de urgencia:</span>
+            <span className="text-[#CF8A40] ml-2">Moderado - Observación</span>
+          </div>
+          <div className="font-bold text-[#1A2E46] mb-1">Recomendaciones:</div>
+          <ul className="list-disc ml-6 text-[#1A2E46]">
+            <li>Monitorea tus síntomas de cerca.</li>
+            <li>Evita la automedicación sin conocer la causa.</li>
+            <li>Si los síntomas persisten o empeoran, busca atención médica.</li>
+          </ul>
+        </div>
+      </div>
+      <div className="px-6 pb-6">
+        <div className="bg-[#FEE2E2] border border-[#FCA5A5] rounded-md p-4 flex items-start gap-3">
+          <span className="text-[#DC2626] text-xl mt-1" aria-hidden="true">&#9888;</span>
+          <div>
+            <span className="font-bold text-[#DC2626] block mb-1">¡Importante!</span>
+            <span className="text-[#DC2626] text-base">Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ResultadoView;

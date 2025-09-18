@@ -1,5 +1,5 @@
+
 import useDiagnostico from "../hooks/use-diagnostico";
-import CustomPopup from "@/components/custom/custom-popup";
 import ResultadoView from "./resultado-view";
 const sintomasComunes = [
   "Fiebre",
@@ -12,16 +12,25 @@ const sintomasComunes = [
   "Dolor muscular",
   "Náuseas",
 ];
+
 export const DiagnosticoView = () => {
-  const{
+  const {
     sintomasSeleccionados,
     sintomaInput,
     mostrarAdvertencia,
+    mostrarResultado,
     agregarSintoma,
     seleccionarSintomaComun,
     eliminarSintoma,
     setSintomaInput,
-  }=useDiagnostico();
+    analizarSintomas,
+    setMostrarResultado,
+  } = useDiagnostico();
+
+  // Si está mostrando el resultado, ocultar la sección principal
+  if (mostrarResultado) {
+    return <ResultadoView onClose={() => setMostrarResultado(false)} />;
+  }
 
   return (
     <section className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]" aria-label="Clasificar enfermedad">
@@ -88,8 +97,14 @@ export const DiagnosticoView = () => {
             Agregar
           </button>
         </div>
-
-        <CustomPopup title="Analizar Síntomas"><ResultadoView/></CustomPopup>
+        <button
+          className="mt-6 mx-auto px-6 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold text-base shadow hover:bg-[#1A2E46] transition-colors duration-150"
+          onClick={analizarSintomas}
+          type="button"
+          aria-label="Analizar síntomas"
+        >
+          Analizar Síntomas
+        </button>
       </section>
       {mostrarAdvertencia && (
         <div className="w-full mt-2 px-4 py-3 bg-[#FFE3C3] rounded-xl border border-[#FFB775] text-[#FFB775] text-base font-medium shadow-sm" role="alert">
