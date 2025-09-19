@@ -1,170 +1,198 @@
 # CODIGO-VITAL
+
 Reto: Asistente Virtual para la salud - Aficionado
-Descripción: Desarrollar una plataforma virtual que permitirá interactuar 
-con un modelo de inteligencia artificial para brindar información sobre 
-recomendaciones para el cuidado de la salud, hábitos de alimentación, rutinas 
-de ejercicio, consultas de atención, recomendaciones para vacunación, signos 
-de alarma de enfermedades e información de la unidad de salud más cercana. 
-Debe incorporar mecanismos de búsqueda interactiva basados en diferentes 
-criterios para ofrecer respuestas eficientes al usuario.
-Funcionalidades 
+Descripción: Desarrollar una plataforma virtual que permitirá interactuar con un modelo de inteligencia artificial para brindar información sobre recomendaciones para el cuidado de la salud, hábitos de alimentación, rutinas de ejercicio, consultas de atención, recomendaciones para vacunación, signos de alarma de enfermedades e información de la unidad de salud más cercana. Debe incorporar mecanismos de búsqueda interactiva basados en diferentes criterios para ofrecer respuestas eficientes al usuario.
+
+### Funcionalidades 
+
 1. Preclasificación de enfermedades.
+
 2. Promoción de información de salud.
+
 3. Calendario de jornadas y ferias de salud.
+
 4. Programación de clínicas móviles.
+
 5. Visualización de unidad de salud más cercana.
+
 6. Ayuda al usuario a través de un chatbot inteligente.
 
-#  Vital-IA
 
-Vital-IA es una interfaz conversacional empática construida con React, Vite, TailwindCSS y Radix UI. Su propósito es ofrecer una experiencia simbólica, emocionalmente resonante y técnicamente robusta para consultas, exploración y acompañamiento.
+#  Vital-IA Chatbot Interactivo para la Salud
 
-#  Vital-IA: Chatbot Interactivo para la Salud Aficionada
-
-"Vital-IA" es un compañero digital diseñado para apoyar el bienestar emocional y físico de personas que exploran la salud desde un enfoque aficionado. Este chatbot combina empatía, interacción personalizadas para acompañar procesos de autocuidado.
+"Vital-IA" es un compañero digital diseñado para apoyar el bienestar emocional y físico de personas que exploran la salud desde un enfoque aficionado. Este chatbot combina empatía, interacción personalizada y rituales simbólicos para acompañar procesos de autocuidado.
 
 ##  Propósito
 
-Vital-IA es una interfaz conversacional empática construida con React, Vite, TailwindCSS y Radix UI. Su propósito es ofrecer una experiencia simbólica, emocionalmente resonante y técnicamente robusta para  consultas, exploración y acompañamiento.
+
+Vital-IA es una interfaz conversacional empática construida con React y shadcn/ui radix UI. Su propósito es ofrecer una experiencia simbólica, emocionalmente resonante y técnicamente robusta para  consultas, exploración y acompañamiento.
+
+##  Funcionalidades
+
+- Diálogo interactivo con enfoque empático.
+- Recomendaciones personalizadas según estado emocional.
+- Registro simbólico de hábitos y emociones.
+- Integración con proyectos como Vital-IA para seguimiento de mejoras.
+
 
 ##  Arquitectura del Proyecto
+| vite.config.ts: Conjurador técnico del entorno.
+
+| ChatMainView.tsx: Sección de arquitectura conversacional. 
+
+| ChatSuggestView.tsx: Componente de sugerencias.
+
+| ChatWindowView.tsx : Componente de mensajes.
+
+| App.tsx : Punto de entrada.
+
+| index.css: Sistema visual.
+
+| .gitignore : Escudo de limpieza técnica.
+
+| shadcn/ui config: Manifiesto estético y simbólico.
+
+| eslint.config.ts: Código de conducta técnica.
+
+| index.html : permite importar archivos modernos con soporte nativo en navegadores.
+
+| package.json: abarca toda la configuración de dependencias, scripts y metadatos necesarios para ejecutar, compilar y mantener tu aplicación.Este archivo configura el entorno de desarrollo para que TypeScript compile y analice proyecto correctamente.
+
+| tsconfig.app.json: Este archivo configura el entorno de desarrollo para que TypeScript compile y analice proyecto correctamente.
+
+| tsconfig.json (raíz): Nexo interdimensional entre configuraciones. 
+
+| tsconfig.node.json: Plano técnico para configuración Vite. Este archivo configura el entorno de desarrollo y build para una aplicación React + Tailwind CSS usando Vite como bundle.
+
+
 
 ###  Estructura Principal
 
 - App.tsx: Punto de entrada de la aplicación, envuelve el sistema de rutas con BrowserRouter.
+
 - AppRouter.tsx: Define las rutas internas del proyecto.
-- ChatMainView.tsx: Orquesta la experiencia conversacional con tres secciones:
+
+- ChatMainView.tsx: Muestra la experiencia conversacional con tres secciones:
+
   - CustomHeader: Presenta el título del proyecto.
+
   - ChatWindowView: Muestra los mensajes.
+
   - ChatSuggestView + ChatInput: Ofrece sugerencias y entrada de usuario.
 
-##  Funcionalidades
-
-- Diálogo interactivo con enfoque empático
-- Recomendaciones personalizadas según estado emocional
-- Registro simbólico de hábitos y emociones
-- Integración con proyectos como Vital-IA para seguimiento de mejoras
-
-## Estructura de Issues
-
-Este repositorio incluye una plantilla para reportar errores técnicos:
-##  DashboardLayout: Estructura del Santuario
-
-El componente DashboardLayout define la arquitectura visual del espacio principal de Vital-IA. Es el santuario donde el chatbot interactúa, se transforma y se presenta ante el usuario.
-
-###  Estructura
-
-- SidebarProvider: Provee el contexto para la navegación lateral.
-- AppSidebar: Barra lateral personalizada con accesos clave.
-- SidebarInset: Ajusta el contenido para convivir con la barra.
-- <main>: Área principal con diseño responsivo y fondo suave (bg-slate-100).
-- <Outlet />: Punto de entrada para las vistas dinámicas según la ruta.
-
-###  Estilo y experiencia
-
-El layout está diseñado con TailwindCSS, ofreciendo:
-
-- Espaciado armonioso 
-- Fondo calmado que invita a la introspección.
-- Contenedor redondeado 
-- Overflow controlado para una experiencia fluida.
-
-Este componente actúa como el templo donde Vital-IA se manifiesta, adaptándose a cada interacción con claridad.
-
-##  cn: Compositor de clases
-
-La función cn es un helper que Vital-IA utiliza para componer clases CSS de forma limpia y eficiente. Actúa como un alquimista visual, fusionando estilos sin conflictos.
-
-El componente AppRouter define la estructura de rutas dentro de Vital-IA. Es el mapa  que guía al usuario por los distintos espacios del proyecto.
-
-###  Rutas definidas
-
-- / → Página principal del chat (ChatPage)
-- /chat → Acceso directo al chatbot
-- /diagnostico → Página de diagnóstico (en construcción)
-
-Todas estas rutas están envueltas por DashboardLayout, que provee una experiencia visual coherente y empática.
-
-###  Propósito
-
-- Organizar la navegación interna del proyecto
-- Facilitar la expansión modular de nuevas secciones
-- Mantener una experiencia fluida y simbólicamente integrada
-
-Este componente es el cartógrafo silencioso que permite que cada interacción ocurra en el lugar correcto, bajo el diseño correcto, con la intención correcta.
 
 
-##  ChatInput: Altar de la Palabra
-
-El componente ChatInput es el espacio donde el usuario deposita su consulta, iniciando el ritual conversacional con Vital-IA. Está diseñado para ser intuitivo, accesible y visualmente armonioso.
-
-###  Estructura
-
-- Input: Campo de texto con borde estilizado
-- Button: Botón de envío con ícono (SendHorizonal)
-- Contenedor: Fondo claro, bordes redondeados, espaciado generoso
-
-###  Propósito
-
-- Invitar al usuario a expresar su inquietud o necesidad
-- Activar el flujo de conversación con claridad visual
-- Mantener una estética empática y profesional
-
-Este componente es el umbral donde la intención se convierte en diálogo, y el texto en transformación.
-
-Ejemplo: "Escribe tu consulta aqui"
-
-##  ChatMessage: Eco Visual del Diálogo
-
-El componente ChatMessage representa cada mensaje dentro del flujo conversacional de Vital-IA. Su diseño distingue entre mensajes propios y ajenos, ofreciendo una experiencia visual clara y empática.
-
-###  Estructura
-
-- Avatar: Muestra la inicial del remitente
-- AvatarFallback: Color personalizado (#73C7E3) para identidad visual
-- message: Texto del mensaje, estilizado con rounded-2xl y bg-gray-200
-- timestamp: Hora del mensaje, mostrada con opacidad suave
-
-###  Comportamiento
-
-- Si isOwnMessage es true, el mensaje se alinea a la derecha (flex-row-reverse)
-- Si es false, se alinea a la izquierda (flex-row)
-- Usa el helper cn para fusionar clases de forma limpia
-
-#  Ejemplo visual
+##  Componentes Conversacionales
 
 
-El componente ChatMainView organiza la experiencia completa del chatbot Vital-IA. Es el espacio donde la intención, la interacción y la inspiración se entrelazan.
+### ChatWindowView.tsx
 
-#  Estructura
+Renderiza los mensajes simulados usando ChatMessage dentro de un ScrollArea. (Es donde fluye el diálogo).
 
-- CustomHeader: Presenta el nombre del proyecto como invocación inicial
-- ChatWindowView: Muestra los mensajes en curso
-- ChatSuggestView: Ofrece sugerencias empáticas y rituales de consulta
-- ChatInput: Permite al usuario escribir y enviar su mensaje
+### ChatSuggestView.tsx
 
-# Diseño
+Muestra botones con sugerencias predefinidas (suggestions) usando el componente Button. (Actúa como una guía de interacción).
 
-- Usa flex flex-col h-full para distribuir verticalmente cada sección
-- Las áreas superiores e inferiores (shrink-0) se mantienen fijas
-- El centro (flex-1) se adapta dinámicamente al contenido
 
-Este componente es el santuario donde Vital-IA escucha, responde y transforma cada palabra en experiencia.
+##  Estilo y Tematización
 
-##  ChatSuggestView: 
 
-El componente ChatSuggestView ofrece al usuario una serie de sugerencias empáticas para iniciar la conversación con Vital-IA. Actúa como una guía sin imponer, ofreciendo caminos posibles para el diálogo.
+### index.css
 
-###  Estructura
+Define el sistema visual con OKLCH, variables CSS, y soporte para modo oscuro. Incluye:
 
-- suggestions: Array de frases sugeridas
-- Button: Cada sugerencia se presenta como un botón estilizado
-- Contenedor: Borde decorativo, espaciado vertical, diseño envolvente
+- Paleta emocional (--color-primary, --color-accent, etc.)
 
-###  Propósito
+- Radios simbólicos (--radius-sm, --radius-xl)
 
-- Facilitar el inicio de la conversación
-- Invitar a la exploración emocional o temática
-- Mantener una estética clara, accesible y empática
+- Variables para gráficos, sidebar y popovers
 
-Este componente previo a la invitación desde la curiosidad o la necesidad.
+
+### Tipografía
+
+Usa la fuente Inter desde Google Fonts para una experiencia clara y elegante.
+
+
+## Configuración Técnica
+
+
+### vite.config.ts
+
+configura Vite con:
+
+- @vitejs/plugin-react-swc: Compilación rápida de React
+
+- @tailwindcss/vite: Integración directa de Tailwind
+
+- Alias @ → ./src para rutas limpias
+
+
+### tsconfig.json (Raíz)
+
+- Coordina múltiples planos de configuración con references a:
+
+- tsconfig.app.json: Para la aplicación principal.
+
+- tsconfig.node.json: Para vite.config.ts
+
+
+
+### tsconfig.app.json
+
+Optimizado para React + TypeScript:
+
+- target: ES2022
+
+-  Bundler mode 
+
+- Linting estricto (noUnusedLocals, noFallthroughCasesInSwitch, etc.)
+
+
+### tsconfig.node.json
+
+Configuración especializada para vite.config.ts:
+
+- target: ES2023
+
+- moduleResolution: bundler
+
+- noEmit: Solo análisis, sin generación de archivos
+
+
+## Linting y Calidad
+
+### eslint.config.ts
+
+Usa configuración moderna con:
+
+
+- typescript-eslint
+
+- eslint-plugin-react-hooks
+
+- eslint-plugin-react-refresh
+
+- globals.browser
+
+- Ignora dist con globalIgnores
+
+##  Dependencias Clave
+
+
+
+| Categoría        | Paquetes principales |
+
+|------------------|---------------------------------------------------|
+
+| UI               | shadcn/ui radix UI                                |
+
+| Estilo           | tailwindcss, tw-animate-css, clsx, tailwind-merge |
+
+| React            | react, react-dom, react-router ,lucide-react      |
+
+| Herramientas     | vite, typescript, eslint, @vitejs/plugin-react-swc|
+
+
+##  Filosofía del Proyecto
+
+Vital-IA no es solo una interfaz. Es un espacio donde la tecnología se humaniza, la conversación se transforma en acompañamiento, y cada componente respira con intención.
