@@ -1,16 +1,16 @@
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
+import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 
 interface CustomPopupProps {
   title: string;
   children: React.ReactNode;
 }
-const CustomPopup = ({title, children}: CustomPopupProps) => {
+const CustomPopup = ({ title, children }: CustomPopupProps) => {
   return (
-    <Popover>
-  <PopoverTrigger>{title}</PopoverTrigger>
-  <PopoverContent>{children}</PopoverContent>
-</Popover>
-  )
-}
+    <Dialog>
+      <DialogTrigger>{title}</DialogTrigger>
+      <DialogContent>{children}</DialogContent>
+    </Dialog>
+  );
+};
 
-export default CustomPopup
+export default CustomPopup;
