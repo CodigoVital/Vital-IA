@@ -1,6 +1,7 @@
 import * as Icons from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import LucideIcon from "../lucide-icon-name";
+import { cn } from "@/lib/utils";
 
 type LucideName = keyof typeof Icons;
 interface CustomAlertProps {
@@ -9,6 +10,8 @@ interface CustomAlertProps {
   description?: string;
   iconName?: LucideName;
   className?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
 const CustomAlert = ({
@@ -17,12 +20,16 @@ const CustomAlert = ({
   description,
   iconName,
   className,
+  titleClassName,
+  descriptionClassName,
 }: CustomAlertProps) => {
   return (
-    <Alert variant={variant} className={className}>
+    <Alert variant={variant} className={cn(className)}>
       {iconName && <LucideIcon name={iconName} />}
-      <AlertTitle>{title}</AlertTitle>
-      <AlertDescription>{description}</AlertDescription>
+      <AlertTitle className={cn(titleClassName)}>{title}</AlertTitle>
+      <AlertDescription className={cn(descriptionClassName)}>
+        {description}
+      </AlertDescription>
     </Alert>
   );
 };

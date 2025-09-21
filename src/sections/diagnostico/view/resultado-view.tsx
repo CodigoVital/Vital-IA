@@ -14,6 +14,7 @@ const ResultadoView = () => {
       </div>
       <CustomAlert
         title="¡Importante!"
+        className="bg-[#FEE2E2] "
         variant="destructive"
         description="Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud."
       />
