@@ -8,6 +8,7 @@ interface CustomAlertProps {
   title?: string;
   description?: string;
   iconName?: LucideName;
+  className?: string;
 }
 
 const CustomAlert = ({
@@ -15,9 +16,10 @@ const CustomAlert = ({
   title,
   description,
   iconName,
+  className,
 }: CustomAlertProps) => {
   return (
-    <Alert variant={variant} className="mb-4">
+    <Alert variant={variant} className={className}>
       {iconName && <LucideIcon name={iconName} />}
       <AlertTitle>{title}</AlertTitle>
       <AlertDescription>{description}</AlertDescription>

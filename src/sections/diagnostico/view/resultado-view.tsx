@@ -12,7 +12,11 @@ const ResultadoView = () => {
         />
         <InfoCardView />
       </div>
-      <CustomAlert title="" description="" />
+      <CustomAlert
+        title="¡Importante!"
+        variant="destructive"
+        description="Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud."
+      />
     </section>
   );
 };
