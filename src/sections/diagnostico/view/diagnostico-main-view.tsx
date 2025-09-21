@@ -1,7 +1,7 @@
-import CustomPopup from "@/components/custom/custom-popup";
 import useDiagnostico from "../hooks/use-diagnostico";
 import ResultadoView from "./resultado-view";
 import { Button } from "@/components/ui/button";
+import CustomDialog from "@/components/custom/custom-dialog";
 const sintomasComunes = [
   "Fiebre",
   "Tos",
@@ -120,7 +120,8 @@ export const DiagnosticoView = () => {
               Agregar
             </Button>
           </div>
-          <CustomPopup
+
+          <CustomDialog
             ariaLabel={"Analizar Síntomas"}
             className="mt-6 mx-auto px-6 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
             title={"Analizar Síntomas"}
