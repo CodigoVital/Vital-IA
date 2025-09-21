@@ -5,13 +5,11 @@ import { cn } from "@/lib/utils";
 
 type LucideName = keyof typeof Icons;
 interface CustomAlertProps {
-  variant?: "default" | "destructive";
+  variant?: "default" | "destructive" | "warning";
   title?: string;
   description?: string;
   iconName?: LucideName;
   className?: string;
-  titleClassName?: string;
-  descriptionClassName?: string;
 }
 
 const CustomAlert = ({
@@ -20,16 +18,12 @@ const CustomAlert = ({
   description,
   iconName,
   className,
-  titleClassName,
-  descriptionClassName,
 }: CustomAlertProps) => {
   return (
     <Alert variant={variant} className={cn(className)}>
       {iconName && <LucideIcon name={iconName} />}
-      <AlertTitle className={cn(titleClassName)}>{title}</AlertTitle>
-      <AlertDescription className={cn(descriptionClassName)}>
-        {description}
-      </AlertDescription>
+      <AlertTitle>{title}</AlertTitle>
+      <AlertDescription>{description}</AlertDescription>
     </Alert>
   );
 };
