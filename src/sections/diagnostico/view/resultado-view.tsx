@@ -1,5 +1,6 @@
 import { CustomHeader } from "@/components/custom/custom-header";
 import { InfoCardView } from "./info-card-view";
+import CustomAlert from "@/components/custom/custom-alert";
 
 const ResultadoView = () => {
   return (
@@ -11,23 +12,7 @@ const ResultadoView = () => {
         />
         <InfoCardView />
       </div>
-      <div className="px-6 pb-6">
-        <div className="bg-[#FEE2E2] border border-[#FCA5A5] rounded-md p-4 flex flex-col sm:flex-row items-start gap-3 overflow-auto">
-          <span className="text-[#DC2626] text-xl mt-1" aria-hidden="true">
-            &#9888;
-          </span>
-          <div>
-            <span className="font-bold text-[#DC2626] block mb-1">
-              ¡Importante!
-            </span>
-            <span className="text-[#DC2626] text-base">
-              Este resultado es una simulación basada en un modelo simple y no
-              constituye un diagnóstico médico. Para un diagnóstico preciso,
-              consulta a un profesional de la salud.
-            </span>
-          </div>
-        </div>
-      </div>
+      <CustomAlert />
     </section>
   );
 };
