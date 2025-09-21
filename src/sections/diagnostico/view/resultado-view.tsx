@@ -1,6 +1,7 @@
 import { CustomHeader } from "@/components/custom/custom-header";
-import { InfoCardView } from "./info-card-view";
+
 import CustomAlert from "@/components/custom/custom-alert";
+import { InfoCard } from "../components/info-card";
 
 const ResultadoView = () => {
   return (
@@ -10,14 +11,13 @@ const ResultadoView = () => {
           className="text-2xl font-bold text-[#1A2E46] mb-2 text-left"
           title="Resultado del Análisis"
         />
-        <InfoCardView />
+        <InfoCard />
       </div>
       <CustomAlert
         title="¡Importante!"
         className="bg-[#FEE2E2] border-1 border-[#991B1B] "
         variant="warning"
         iconName="TriangleAlert"
-    
         description="Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud."
       />
     </section>

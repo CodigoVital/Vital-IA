@@ -1,4 +1,4 @@
-export const InfoCardView = () => {
+export const InfoCard = () => {
   return (
     <div className="bg-white border border-[#CBD5E1] rounded-md p-4 mb-6 overflow-auto">
       <div className="mb-2">
