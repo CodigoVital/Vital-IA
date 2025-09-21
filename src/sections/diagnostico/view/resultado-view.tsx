@@ -12,7 +12,7 @@ const ResultadoView = () => {
         />
         <InfoCardView />
       </div>
-      <CustomAlert />
+      <CustomAlert title="" description="" />
     </section>
   );
 };
