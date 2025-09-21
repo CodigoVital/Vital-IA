@@ -14,8 +14,10 @@ const ResultadoView = () => {
       </div>
       <CustomAlert
         title="¡Importante!"
-        className="bg-[#FEE2E2] "
+        className="bg-[#FEE2E2] border-1 border-[#991B1B] "
         variant="warning"
+        iconName="TriangleAlert"
+    
         description="Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud."
       />
     </section>
