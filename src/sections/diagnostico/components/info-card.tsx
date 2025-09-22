@@ -16,7 +16,7 @@ export const InfoCard = ({
 }: InfoCardProps) => {
   return (
     <section
-      className={`bg-white border border-[#CBD5E1] rounded-md p-4 mb-6 overflow-auto ${className}`}
+      className={`bg-white border h-full w-full border-[#CBD5E1] rounded-md p-4 mb-6 overflow-auto ${className}`}
     >
       {analysis && (
         <div className="mb-2">

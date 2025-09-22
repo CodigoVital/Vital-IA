@@ -6,8 +6,11 @@ import { recommendations } from "../data/recommendations.mock";
 
 const ResultadoView = () => {
   return (
-    <section className="w-[930px]  max-w-full">
-      <div className=" min-w-0 h-[458px] max-h-[458px] border-none overflow-y-auto">
+    <section
+      className="w-[930px] h-[679px] flex flex-col
+     max-w-full gap-5"
+    >
+      <div className=" min-w-0 flex-1  border-none ">
         <CustomHeader
           className="text-2xl font-bold text-[#1A2E46] mb-2 text-left"
           title="Resultado del Análisis"
