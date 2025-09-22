@@ -19,7 +19,7 @@ const ResultadoView = () => {
         className={`text-2xl font-bold text-[#1A2E46] mb-2 text-left `}
         title="Resultado del Análisis"
       />
-      <ScrollArea className="flex-1 border border-[#CBD5E1] rounded max-h-[679px] overflow-auto">
+      <ScrollArea className="flex-1 border bg-white border-[#CBD5E1] rounded max-h-[679px] overflow-auto">
         <InfoCard
           analysis="los síntomas que presentas son generales"
           urgencyColor="#CF8A40"
