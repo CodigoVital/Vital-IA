@@ -2,6 +2,7 @@ import CustomDialog from "@/components/custom/custom-dialog";
 import { Button } from "@/components/ui/button";
 import ResultadoView from "../view/resultado-view";
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
 
 interface SymptomSelectedListProps {
   sintomasSeleccionados: string[];
@@ -49,8 +50,8 @@ export const SymptomSelectedList = ({
         ))}
       </div>
       <div className="flex gap-2 items-center">
-        <input
-          className="flex-1 h-12 px-4 py-2 bg-[#F5F7FA] rounded-xl border border-[#E0E0E0] text-[#1A2E46] text-base font-normal focus:outline-none focus:border-[#2DC6C4]"
+        <Input
+          className="flex-1 h-12 px-4 py-2 bg-[white] rounded border border-[#E0E0E0] text-[#1A2E46] text-base font-normal focus:outline-none focus:border-[#2DC6C4]"
           type="text"
           placeholder="Escribe un síntoma..."
           value={sintomaInput}
@@ -61,7 +62,7 @@ export const SymptomSelectedList = ({
           aria-label="Agregar síntoma personalizado"
         />
         <Button
-          className="px-5 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
+          className=" bg-[#2DC6C4] rounded-xl p-6 text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
           onClick={agregarSintoma}
           type="button"
           aria-label="Agregar síntoma"
