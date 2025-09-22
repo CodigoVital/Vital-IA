@@ -28,7 +28,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {open && (
           <div className="flex flex-row items-center gap-2 transition-all duration-200 opacity-100 translate-x-0">
             <Logo bgColor="#24B0BA" strokeColor="white" />
-            <h1 className="font-bold whitespace-nowrap">Vital-IA</h1>
+            <h1 className="font-bold whitespace-nowrap text-primary-custom-text">
+              Vital-IA
+            </h1>
           </div>
         )}
         <SidebarTrigger className={cn("shrink-0 ")} />

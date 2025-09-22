@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { suggestions } from "./data/suggest.mock";
+import { suggestions } from "../view/data/suggest.mock";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-const ChatSuggestView = () => {
+const ChatSuggest = () => {
   return (
     <section className="text-black p-4 border-y-1 border-[#CBD5E1] flex flex-col gap-4">
       <h2 className="text-sm">O prueba una de estas opciones:</h2>
@@ -26,4 +26,4 @@ const ChatSuggestView = () => {
   );
 };
 
-export default ChatSuggestView;
+export default ChatSuggest;
