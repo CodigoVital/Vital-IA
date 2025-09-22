@@ -62,7 +62,7 @@ export const SymptomSelectedList = ({
           aria-label="Agregar síntoma personalizado"
         />
         <Button
-          className=" bg-[#2DC6C4] rounded-xl p-6 text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
+          className=" bg-primary-custom rounded-xl p-6 text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
           onClick={agregarSintoma}
           type="button"
           aria-label="Agregar síntoma"
@@ -76,7 +76,7 @@ export const SymptomSelectedList = ({
 
       <CustomDialog
         ariaLabel={"Analizar Síntomas"}
-        className="mt-6 mx-auto px-6 py-3 bg-[#2DC6C4] rounded-xl text-white font-bold text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
+        className="mt-6 mx-auto px-6 py-3 bg-primary-custom rounded-xl text-white font-bold text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
         title={"Analizar Síntomas"}
         children={<ResultadoView />}
       />
