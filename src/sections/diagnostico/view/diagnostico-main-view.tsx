@@ -23,7 +23,7 @@ export const DiagnosticoView = () => {
       {!isMobile && <CustomHeader title="Clasificar Enfermedad" />}
 
       <div
-        className={`w-full h-full p-5 border-none shadow-none bg-[#FCF8F3] flex flex-col gap-6  `}
+        className={`w-full h-full p-5 border-none shadow-none bg-[#FCF8F3] flex flex-col gap-3  `}
         aria-label="Clasificar enfermedad"
       >
         <SymptomInstructions />
