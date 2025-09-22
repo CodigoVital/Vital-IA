@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Plus, Shield } from "lucide-react";
 import LucideIcon from "@/components/lucide-icon-name";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface SymptomSelectedListProps {
   sintomasSeleccionados: string[];
@@ -29,7 +30,7 @@ export const SymptomSelectedList = ({
 }: SymptomSelectedListProps) => {
   return (
     <section
-      className="flex flex-col gap-2"
+      className="flex flex-col gap-2 "
       aria-label="Síntomas personalizados"
     >
       <div className="flex justify-between items-center">
@@ -47,28 +48,28 @@ export const SymptomSelectedList = ({
         </Button>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-2">
-        {sintomasSeleccionados.map((sintoma) => (
-          <div
-            key={sintoma}
-            className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 text-[#1A2E46] text-base font-medium border border-[#B2E2E1] shadow-sm"
-          >
-            {sintoma}
-            <Button
-              className={cn(
-                "bg-transparent p-[10px] hover:bg-transparent border-none shadow-none focus:ring-0 focus:ring-offset-0",
-                `ml-2 text-[#2DC6C4] text-lg font-bold hover:text-[#1A2E46]`
-              )}
-              onClick={() => eliminarSintoma(sintoma)}
-              type="button"
-              variant={"default"}
-              aria-label={`Eliminar ${sintoma}`}
+      <ScrollArea className="w-full">
+        <div className="flex gap-2 pb-2 min-w-max">
+          {sintomasSeleccionados.map((sintoma) => (
+            <div
+              key={sintoma}
+              className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 text-[#1A2E46] text-base font-medium border border-[#B2E2E1] shadow-sm whitespace-nowrap flex-shrink-0"
             >
-              ×
-            </Button>
-          </div>
-        ))}
-      </div>
+              {sintoma}
+              <Button
+                size="sm"
+                variant="ghost"
+                className="h-6 w-6 p-0 text-[#2DC6C4] hover:text-[#1A2E46] hover:bg-transparent"
+                onClick={() => eliminarSintoma(sintoma)}
+                type="button"
+                aria-label={`Eliminar ${sintoma}`}
+              >
+                ×
+              </Button>
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
       <div className="flex gap-2 items-center">
         <Input
           className="flex-1 h-12 px-4 py-2 bg-[white] rounded border border-[#E0E0E0] text-[#1A2E46] text-base font-normal focus:outline-none focus:border-[#2DC6C4]"
