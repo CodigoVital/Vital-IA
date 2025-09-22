@@ -17,7 +17,7 @@ const CustomDialog = ({
       <DialogTrigger aria-label={ariaLabel} className={className}>
         {title}
       </DialogTrigger>
-      <DialogContent className="w-auto !max-w-fit p-5 sm:rounded-lg">
+      <DialogContent className="w-auto !max-w-fit p-6 sm:rounded-lg">
         {children}
       </DialogContent>
     </Dialog>
