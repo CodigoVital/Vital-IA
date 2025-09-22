@@ -45,6 +45,13 @@ const useDiagnostico = () => {
     setMostrarResultado(true);
   };
 
+  const resetSymptoms = () => {
+    setSintomasSeleccionados([]);
+    setMostrarAdvertencia(false);
+    setMostrarResultado(false);
+    setSintomaInput("");
+  };
+
   return {
     sintomasSeleccionados,
     sintomaInput,
@@ -57,7 +64,8 @@ const useDiagnostico = () => {
     setSintomaInput,
     setMostrarResultado,
     open,
-    setOpen
+    resetSymptoms,
+    setOpen,
   };
 };
 

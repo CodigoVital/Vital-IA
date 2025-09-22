@@ -16,6 +16,7 @@ interface SymptomSelectedListProps {
   analizarSintomas: () => void;
   open: boolean;
   setOpen: (open: boolean) => void;
+  resetSymptoms: () => void;
 }
 
 export const SymptomSelectedList = ({
@@ -27,6 +28,7 @@ export const SymptomSelectedList = ({
   analizarSintomas,
   open,
   setOpen,
+  resetSymptoms,
 }: SymptomSelectedListProps) => {
   return (
     <section
@@ -38,6 +40,7 @@ export const SymptomSelectedList = ({
           Describe otros síntomas
         </h3>
         <Button
+          onClick={resetSymptoms}
           className={cn(
             "hover:bg-[]",
             "shadow-none border border-[#CBD5E1]",

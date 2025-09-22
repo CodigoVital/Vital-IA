@@ -17,7 +17,8 @@ export const DiagnosticoView = () => {
     analizarSintomas,
     setSintomaInput,
     open,
-    setOpen
+    setOpen,
+    resetSymptoms,
   } = useDiagnostico();
   const isMobile = useIsMobile();
 
@@ -37,6 +38,7 @@ export const DiagnosticoView = () => {
 
         <SymptomSelectedList
           open={open}
+          resetSymptoms={resetSymptoms}
           setOpen={setOpen}
           analizarSintomas={analizarSintomas}
           sintomasSeleccionados={sintomasSeleccionados}
