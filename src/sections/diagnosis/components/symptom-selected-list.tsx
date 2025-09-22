@@ -42,7 +42,7 @@ export const SymptomSelectedList = ({
         <Button
           onClick={resetSymptoms}
           className={cn(
-            "hover:bg-[]",
+            "hover:bg-[#F0F0F0] active:bg-[#E0E0E0] ",
             "shadow-none border border-[#CBD5E1]",
             "bg-transparent text-primary-custom-text"
           )}
