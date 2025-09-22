@@ -1,3 +1,5 @@
+import { Card } from "@/components/ui/card";
+
 interface InfoCardProps {
   children?: React.ReactNode;
   className?: string;
@@ -15,8 +17,8 @@ export const InfoCard = ({
   className,
 }: InfoCardProps) => {
   return (
-    <section
-      className={`bg-white border h-full w-full border-[#CBD5E1] rounded-md p-4 mb-6 overflow-auto ${className}`}
+    <Card
+      className={`bg-white  h-full w-full  p-4 mb-6 overflow-auto ${className}`}
     >
       {analysis && (
         <div className="mb-2">
@@ -44,6 +46,6 @@ export const InfoCard = ({
           </ul>
         </>
       )}
-    </section>
+    </Card>
   );
 };

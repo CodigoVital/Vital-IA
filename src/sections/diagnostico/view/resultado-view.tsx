@@ -18,7 +18,7 @@ const ResultadoView = () => {
         className={`text-2xl font-bold text-[#1A2E46] mb-2 text-left `}
         title="Resultado del Análisis"
       />
-      <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex-1  border-[#CBD5E1] rounded-md  min-h-0 overflow-hidden">
         <InfoCard
           analysis="los síntomas que presentas son generales"
           urgencyColor="#CF8A40"
