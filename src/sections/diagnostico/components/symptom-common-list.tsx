@@ -12,7 +12,7 @@ export const SymptomCommonList = ({
   seleccionarSintomaComun,
 }: SymptomCommonListProps) => {
   return (
-    <section className="flex  flex-col gap-2" aria-label="Síntomas comunes">
+    <section className="flex   flex-col gap-2" aria-label="Síntomas comunes">
       <h3 className="text-[#1A2E46] text-base font-bold mb-1">
         Síntomas Comunes
       </h3>
