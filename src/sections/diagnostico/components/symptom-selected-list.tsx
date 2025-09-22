@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import ResultadoView from "../view/resultado-view";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
+import { Plus } from "lucide-react";
 
 interface SymptomSelectedListProps {
   sintomasSeleccionados: string[];
@@ -31,7 +32,7 @@ export const SymptomSelectedList = ({
         {sintomasSeleccionados.map((sintoma) => (
           <div
             key={sintoma}
-            className="px-4 py-2 bg-[#E6F7F6] rounded-xl flex items-center gap-2 text-[#1A2E46] text-base font-medium border border-[#B2E2E1] shadow-sm"
+            className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 text-[#1A2E46] text-base font-medium border border-[#B2E2E1] shadow-sm"
           >
             {sintoma}
             <Button
@@ -62,14 +63,12 @@ export const SymptomSelectedList = ({
           aria-label="Agregar síntoma personalizado"
         />
         <Button
-          className=" bg-primary-custom rounded-xl p-6 text-white font-bold flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
+          className=" bg-primary-custom rounded-xl p-6 text-white font-thin flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
           onClick={agregarSintoma}
           type="button"
           aria-label="Agregar síntoma"
         >
-          <span className="material-icons text-lg" aria-hidden="true">
-            add
-          </span>
+          <Plus className="w-6 h-6 " />
           Agregar
         </Button>
       </div>
