@@ -12,6 +12,9 @@ interface SymptomSelectedListProps {
   setSintomaInput: (input: string) => void;
   agregarSintoma: () => void;
   eliminarSintoma: (sintoma: string) => void;
+  analizarSintomas: () => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
 }
 
 export const SymptomSelectedList = ({
@@ -20,6 +23,9 @@ export const SymptomSelectedList = ({
   setSintomaInput,
   agregarSintoma,
   eliminarSintoma,
+  analizarSintomas,
+  open,
+  setOpen,
 }: SymptomSelectedListProps) => {
   return (
     <section
@@ -32,7 +38,7 @@ export const SymptomSelectedList = ({
         </h3>
         <Button
           className={cn(
-            'hover:bg-[]',
+            "hover:bg-[]",
             "shadow-none border border-[#CBD5E1]",
             "bg-transparent text-primary-custom-text"
           )}
@@ -85,11 +91,16 @@ export const SymptomSelectedList = ({
           Agregar
         </Button>
       </div>
+      <Button
+        onClick={analizarSintomas}
+        className="mt-6 mx-auto bg-primary-custom rounded-md text-white font-thin  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
+      >
+        Analizar Síntomas
+      </Button>
 
       <CustomDialog
-        ariaLabel={"Analizar Síntomas"}
-        className="mt-6 mx-auto px-6 py-3 bg-primary-custom rounded-xl text-white  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
-        title={"Analizar Síntomas"}
+        open={open}
+        onClose={() => setOpen(false)}
         children={<ResultadoView />}
       />
     </section>
