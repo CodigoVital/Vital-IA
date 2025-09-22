@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 interface InfoCardProps {
   children?: React.ReactNode;
@@ -18,7 +19,10 @@ export const InfoCard = ({
 }: InfoCardProps) => {
   return (
     <Card
-      className={`bg-white  h-full w-full  p-4 mb-6 overflow-auto ${className}`}
+      className={cn(
+        "border-none shadow-none",
+        `bg-white  h-full w-full  p-4 mb-6 overflow-auto ${className}`
+      )}
     >
       {analysis && (
         <div className="mb-2">

@@ -2,17 +2,8 @@ import useDiagnostico from "../hooks/use-diagnostico";
 import ResultadoView from "./resultado-view";
 import { Button } from "@/components/ui/button";
 import CustomDialog from "@/components/custom/custom-dialog";
-const sintomasComunes = [
-  "Fiebre",
-  "Tos",
-  "Dolor de cabeza",
-  "Dolor de garganta",
-  "Resfriado",
-  "Congestión Nasal",
-  "Fatiga",
-  "Dolor muscular",
-  "Náuseas",
-];
+import { sintomasComunes } from "../data/symptom.mock";
+import { DiagnosisHeader } from "../components/diagnosis-header";
 
 export const DiagnosticoView = () => {
   const {
@@ -33,22 +24,8 @@ export const DiagnosticoView = () => {
         className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]"
         aria-label="Clasificar enfermedad"
       >
-        <header className="flex flex-col gap-2">
-          <h2 className="text-[28px] font-bold text-[#1A2E46] leading-tight">
-            Clasificar Enfermedad
-          </h2>
-          <hr className="w-full h-[2px] bg-[#E0E0E0] rounded mt-2 mb-2" />
-          <p className="text-[#1A2E46] text-base font-normal leading-snug mt-1">
-            Seleccioná los síntomas de la lista o escribilos.
-            <br />
-            Esto dará una orientación de la enfermedad que puedes estar
-            presentando.
-          </p>
-          <p className="text-[#1A2E46] text-base font-bold leading-snug mt-1">
-            Esta herramienta es solo ayuda, no reemplaza el diagnóstico del
-            médico profesional
-          </p>
-        </header>
+        <DiagnosisHeader />
+
         <section className="flex flex-col gap-2" aria-label="Síntomas comunes">
           <h3 className="text-[#1A2E46] text-base font-bold mb-1">
             Síntomas Comunes
