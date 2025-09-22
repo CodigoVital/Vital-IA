@@ -6,7 +6,7 @@ import { InfoCard } from "../components/info-card";
 const ResultadoView = () => {
   return (
     <section className="w-[930px]  max-w-full">
-      <div className="p-6 pb-0 min-w-0 h-[458px] max-h-[458px] overflow-y-auto">
+      <div className=" min-w-0 h-[458px] max-h-[458px] border-none overflow-y-auto">
         <CustomHeader
           className="text-2xl font-bold text-[#1A2E46] mb-2 text-left"
           title="Resultado del Análisis"
