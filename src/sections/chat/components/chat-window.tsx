@@ -1,8 +1,8 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import ChatMessage from "../components/chat-message";
-import { sampleMessages } from "./data/message.mock";
+import ChatMessage from "./chat-message";
+import { sampleMessages } from "../view/data/message.mock";
 
-export const ChatWindowView = () => {
+export const ChatWindow = () => {
   return (
     <>
       <ScrollArea className="h-full px-4 ">
