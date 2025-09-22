@@ -16,7 +16,7 @@ const CustomDialog = ({ children, open, onClose }: CustomPopupProps) => {
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent
         className={`p-6 sm:rounded-lg bg-sidebar ${
-          isMobile ? "w-full !max-w-full" : "w-auto !max-w-fit"
+          isMobile ? "w-full !max-w-full rounded-none" : "w-auto !max-w-fit"
         }`}
       >
         {children}
