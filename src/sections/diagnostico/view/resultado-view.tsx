@@ -7,8 +7,10 @@ import { recommendations } from "../data/recommendations.mock";
 const ResultadoView = () => {
   return (
     <section
-      className="w-[930px] h-[679px]  flex flex-col
-     max-w-full gap-5"
+      className="
+    w-full max-w-[930px] aspect-[930/679] 
+    flex flex-col gap-5 
+  "
     >
       <CustomHeader
         className="text-2xl font-bold text-[#1A2E46] mb-2 text-left"
