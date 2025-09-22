@@ -4,6 +4,7 @@ import ResultadoView from "../view/resultado-view";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Plus } from "lucide-react";
+import LucideIcon from "@/components/lucide-icon-name";
 
 interface SymptomSelectedListProps {
   sintomasSeleccionados: string[];
@@ -25,9 +26,21 @@ export const SymptomSelectedList = ({
       className="flex flex-col gap-2"
       aria-label="Síntomas personalizados"
     >
-      <h3 className="text-[#1A2E46] text-base font-bold mb-1">
-        Describe otros síntomas
-      </h3>
+      <div className="flex justify-between items-center">
+        <h3 className="text-[#1A2E46] text-base font-bold mb-1">
+          Describe otros síntomas
+        </h3>
+        <Button
+          className={cn(
+            'hover:bg-[]',
+            "shadow-none border border-[#CBD5E1]",
+            "bg-transparent text-primary-custom-text"
+          )}
+        >
+          Limpiar selección <LucideIcon name={`RotateCw`} />
+        </Button>
+      </div>
+
       <div className="flex flex-wrap gap-2 mb-2">
         {sintomasSeleccionados.map((sintoma) => (
           <div

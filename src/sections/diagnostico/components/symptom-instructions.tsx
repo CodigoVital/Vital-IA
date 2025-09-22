@@ -10,10 +10,10 @@ export const SymptomInstructions = () => {
           presentando.
         </p>
 
-        <p className="text-[#1A2E46] text-base font-bold leading-snug mt-1">
+        <strong className="text-[#1A2E46] text-base font-bold leading-snug mt-1">
           Esta herramienta es solo ayuda, no reemplaza el diagnóstico del médico
           profesional
-        </p>
+        </strong>
       </div>
     </>
   );
