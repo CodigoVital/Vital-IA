@@ -6,7 +6,7 @@ import { CustomHeader } from "@/components/custom/custom-header";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { SymptomInstructions } from "../components/symptom-instructions";
 
-export const DiagnosticoView = () => {
+export const DiagnosisMainView = () => {
   const {
     sintomasSeleccionados,
     sintomaInput,

@@ -5,7 +5,7 @@ import { recommendations } from "../data/recommendations.mock";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const ResultadoView = () => {
+const ResultView = () => {
   const isMobile = useIsMobile();
   return (
     <section
@@ -40,4 +40,4 @@ const ResultadoView = () => {
   );
 };
 
-export default ResultadoView;
+export default ResultView;

@@ -1,11 +1,11 @@
 import CustomDialog from "@/components/custom/custom-dialog";
 import { Button } from "@/components/ui/button";
-import ResultadoView from "../view/resultado-view";
 import { cn } from "@/lib/utils";
 import { Shield } from "lucide-react";
 import LucideIcon from "@/components/lucide-icon-name";
 import SymptomInput from "./symptom-input";
 import SymptomChipsList from "./symptom-chips-list";
+import ResultView from "../view/result-view";
 
 interface SymptomSelectedListProps {
   sintomasSeleccionados: string[];
@@ -68,7 +68,7 @@ export const SymptomSelectedList = ({
       <CustomDialog
         open={open}
         onClose={() => setOpen(false)}
-        children={<ResultadoView />}
+        children={<ResultView />}
       />
     </section>
   );
