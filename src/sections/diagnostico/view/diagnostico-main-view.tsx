@@ -20,6 +20,7 @@ export const DiagnosticoView = () => {
 
   return (
     <>
+    
       <DiagnosisHeader />
       <section
         className={`w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm  ${

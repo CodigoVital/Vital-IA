@@ -1,9 +1,12 @@
 import { CustomHeader } from "@/components/custom/custom-header";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const DiagnosisHeader = () => {
+  const isMobile = useIsMobile();
   return (
     <>
-      <CustomHeader title="Clasificar Enfermedad" />
+      {!isMobile && <CustomHeader title="Clasificar Enfermedad" />}
+
       <div className="flex flex-col gap-2 p-5">
         <p className="text-[#1A2E46] text-base font-normal leading-snug mt-1">
           Seleccioná los síntomas de la lista o escribilos.
