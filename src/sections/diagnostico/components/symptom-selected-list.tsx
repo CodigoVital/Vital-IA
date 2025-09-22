@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import ResultadoView from "../view/resultado-view";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
-import { Plus } from "lucide-react";
+import { Plus, Shield } from "lucide-react";
 import LucideIcon from "@/components/lucide-icon-name";
 
 interface SymptomSelectedListProps {
@@ -93,9 +93,9 @@ export const SymptomSelectedList = ({
       </div>
       <Button
         onClick={analizarSintomas}
-        className="mt-6 mx-auto bg-primary-custom rounded-md text-white font-thin  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
+        className="mt-6 mx-auto p-5.5 bg-primary-custom rounded-md text-white font-thin  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
       >
-        Analizar Síntomas
+        <Shield className="w-5 h-5" /> Analizar Síntomas
       </Button>
 
       <CustomDialog
