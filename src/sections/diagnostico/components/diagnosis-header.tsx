@@ -4,7 +4,7 @@ export const DiagnosisHeader = () => {
   return (
     <>
       <CustomHeader title="Clasificar Enfermedad" />
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 p-5">
         <p className="text-[#1A2E46] text-base font-normal leading-snug mt-1">
           Seleccioná los síntomas de la lista o escribilos.
           <br />

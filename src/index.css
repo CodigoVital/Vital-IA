@@ -41,6 +41,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-custom-background: var(--customBackground);
   --color-primary-custom: var(--primary-custom);
+  --color-primary-custom-text: var(--primary-custom-text);
 }
 
 :root {
@@ -70,7 +71,7 @@
   --chart-5: oklch(0.769 0.188 70.08);
   /* --sidebar: oklch(0.985 0 0); */
   --sidebar: oklch(0.985 0.009 81.94);
-  --primary-custom: #24B0BA;
+
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -80,6 +81,8 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   --customBackground: #24b0ba;
+  --primary-custom: #24b0ba;
+  --primary-custom-text: #2e4a70;
 }
 
 .dark {
@@ -121,7 +124,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    font-family: "Inter", ui-sans-serif, system-ui;
+    font-family: "Inter", Helvetica, ui-sans-serif, system-ui;
     @apply bg-background text-foreground;
   }
 }

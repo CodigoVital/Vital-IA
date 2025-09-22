@@ -20,14 +20,13 @@ export const DiagnosticoView = () => {
 
   return (
     <>
+      <DiagnosisHeader />
       <section
-        className={`w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6] ${
+        className={`w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm  ${
           isMobile ? "rounded-none" : ""
         }`}
         aria-label="Clasificar enfermedad"
       >
-        <DiagnosisHeader />
-
         <SymptomCommonList
           sintomasSeleccionados={sintomasSeleccionados}
           seleccionarSintomaComun={seleccionarSintomaComun}

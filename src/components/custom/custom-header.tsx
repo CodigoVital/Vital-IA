@@ -15,7 +15,9 @@ export const CustomHeader = ({ title, children, className }: Props) => {
           isMobile ? "flex items-center  bg-[var(--sidebar)]" : ""
         }`}
       >
-        <h1 className=" ml-5 text-xl font-bold ">{title}</h1>
+        <h1 className="ml-5 text-xl text-primary-custom-text font-medium ">
+          {title}
+        </h1>
         {children}
       </div>
     </>
