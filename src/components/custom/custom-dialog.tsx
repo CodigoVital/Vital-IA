@@ -1,3 +1,4 @@
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 
 interface CustomPopupProps {
@@ -12,12 +13,17 @@ const CustomDialog = ({
   className,
   ariaLabel,
 }: CustomPopupProps) => {
+  const isMobile = useIsMobile();
   return (
     <Dialog>
       <DialogTrigger aria-label={ariaLabel} className={className}>
         {title}
       </DialogTrigger>
-      <DialogContent className="w-auto !max-w-fit p-6 sm:rounded-lg">
+      <DialogContent
+        className={`p-6 sm:rounded-lg ${
+          isMobile ? "w-full !max-w-full" : "w-auto !max-w-fit"
+        }`}
+      >
         {children}
       </DialogContent>
     </Dialog>
