@@ -2,8 +2,9 @@ import useDiagnostico from "../hooks/use-diagnostico";
 import ResultadoView from "./resultado-view";
 import { Button } from "@/components/ui/button";
 import CustomDialog from "@/components/custom/custom-dialog";
-import { sintomasComunes } from "../data/symptom.mock";
 import { DiagnosisHeader } from "../components/diagnosis-header";
+import { SymptomCommonList } from "../components/symptom-common-list";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const DiagnosticoView = () => {
   const {
@@ -16,38 +17,24 @@ export const DiagnosticoView = () => {
     setSintomaInput,
   } = useDiagnostico();
 
+  const isMobile = useIsMobile();
+
   // Si está mostrando el resultado, ocultar la sección principal
 
   return (
     <>
       <section
-        className="w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6]"
+        className={`w-full h-full p-8 bg-[#FCF8F3] rounded-2xl flex flex-col gap-6 shadow-sm border border-[#E6E6E6] ${
+          isMobile ? "rounded-none" : ""
+        }`}
         aria-label="Clasificar enfermedad"
       >
         <DiagnosisHeader />
 
-        <section className="flex flex-col gap-2" aria-label="Síntomas comunes">
-          <h3 className="text-[#1A2E46] text-base font-bold mb-1">
-            Síntomas Comunes
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {sintomasComunes.map((sintoma) => (
-              <button
-                key={sintoma}
-                className={`px-4 py-2 rounded-xl border border-[#E0E0E0] bg-[#F5F7FA] text-[#1A2E46] text-base font-medium shadow-sm transition-colors duration-150 ${
-                  sintomasSeleccionados.includes(sintoma)
-                    ? "bg-[#2DC6C4] text-white border-[#2DC6C4]"
-                    : "hover:bg-[#E6F7F6] hover:text-[#1A2E46] focus:text-[#1A2E46]"
-                }`}
-                onClick={() => seleccionarSintomaComun(sintoma)}
-                type="button"
-                aria-label={`Seleccionar síntoma ${sintoma}`}
-              >
-                {sintoma}
-              </button>
-            ))}
-          </div>
-        </section>
+        <SymptomCommonList
+          sintomasSeleccionados={sintomasSeleccionados}
+          seleccionarSintomaComun={seleccionarSintomaComun}
+        />
         <section
           className="flex flex-col gap-2"
           aria-label="Síntomas personalizados"
