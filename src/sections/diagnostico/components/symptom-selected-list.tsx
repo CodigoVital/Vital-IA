@@ -37,7 +37,7 @@ export const SymptomSelectedList = ({
             {sintoma}
             <Button
               className={cn(
-                "bg-transparent hover:bg-transparent border-none shadow-none focus:ring-0 focus:ring-offset-0",
+                "bg-transparent p-[10px] hover:bg-transparent border-none shadow-none focus:ring-0 focus:ring-offset-0",
                 `ml-2 text-[#2DC6C4] text-lg font-bold hover:text-[#1A2E46]`
               )}
               onClick={() => eliminarSintoma(sintoma)}
@@ -75,7 +75,7 @@ export const SymptomSelectedList = ({
 
       <CustomDialog
         ariaLabel={"Analizar Síntomas"}
-        className="mt-6 mx-auto px-6 py-3 bg-primary-custom rounded-xl text-white font-bold text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
+        className="mt-6 mx-auto px-6 py-3 bg-primary-custom rounded-xl text-white  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
         title={"Analizar Síntomas"}
         children={<ResultadoView />}
       />

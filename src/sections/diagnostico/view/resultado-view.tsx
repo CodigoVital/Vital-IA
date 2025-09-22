@@ -10,7 +10,7 @@ const ResultadoView = () => {
   return (
     <section
       className={`
-      w-full max-w-[930px]  ${
+      w-full max-w-[930px]   ${
         isMobile ? "aspect-auto px-2" : "aspect-[930/679]"
       }
       flex flex-col gap-5
@@ -20,7 +20,7 @@ const ResultadoView = () => {
         className={`text-2xl font-bold text-[#1A2E46] mb-2 text-left `}
         title="Resultado del Análisis"
       />
-      <div className="flex-1 border border-[#CBD5E1] rounded-md max-h-[679px]   overflow-hidden">
+      <div className="flex-1 border border-[#CBD5E1] rounded max-h-[679px]   overflow-hidden">
         <InfoCard
           analysis="los síntomas que presentas son generales"
           urgencyColor="#CF8A40"
