@@ -26,7 +26,7 @@ export function NavMain({
   }[];
 }) {
   const pathname = useLocation().pathname;
-  const { open , toggleSidebar, openMobile } = useSidebar();
+  const { open, toggleSidebar, openMobile } = useSidebar();
 
   return (
     <SidebarGroup>
@@ -62,7 +62,7 @@ export function NavMain({
                     tooltip={item.title}
                   >
                     {item.icon && (
-                      <item.icon className="!w-[19.77px] !h-[19.77px] text-[#2E4A70]" />
+                      <item.icon className="!w-[19.77px] !h-[19.77px] text-primary-custom-text" />
                     )}
                     <span
                       className={cn("hover:text-inherit", !open && "hidden")}
