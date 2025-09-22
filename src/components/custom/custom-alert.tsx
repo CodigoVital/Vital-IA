@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 type LucideName = keyof typeof Icons;
 interface CustomAlertProps {
-  variant?: "default" | "destructive" | "warning";
+  variant?: "default" | "destructive" | "warning" | "alert";
   title?: string;
   description?: string;
   iconName?: LucideName;
