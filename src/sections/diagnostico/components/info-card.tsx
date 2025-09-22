@@ -1,5 +1,4 @@
 interface InfoCardProps {
-  title?: string;
   children?: React.ReactNode;
   className?: string;
   analysis?: string;
@@ -9,7 +8,6 @@ interface InfoCardProps {
 }
 
 export const InfoCard = ({
-  title,
   analysis,
   urgencyLevel,
   urgencyColor = "#CF8A40",
@@ -20,8 +18,6 @@ export const InfoCard = ({
     <section
       className={`bg-white border border-[#CBD5E1] rounded-md p-4 mb-6 overflow-auto ${className}`}
     >
-      {title && <div className="font-bold text-[#1A2E46] mb-2">{title}</div>}
-
       {analysis && (
         <div className="mb-2">
           <span className="font-bold text-[#1A2E46]">Análisis General:</span>
