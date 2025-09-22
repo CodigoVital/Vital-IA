@@ -18,8 +18,6 @@ export const DiagnosticoView = () => {
 
   const isMobile = useIsMobile();
 
-  // Si está mostrando el resultado, ocultar la sección principal
-
   return (
     <>
       <section

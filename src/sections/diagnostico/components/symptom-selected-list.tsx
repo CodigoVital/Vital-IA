@@ -1,6 +1,7 @@
 import CustomDialog from "@/components/custom/custom-dialog";
 import { Button } from "@/components/ui/button";
 import ResultadoView from "../view/resultado-view";
+import { cn } from "@/lib/utils";
 
 interface SymptomSelectedListProps {
   sintomasSeleccionados: string[];
@@ -32,14 +33,18 @@ export const SymptomSelectedList = ({
             className="px-4 py-2 bg-[#E6F7F6] rounded-xl flex items-center gap-2 text-[#1A2E46] text-base font-medium border border-[#B2E2E1] shadow-sm"
           >
             {sintoma}
-            <button
-              className="ml-2 text-[#2DC6C4] text-lg font-bold hover:text-[#1A2E46]"
+            <Button
+              className={cn(
+                "bg-transparent hover:bg-transparent border-none shadow-none focus:ring-0 focus:ring-offset-0",
+                `ml-2 text-[#2DC6C4] text-lg font-bold hover:text-[#1A2E46]`
+              )}
               onClick={() => eliminarSintoma(sintoma)}
               type="button"
+              variant={"default"}
               aria-label={`Eliminar ${sintoma}`}
             >
               ×
-            </button>
+            </Button>
           </div>
         ))}
       </div>
