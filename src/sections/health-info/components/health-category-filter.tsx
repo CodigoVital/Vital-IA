@@ -1,6 +1,7 @@
 import LucideIcon, { type LucideName } from "@/components/lucide-icon-name";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
+
 interface Category {
   label: string;
   value: string;
@@ -17,9 +18,13 @@ const HealthCategoryFilter = ({
   className,
 }: HealthCategoryFilterProps) => {
   return (
-    <ToggleGroup className={`flex gap-6`} type="single">
+    <ToggleGroup className="flex gap-6" type="single">
       {categories.map((c) => (
-        <ToggleGroupItem className={className} key={c.value} value={c.value}>
+        <ToggleGroupItem
+          key={c.value}
+          value={c.value}
+          className={`rounded-lg flex items-center space-x-2 px-4 py-2 ${className}`}
+        >
           <LucideIcon name={c.icon} />
           <span>{c.label}</span>
         </ToggleGroupItem>

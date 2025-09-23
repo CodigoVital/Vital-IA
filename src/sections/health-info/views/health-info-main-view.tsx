@@ -17,7 +17,7 @@ export const HealthInfoMainView = () => {
           placeholder="Escribe tu búsqueda aquí"
         />
         <HealthCategoryFilter
-          className="mt-4 bg-white border border-custom-border"
+          className="mt-4 bg-white border rounded border-custom-border"
           categories={categories}
         />
       </div>
