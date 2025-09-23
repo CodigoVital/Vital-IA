@@ -20,6 +20,7 @@ export const DiagnosisMainView = () => {
     setOpen,
     resetSymptoms,
   } = useDiagnostico();
+
   const isMobile = useIsMobile();
 
   return (
@@ -27,10 +28,13 @@ export const DiagnosisMainView = () => {
       {!isMobile && <CustomHeader title="Clasificar Enfermedad" />}
 
       <div
-        className={`w-full h-full p-5 border-none shadow-none bg-[#FCF8F3] flex flex-col gap-3  `}
+        className={`w-full h-full flex flex-col overflow-auto bg-[#FCF8F3] border-none shadow-none ${
+          isMobile ? "p-2 gap-2  " : "p-5 gap-3"
+        }`}
         aria-label="Clasificar enfermedad"
       >
         <SymptomInstructions />
+
         <SymptomCommonList
           sintomasSeleccionados={sintomasSeleccionados}
           seleccionarSintomaComun={seleccionarSintomaComun}
