@@ -3,8 +3,9 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import HealthCategoryFilter from "../components/health-category-filter";
 import { categories } from "../config/categories.config";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import HealthArticleCard from "../components/health-article-card";
+import HealthArticleGrid from "../components/health-article-grid";
+
+const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export const HealthInfoMainView = () => {
   return (
@@ -22,20 +23,7 @@ export const HealthInfoMainView = () => {
           className="mt-4 bg-white flex flex-col h-19.5  border rounded-md border-custom-border"
           categories={categories}
         />
-        <section className="mt-4 flex-1 min-h-0">
-          <ScrollArea className="w-full h-full">
-            <article className="grid grid-cols-2 gap-4 p-2 h-full">
-              <HealthArticleCard />
-              <HealthArticleCard />
-              <HealthArticleCard />
-              <HealthArticleCard />
-              <HealthArticleCard />
-              <HealthArticleCard />
-              <HealthArticleCard />
-              <HealthArticleCard />
-            </article>
-          </ScrollArea>
-        </section>
+        <HealthArticleGrid cards={cards} />
       </div>
     </>
   );
