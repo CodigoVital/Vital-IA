@@ -1,11 +1,11 @@
 import LucideIcon, { type LucideName } from "@/components/lucide-icon-name";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-
-interface Category {
+export interface Category {
   label: string;
   value: string;
   icon: LucideName;
+  color?: string;
 }
 
 interface HealthCategoryFilterProps {
@@ -25,7 +25,7 @@ const HealthCategoryFilter = ({
           value={c.value}
           className={`rounded-lg flex items-center space-x-2 px-4 py-2 ${className}`}
         >
-          <LucideIcon name={c.icon} />
+          <LucideIcon className={`${c.color}`} name={c.icon} />
           <span>{c.label}</span>
         </ToggleGroupItem>
       ))}
