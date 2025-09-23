@@ -23,7 +23,7 @@ export const categories: Category[] = [
   {
     label: "Salud Mental",
     value: "mental-health",
-    icon: "CircleCheck",
+    icon: "HeartPulse",
     color: "text-primary-custom",
   },
   {
