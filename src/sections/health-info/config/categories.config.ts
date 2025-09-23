@@ -11,14 +11,14 @@ export const categories: Category[] = [
   {
     label: "Prevención",
     value: "prevention",
-    icon: "ShieldCheck",
-    color: "text-green-500",
+    icon: "Shield",
+    color: "text-[#CF8A40]",
   },
   {
     label: "Alimentación",
     value: "nutrition",
-    icon: "Apple",
-    color: "text-red-500",
+    icon: "Building",
+    color: "text-primary-custom-text",
   },
   {
     label: "Salud Mental",
