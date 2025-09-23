@@ -4,8 +4,9 @@ import { cn } from "@/lib/utils";
 import HealthCategoryFilter from "../components/health-category-filter";
 import { categories } from "../config/categories.config";
 import HealthArticleGrid from "../components/health-article-grid";
+import { info } from "../data/health-info.mock";
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8];
+
 
 export const HealthInfoMainView = () => {
   return (
@@ -23,7 +24,7 @@ export const HealthInfoMainView = () => {
           className="mt-4 bg-white flex flex-col h-19.5  border rounded-md border-custom-border"
           categories={categories}
         />
-        <HealthArticleGrid cards={cards} />
+        <HealthArticleGrid info={info} />
       </div>
     </>
   );
