@@ -8,7 +8,7 @@ export const info: HealthInfo[] = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     icon: "mental-health",
-    img: "https://via.placeholder.com/150",
+    img: "",
   },
   {
     id: "2",
@@ -17,7 +17,7 @@ export const info: HealthInfo[] = [
     description:
       "Consejos para mantener una dieta equilibrada y saludable para todas las edades.",
     icon: "nutrition",
-    img: "https://via.placeholder.com/150",
+    img: "",
   },
   {
     id: "3",
@@ -26,7 +26,7 @@ export const info: HealthInfo[] = [
     description:
       "Recomendaciones para incorporar actividad física en tu vida diaria.",
     icon: "exercise",
-    img: "https://via.placeholder.com/150",
+    img: "",
   },
   {
     id: "4",
@@ -35,7 +35,7 @@ export const info: HealthInfo[] = [
     description:
       "Importancia de dormir bien y cómo mejorar la calidad del sueño.",
     icon: "sleep",
-    img: "https://via.placeholder.com/150",
+    img: "",
   },
   {
     id: "5",
@@ -44,7 +44,7 @@ export const info: HealthInfo[] = [
     description:
       "La importancia de realizarse chequeos médicos periódicos para prevenir enfermedades.",
     icon: "prevention",
-    img: "https://via.placeholder.com/150",
+    img: "",
   },
   {
     id: "6",
@@ -53,6 +53,6 @@ export const info: HealthInfo[] = [
     description:
       "Estrategias para reconocer y gestionar tus emociones de manera saludable.",
     icon: "emotional-wellbeing",
-    img: "https://via.placeholder.com/150",
+    img: "",
   },
 ];
