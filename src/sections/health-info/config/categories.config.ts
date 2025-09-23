@@ -17,7 +17,7 @@ export const categories: Category[] = [
   {
     label: "Alimentación",
     value: "nutrition",
-    icon: "Building",
+    icon: "Apple",
     color: "text-primary-custom-text",
   },
   {
@@ -29,7 +29,7 @@ export const categories: Category[] = [
   {
     label: "Ejercicio",
     value: "exercise",
-    icon: "CircleAlert",
+    icon: "Activity",
     color: "text-primary-custom",
   },
 ];
