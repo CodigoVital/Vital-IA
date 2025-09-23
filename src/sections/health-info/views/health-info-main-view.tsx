@@ -2,7 +2,7 @@ import { CustomHeader } from "@/components/custom/custom-header";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import HealthCategoryFilter from "../components/health-category-filter";
-import { categories } from "../data/categories.mock.";
+import { categories } from "../config/categories.config";
 
 export const HealthInfoMainView = () => {
   return (
