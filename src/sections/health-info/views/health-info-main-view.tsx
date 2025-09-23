@@ -1,11 +1,25 @@
-import { CustomHeader } from "@/components/custom/custom-header"
+import { CustomHeader } from "@/components/custom/custom-header";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import HealthCategoryFilter from "../components/health-category-filter";
+import { categories } from "../data/categories.mock.";
 
 export const HealthInfoMainView = () => {
   return (
     <>
-    <CustomHeader title="Promosion de informacion de salud"/>
+      <CustomHeader title="Promosión de información de salud" />
+      <div className="p-5">
+        <Input
+          className={cn(
+            "rounded placeholder:text-custom-placeholder",
+            `bg-white border  border-custom-border `
+          )}
+          placeholder="Escribe tu búsqueda aquí"
+        />
+        <HealthCategoryFilter className="mt-4" categories={categories} />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default HealthInfoMainView
+export default HealthInfoMainView;
