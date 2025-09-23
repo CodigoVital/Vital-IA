@@ -25,7 +25,7 @@ const HealthCategoryFilter = ({
           value={c.value}
           className={`rounded-lg flex items-center space-x-2 px-4 py-2 ${className}`}
         >
-          <LucideIcon className={`${c.color}`} name={c.icon} />
+          <LucideIcon className={`${c.color} !w-7 !h-7 font-light`} name={c.icon} />
           <span>{c.label}</span>
         </ToggleGroupItem>
       ))}

@@ -23,13 +23,13 @@ export const categories: Category[] = [
   {
     label: "Salud Mental",
     value: "mental-health",
-    icon: "Brain",
-    color: "text-blue-500",
+    icon: "CircleCheck",
+    color: "text-primary-custom",
   },
   {
     label: "Ejercicio",
     value: "exercise",
-    icon: "WeightIcon",
-    color: "text-yellow-500",
+    icon: "CircleAlert",
+    color: "text-primary-custom",
   },
 ];
