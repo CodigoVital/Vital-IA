@@ -18,7 +18,7 @@ const HealthCategoryFilter = ({
   className,
 }: HealthCategoryFilterProps) => {
   return (
-    <ToggleGroup className="flex gap-6" type="single">
+    <ToggleGroup className="flex gap-2 w-full" type="single">
       {categories.map((c) => (
         <ToggleGroupItem
           key={c.value}

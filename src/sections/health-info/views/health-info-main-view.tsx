@@ -8,7 +8,7 @@ export const HealthInfoMainView = () => {
   return (
     <>
       <CustomHeader title="Promosión de información de salud" />
-      <div className="p-5">
+      <div className="p-5 w-full">
         <Input
           className={cn(
             "rounded placeholder:text-custom-placeholder",
@@ -17,7 +17,7 @@ export const HealthInfoMainView = () => {
           placeholder="Escribe tu búsqueda aquí"
         />
         <HealthCategoryFilter
-          className="mt-4 bg-white border rounded-md border-custom-border"
+          className="mt-4 bg-white flex flex-col h-19.5  border rounded-md border-custom-border"
           categories={categories}
         />
       </div>
