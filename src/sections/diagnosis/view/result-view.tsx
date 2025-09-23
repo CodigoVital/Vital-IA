@@ -7,19 +7,25 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 const ResultView = () => {
   const isMobile = useIsMobile();
+
   return (
     <section
       className={`
-      w-full max-w-[930px]   
-      ${isMobile ? "aspect-auto px-2" : "aspect-[930/679]"}
-      flex flex-col gap-5
+        w-full flex flex-col gap-4
+        ${isMobile ? "max-h-[calc(100dvh-50px)]  px-2" : "max-w-[930px] aspect-[930/679]"}
       `}
     >
       <CustomHeader
-        className={`text-2xl font-bold text-[#1A2E46] mb-2 text-left `}
+        className="text-2xl font-bold text-[#1A2E46] mb-1 text-left"
         title="Resultado del Análisis"
       />
-      <ScrollArea className="flex-1 border bg-white border-[#CBD5E1] rounded max-h-[679px] overflow-auto">
+
+      <ScrollArea
+        className={`
+          flex-1 border bg-white border-[#CBD5E1] rounded overflow-auto
+          ${isMobile ? "max-h-[calc(100dvh-100px)]" : "max-h-[679px] "}
+        `}
+      >
         <InfoCard
           analysis="los síntomas que presentas son generales"
           urgencyColor="#CF8A40"
@@ -27,11 +33,13 @@ const ResultView = () => {
           recommendations={recommendations}
         />
       </ScrollArea>
+
       <CustomAlert
         title="¡Importante!"
-        className={`bg-[#FEE2E2] border-1 border-[#991B1B] ${
-          isMobile ? "text-sm" : ""
-        }`}
+        className={`
+          bg-[#FEE2E2] border border-[#991B1B]
+          ${isMobile ? "text-sm px-3 py-2" : "px-4 py-3"}
+        `}
         variant="warning"
         iconName="TriangleAlert"
         description="Este resultado es una simulación basada en un modelo simple y no constituye un diagnóstico médico. Para un diagnóstico preciso, consulta a un profesional de la salud."
