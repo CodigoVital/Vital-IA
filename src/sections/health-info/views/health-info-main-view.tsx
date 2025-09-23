@@ -9,7 +9,7 @@ import HealthArticleCard from "../components/health-article-card";
 export const HealthInfoMainView = () => {
   return (
     <>
-      <CustomHeader title="Promosión de información de salud" />
+      <CustomHeader title="Promoción de información de salud" />
       <div className="p-5 w-full flex flex-col h-[calc(100vh-100px)]">
         <Input
           className={cn(
