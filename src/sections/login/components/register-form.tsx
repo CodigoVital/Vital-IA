@@ -36,12 +36,6 @@ export const RegisterForm = () => {
             <Label htmlFor="password" className="text-primary-custom-text">
               Contraseña
             </Label>
-            <a
-              href="#"
-              className="ml-auto inline-block text-sm underline-offset-4 hover:underline text-primary-custom-text"
-            >
-              ¿Olvidaste tu contraseña?
-            </a>
           </div>
           <Input
             id="password"
