@@ -5,7 +5,7 @@ import { AuthCard } from "../components/auth-card";
 export const LoginView: React.FC = () => {
   return (
     <>
-      <AuthCard title="Welcome Back" description="Please login to your account">
+      <AuthCard title="Bienvenido" description="Por favor inicia sesión en tu cuenta">
         <LoginForm />
       </AuthCard>
     </>
