@@ -1,10 +1,10 @@
-import { LoginForm } from "@/sections/login/components/login-form";
+import { LoginView } from "@/sections/login/views/login-view";
 
 export const LoginPage = () => {
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">
-        <LoginForm />
+        <LoginView />
       </div>
     </div>
   );
