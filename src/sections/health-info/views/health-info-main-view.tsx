@@ -5,10 +5,15 @@ import HealthCategoryFilter from "../components/health-category-filter";
 import { categories } from "../config/categories.config";
 import HealthArticleGrid from "../components/health-article-grid";
 import { info } from "../data/health-info.mock";
-
-
+import { useState } from "react";
 
 export const HealthInfoMainView = () => {
+  const [filter, setFilter] = useState("");
+
+  const filteredInfo = info.filter((item) =>
+    item.title.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <>
       <CustomHeader title="Promoción de información de salud" />
@@ -19,12 +24,15 @@ export const HealthInfoMainView = () => {
             `bg-white border  border-custom-border `
           )}
           placeholder="Escribe tu búsqueda aquí"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
         />
+
         <HealthCategoryFilter
           className="mt-4 bg-white flex flex-col h-19.5  border rounded-md border-custom-border"
           categories={categories}
         />
-        <HealthArticleGrid info={info} />
+        <HealthArticleGrid info={filteredInfo} />
       </div>
     </>
   );
