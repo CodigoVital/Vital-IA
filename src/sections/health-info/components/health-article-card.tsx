@@ -15,12 +15,12 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
             src={info.img}
             alt={info.title}
           />
-          <h1 className="absolute bottom-1 left-2 text-white font-semibold bg-black/50 px-2 py-1 rounded">
+          <h1 className="absolute font-bold text-xl bottom-1 left-2 text-white  bg-black/50 px-2 py-1 rounded">
             {info.title}
           </h1>
         </div>
       ) : (
-        <h1 className="w-full h-32 flex items-center justify-center bg-gray-200 text-gray-500">
+        <h1 className="w-full font-bold h-32 text-xl flex items-center justify-center bg-gray-200 text-gray-500">
           {info.title}
         </h1>
       )}
