@@ -10,25 +10,25 @@ type Category = {
 export const categories: Category[] = [
   {
     label: "Prevención",
-    value: "prevention",
+    value: "Prevención",
     icon: "Shield",
     color: "text-[#CF8A40]",
   },
   {
     label: "Alimentación",
-    value: "nutrition",
+    value: "Alimentación",
     icon: "Apple",
     color: "text-primary-custom-text",
   },
   {
     label: "Salud Mental",
-    value: "mental-health",
+    value: "Salud Mental",
     icon: "HeartPulse",
     color: "text-primary-custom",
   },
   {
     label: "Ejercicio",
-    value: "exercise",
+    value: "Ejercicio",
     icon: "Activity",
     color: "text-primary-custom",
   },

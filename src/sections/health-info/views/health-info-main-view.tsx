@@ -9,9 +9,11 @@ import { useState } from "react";
 
 export const HealthInfoMainView = () => {
   const [filter, setFilter] = useState("");
+  const [category, setCategory] = useState("");
 
   const filteredInfo = info.filter((item) =>
-    item.title.toLowerCase().includes(filter.toLowerCase())
+    item.title.toLowerCase().includes(filter.toLowerCase()) &&
+    (category ? item.category === category : true)
   );
 
   return (
@@ -29,6 +31,7 @@ export const HealthInfoMainView = () => {
         />
 
         <HealthCategoryFilter
+          setCategory={setCategory}
           className="mt-4 bg-white flex flex-col h-19.5  border rounded-md border-custom-border"
           categories={categories}
         />
