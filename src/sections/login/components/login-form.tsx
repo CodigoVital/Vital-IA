@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router";
+import { Link,  useNavigate } from "react-router";
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
   return (
     <form>
       <div className="flex flex-col gap-6">
@@ -16,7 +17,6 @@ export const LoginForm = () => {
             id="email"
             type="email"
             placeholder="m@example.com"
-            required
             className={cn("rounded border-custom-border", `bg-white `)}
           />
         </div>
@@ -35,13 +35,19 @@ export const LoginForm = () => {
           <Input
             id="password"
             type="password"
-            required
             className={cn("rounded border-custom-border", `bg-white `)}
             placeholder="********"
           />
         </div>
         <div className="flex flex-col gap-3">
-          <Button type="submit" className={cn('bg-primary-custom font-light hover:bg-primary-custom/80',`w-full`)}>
+          <Button
+            onClick={() => navigate("/")}
+            type="submit"
+            className={cn(
+              "bg-primary-custom font-light hover:bg-primary-custom/80",
+              `w-full`
+            )}
+          >
             Iniciar sesión
           </Button>
         </div>
