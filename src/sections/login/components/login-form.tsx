@@ -8,7 +8,7 @@ export const LoginForm = () => {
   const navigate = useNavigate();
   return (
     <form>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         <div className="grid gap-3">
           <Label htmlFor="email" className="text-primary-custom-text">
             Correo
@@ -39,6 +39,9 @@ export const LoginForm = () => {
             placeholder="********"
           />
         </div>
+        <p className="text-xs text-center text-[#991B1B] ">
+          Correo o contraseña erróneos
+        </p>
         <div className="flex flex-col gap-3">
           <Button
             onClick={() => navigate("/")}
