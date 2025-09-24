@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import type { HealthInfo } from "../types/info";
+import { Link } from "react-router";
 
 interface HealthArticleCardProps {
   info: HealthInfo;
@@ -47,9 +48,12 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
         </div>
 
         <div className="mt-2">
-          <a href="#" className="text-primary-custom text-sm font-medium">
+          <Link
+            to={`${info.id}`}
+            className="text-primary-custom text-sm font-medium"
+          >
             Leer más..
-          </a>
+          </Link>
         </div>
       </div>
     </Card>
