@@ -11,11 +11,15 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
       {info.img ? (
         <div className="relative w-full h-32 rounded-t-md overflow-hidden">
           <img
-            className="w-full  h-32 object-cover"
+            className="w-full h-32 object-cover"
             src={info.img}
             alt={info.title}
           />
-          <h1 className="absolute font-bold text-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white px-2 py-1 rounded text-center w-full">
+          <div className="absolute inset-0 bg-black/30" /> 
+          <h1
+            className="absolute font-bold text-xl top-1/2 left-1/2 
+                 -translate-x-1/2 -translate-y-1/2 text-white text-center w-full"
+          >
             {info.title}
           </h1>
         </div>
