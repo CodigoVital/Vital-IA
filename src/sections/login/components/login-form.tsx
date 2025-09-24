@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { Link,  useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -25,12 +25,12 @@ export const LoginForm = () => {
             <Label htmlFor="password" className="text-primary-custom-text">
               Contraseña
             </Label>
-            <a
-              href="#"
+            <Link
+              to="/recovery"
               className="ml-auto inline-block text-sm underline-offset-4 hover:underline text-primary-custom-text"
             >
               ¿Olvidaste tu contraseña?
-            </a>
+            </Link>
           </div>
           <Input
             id="password"

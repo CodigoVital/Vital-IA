@@ -9,6 +9,7 @@ export const AppRouter = () => {
       <Routes>
         <Route index path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/recovery" element={<>recovery</>} />
         <Route path="/*" element={<DashboardRoutes />} />
       </Routes>
     </>
