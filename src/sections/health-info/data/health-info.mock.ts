@@ -6,53 +6,74 @@ export const info: HealthInfo[] = [
     category: "Salud Mental",
     title: "Manejo del Estrés",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Aprende técnicas efectivas para reducir el estrés diario y mejorar tu bienestar emocional. Practica la respiración profunda y la meditación para mantener la calma.",
     icon: "mental-health",
     img: "",
   },
   {
     id: "2",
-    category: "Nutrición",
+    category: "Salud Mental",
+    title: "Importancia del Sueño",
+    description:
+      "Dormir bien es fundamental para la salud mental. Establece una rutina nocturna y evita dispositivos electrónicos antes de dormir.",
+    icon: "mental-health",
+    img: "",
+  },
+
+  {
+    id: "3",
+    category: "Alimentación",
     title: "Alimentación Balanceada",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Incluye frutas, verduras, proteínas y carbohidratos complejos en tu dieta diaria para mantenerte saludable y con energía.",
     icon: "nutrition",
     img: "",
   },
   {
-    id: "3",
+    id: "4",
+    category: "Alimentación",
+    title: "Hidratación",
+    description:
+      "Beber suficiente agua es esencial para el funcionamiento óptimo del cuerpo. Intenta consumir al menos 8 vasos de agua al día.",
+    icon: "nutrition",
+    img: "",
+  },
+
+  {
+    id: "5",
     category: "Ejercicio",
     title: "Rutinas de Ejercicio",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Realiza al menos 30 minutos de actividad física moderada la mayoría de los días de la semana para fortalecer tu cuerpo.",
     icon: "exercise",
     img: "",
   },
   {
-    id: "4",
-    category: "Sueño",
-    title: "Higiene del Sueño",
+    id: "6",
+    category: "Ejercicio",
+    title: "Ejercicios de Estiramiento",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    icon: "sleep",
+      "El estiramiento regular ayuda a prevenir lesiones y mejora la flexibilidad. Dedica unos minutos antes y después de entrenar.",
+    icon: "exercise",
     img: "",
   },
+
   {
-    id: "5",
+    id: "7",
     category: "Prevención",
     title: "Chequeos Médicos",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Realiza exámenes médicos periódicos para detectar posibles problemas de salud a tiempo y recibir el tratamiento adecuado.",
     icon: "prevention",
     img: "",
   },
   {
-    id: "6",
-    category: "Bienestar Emocional",
-    title: "Gestión de Emociones",
+    id: "8",
+    category: "Prevención",
+    title: "Vacunación",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    icon: "emotional-wellbeing",
+      "Mantén tu esquema de vacunación al día para protegerte contra enfermedades prevenibles y cuidar tu salud.",
+    icon: "prevention",
     img: "",
   },
 ];
