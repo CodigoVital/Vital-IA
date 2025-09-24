@@ -45,18 +45,15 @@ export const RegisterForm = () => {
           />
         </div>
         <div className="flex flex-col items-start">
-          <ul>
-            <li className="text-xs  text-primary-custom-text ">
-              Más de 8 caracteres.
-            </li>
-            <li className="text-xs text-primary-custom-text ">
+          <ul className="list-disc pl-5">
+            <li className="text-xs text-[#16A34A]">Más de 8 caracteres.</li>
+            <li className="text-xs text-[#991B1B]">
               Al menos una letra mayúscula.
             </li>
-            <li className="text-xs  text-primary-custom-text ">
-              Al menos una minúscula.
-            </li>
+            <li className="text-xs text-[#991B1B]">Al menos una minúscula.</li>
           </ul>
         </div>
+
         <div className="flex flex-col gap-3">
           <Button
             onClick={() => navigate("/")}
