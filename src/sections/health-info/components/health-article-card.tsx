@@ -15,7 +15,7 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
             src={info.img}
             alt={info.title}
           />
-          <h1 className="absolute  font-bold text-xl bottom-1 left-2 text-white bg-black/50 px-2 py-1 rounded">
+          <h1 className="absolute font-bold text-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white px-2 py-1 rounded text-center w-full">
             {info.title}
           </h1>
         </div>
@@ -28,7 +28,9 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
       <div className="flex flex-col justify-between flex-1 p-3">
         <div className="flex flex-col gap-2">
           <span className="text-sm text-accent-custom">{info.category}</span>
-          <h1 className="font-semibold text-primary-custom-text">{info.title}</h1>
+          <h1 className="font-semibold text-primary-custom-text">
+            {info.title}
+          </h1>
           <p className="text-sm text-primary-custom-text line-clamp-3">
             {info.description}
           </p>

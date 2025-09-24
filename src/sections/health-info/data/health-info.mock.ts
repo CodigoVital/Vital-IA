@@ -8,7 +8,7 @@ export const info: HealthInfo[] = [
     description:
       "Aprende técnicas efectivas para reducir el estrés diario y mejorar tu bienestar emocional. Practica la respiración profunda y la meditación para mantener la calma.",
     icon: "mental-health",
-    img: "",
+    img: `./../../../assets/img/estres.webp`,
   },
   {
     id: "2",
