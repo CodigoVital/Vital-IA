@@ -23,7 +23,7 @@ export const AuthCard: React.FC<AuthCardProps> = ({
 }) => {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="bg-sidebar">
+      <Card className={cn('rounded-md',`bg-sidebar`)}>
         <CardHeader>
           <CardTitle className="text-center text-2xl text-primary-custom-text mb-2">
             {title}

@@ -41,7 +41,7 @@ export const LoginForm = () => {
           />
         </div>
         <div className="flex flex-col gap-3">
-          <Button type="submit" className={cn('bg-primary-custom font-light',`w-full`)}>
+          <Button type="submit" className={cn('bg-primary-custom font-light hover:bg-primary-custom/80',`w-full`)}>
             Iniciar sesión
           </Button>
         </div>
