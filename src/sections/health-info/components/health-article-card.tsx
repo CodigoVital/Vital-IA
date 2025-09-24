@@ -35,7 +35,7 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
         </div>
 
         <div className="mt-2">
-          <a href="#" className="text-blue-600 text-sm font-medium">
+          <a href="#" className="text-primary-custom text-sm font-medium">
             Leer más..
           </a>
         </div>
