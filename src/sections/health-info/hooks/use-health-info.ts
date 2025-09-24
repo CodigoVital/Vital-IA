@@ -3,7 +3,7 @@ import { info } from "../data/health-info.mock";
 
 const useHealthInfo = () => {
   const [filter, setFilter] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Prevención");
 
   const filteredInfo = info.filter(
     (item) =>

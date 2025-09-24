@@ -65,7 +65,7 @@ export const info: HealthInfo[] = [
     description:
       "Realiza exámenes médicos periódicos para detectar posibles problemas de salud a tiempo y recibir el tratamiento adecuado.",
     icon: "prevention",
-    img: "",
+    img: "./../../../assets/img/prevencion.webp",
   },
   {
     id: "8",
@@ -74,6 +74,6 @@ export const info: HealthInfo[] = [
     description:
       "Mantén tu esquema de vacunación al día para protegerte contra enfermedades prevenibles y cuidar tu salud.",
     icon: "prevention",
-    img: "",
+    img: "./../../../assets/img/vacunacion.jpg",
   },
 ];
