@@ -14,11 +14,18 @@ export const HealthInfoMainView = () => {
     <>
       {!isMobile && <CustomHeader title="Promoción de información de salud" />}
 
-      <div className="p-5 w-full flex flex-col h-[calc(100vh-100px)]">
+      <div
+        className={cn(
+          "w-full flex flex-col",
+          "p-3 sm:p-5",
+          isMobile ? "h-full" : "h-[calc(100vh-100px)]"
+        )}
+      >
         <Input
           className={cn(
             "rounded placeholder:text-custom-placeholder",
-            `bg-white border  border-custom-border `
+            "bg-white border border-custom-border",
+            "text-sm sm:text-base"
           )}
           placeholder="Escribe tu búsqueda aquí"
           value={filter}
@@ -27,7 +34,10 @@ export const HealthInfoMainView = () => {
 
         <HealthCategoryFilter
           setCategory={setCategory}
-          className="mt-4 bg-white flex flex-col h-19.5  border rounded-md border-custom-border"
+          className={cn(
+            "mt-3 sm:mt-4 bg-white flex flex-col border rounded-md border-custom-border",
+            "h-auto"
+          )}
           categories={categories}
         />
         <HealthArticleGrid info={filteredInfo} />
