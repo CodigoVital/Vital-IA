@@ -6,7 +6,7 @@ export const info: HealthInfo[] = [
     category: "Salud Mental",
     title: "Manejo del Estrés",
     description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     icon: "mental-health",
     img: "",
   },
@@ -15,7 +15,7 @@ export const info: HealthInfo[] = [
     category: "Nutrición",
     title: "Alimentación Balanceada",
     description:
-      "Consejos para mantener una dieta equilibrada y saludable para todas las edades.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     icon: "nutrition",
     img: "",
   },
@@ -24,7 +24,7 @@ export const info: HealthInfo[] = [
     category: "Ejercicio",
     title: "Rutinas de Ejercicio",
     description:
-      "Recomendaciones para incorporar actividad física en tu vida diaria.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     icon: "exercise",
     img: "",
   },
@@ -33,7 +33,7 @@ export const info: HealthInfo[] = [
     category: "Sueño",
     title: "Higiene del Sueño",
     description:
-      "Importancia de dormir bien y cómo mejorar la calidad del sueño.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     icon: "sleep",
     img: "",
   },
@@ -42,7 +42,7 @@ export const info: HealthInfo[] = [
     category: "Prevención",
     title: "Chequeos Médicos",
     description:
-      "La importancia de realizarse chequeos médicos periódicos para prevenir enfermedades.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     icon: "prevention",
     img: "",
   },
@@ -51,7 +51,7 @@ export const info: HealthInfo[] = [
     category: "Bienestar Emocional",
     title: "Gestión de Emociones",
     description:
-      "Estrategias para reconocer y gestionar tus emociones de manera saludable.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     icon: "emotional-wellbeing",
     img: "",
   },
