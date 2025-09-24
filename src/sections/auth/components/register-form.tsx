@@ -44,7 +44,7 @@ export const RegisterForm = () => {
             placeholder="********"
           />
         </div>
-        <div className="flex flex-col items-start">
+        {/* <div className="flex flex-col items-start">
           <ul className="list-disc pl-5">
             <li className="text-xs text-[#16A34A]">Más de 8 caracteres.</li>
             <li className="text-xs text-[#991B1B]">
@@ -52,7 +52,7 @@ export const RegisterForm = () => {
             </li>
             <li className="text-xs text-[#991B1B]">Al menos una minúscula.</li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-3">
           <Button
@@ -68,16 +68,6 @@ export const RegisterForm = () => {
           </Button>
         </div>
       </div>
-
-      {/* <div className="mt-4 text-center text-sm text-primary-custom-text ">
-        ¿No tienes una cuenta?{" "}
-        <Link
-          to="#"
-          className="underline underline-offset-4 text-primary-custom-text"
-        >
-          Regístrate
-        </Link>
-      </div> */}
     </form>
   );
 };

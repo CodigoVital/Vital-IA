@@ -39,9 +39,9 @@ export const LoginForm = () => {
             placeholder="********"
           />
         </div>
-        <p className="text-xs text-center text-[#991B1B] ">
+        {/* <p className="text-xs text-center text-[#991B1B] ">
           Correo o contraseña erróneos
-        </p>
+        </p> */}
         <div className="flex flex-col gap-3">
           <Button
             onClick={() => navigate("/")}
