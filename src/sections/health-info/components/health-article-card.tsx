@@ -15,7 +15,7 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
             src={info.img}
             alt={info.title}
           />
-          <div className="absolute inset-0 bg-black/30" /> 
+          <div className="absolute inset-0 bg-black/30" />
           <h1
             className="absolute font-bold text-xl top-1/2 left-1/2 
                  -translate-x-1/2 -translate-y-1/2 text-white text-center w-full"
@@ -24,7 +24,13 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
           </h1>
         </div>
       ) : (
-        <h1 className="w-full font-bold h-32 text-xl flex items-center justify-center bg-gray-200 text-gray-500 rounded-t-md">
+        <h1
+          className={`w-full font-bold h-32 text-xl flex items-center justify-center rounded-t-md text-white ${
+            ["bg-primary-custom", "bg-accent-custom", "bg-info"][
+              Math.floor(Math.random() * 3)
+            ]
+          }`}
+        >
           {info.title}
         </h1>
       )}

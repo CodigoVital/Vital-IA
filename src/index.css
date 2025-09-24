@@ -45,6 +45,7 @@
   --color-custom-border: var(--custom-border);
   --color-custom-placeholder: var(--custom-placeholder);
   --color-accent-custom: var(--accent-custom);
+  --color-info: var(--info);
 }
 
 :root {
@@ -89,6 +90,7 @@
   --custom-border: #cbd5e1;
   --custom-placeholder: #a0aec0;
   --accent-custom: #cf8a40;
+  --info: #43c9e8;
 }
 
 .dark {
