@@ -31,7 +31,7 @@ export const RecoveryForm = () => {
             `w-full`
           )}
         >
-          Iniciar sesión
+          Continuar
         </Button>
       </div>
     </form>

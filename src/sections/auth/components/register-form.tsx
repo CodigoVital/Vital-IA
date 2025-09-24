@@ -58,12 +58,13 @@ export const RegisterForm = () => {
           <Button
             onClick={() => navigate("/")}
             type="submit"
+            disabled
             className={cn(
               "bg-primary-custom font-light hover:bg-primary-custom/80",
               `w-full`
             )}
           >
-            Iniciar sesión
+            Registrarse
           </Button>
         </div>
       </div>
