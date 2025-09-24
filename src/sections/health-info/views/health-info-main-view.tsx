@@ -4,18 +4,10 @@ import { cn } from "@/lib/utils";
 import HealthCategoryFilter from "../components/health-category-filter";
 import { categories } from "../config/categories.config";
 import HealthArticleGrid from "../components/health-article-grid";
-import { info } from "../data/health-info.mock";
-import { useState } from "react";
+import useHealthInfo from "../hooks/use-health-info";
 
 export const HealthInfoMainView = () => {
-  const [filter, setFilter] = useState("");
-  const [category, setCategory] = useState("");
-
-  const filteredInfo = info.filter((item) =>
-    item.title.toLowerCase().includes(filter.toLowerCase()) &&
-    (category ? item.category === category : true)
-  );
-
+  const { filter, setFilter, setCategory, filteredInfo } = useHealthInfo();
   return (
     <>
       <CustomHeader title="Promoción de información de salud" />
