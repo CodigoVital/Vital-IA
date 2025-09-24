@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
   return (
     <form>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         <div className="grid gap-3">
           <Label htmlFor="username" className="text-primary-custom-text">
             Nombre de usuario
@@ -44,6 +44,19 @@ export const RegisterForm = () => {
             placeholder="********"
           />
         </div>
+        <div className="flex flex-col items-start">
+          <ul>
+            <li className="text-xs  text-primary-custom-text ">
+              Más de 8 caracteres.
+            </li>
+            <li className="text-xs text-primary-custom-text ">
+              Al menos una letra mayúscula.
+            </li>
+            <li className="text-xs  text-primary-custom-text ">
+              Al menos una minúscula.
+            </li>
+          </ul>
+        </div>
         <div className="flex flex-col gap-3">
           <Button
             onClick={() => navigate("/")}
@@ -57,6 +70,7 @@ export const RegisterForm = () => {
           </Button>
         </div>
       </div>
+
       {/* <div className="mt-4 text-center text-sm text-primary-custom-text ">
         ¿No tienes una cuenta?{" "}
         <Link
