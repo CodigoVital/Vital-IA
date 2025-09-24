@@ -5,12 +5,15 @@ import HealthCategoryFilter from "../components/health-category-filter";
 import { categories } from "../config/categories.config";
 import HealthArticleGrid from "../components/health-article-grid";
 import useHealthInfo from "../hooks/use-health-info";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const HealthInfoMainView = () => {
   const { filter, setFilter, setCategory, filteredInfo } = useHealthInfo();
+  const isMobile = useIsMobile();
   return (
     <>
-      <CustomHeader title="Promoción de información de salud" />
+      {!isMobile && <CustomHeader title="Promoción de información de salud" />}
+
       <div className="p-5 w-full flex flex-col h-[calc(100vh-100px)]">
         <Input
           className={cn(
