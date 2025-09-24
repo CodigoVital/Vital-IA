@@ -17,7 +17,7 @@ export const info: HealthInfo[] = [
     description:
       "Dormir bien es fundamental para la salud mental. Establece una rutina nocturna y evita dispositivos electrónicos antes de dormir.",
     icon: "mental-health",
-    img: "",
+    img: "./../../../assets/img/sueno.jpg",
   },
 
   {
@@ -36,7 +36,7 @@ export const info: HealthInfo[] = [
     description:
       "Beber suficiente agua es esencial para el funcionamiento óptimo del cuerpo. Intenta consumir al menos 8 vasos de agua al día.",
     icon: "nutrition",
-    img: "",
+    img: "./../../../assets/img/alimentacion.jpg",
   },
 
   {
