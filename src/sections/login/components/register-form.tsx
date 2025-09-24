@@ -2,13 +2,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { Link,  useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
   return (
     <form>
       <div className="flex flex-col gap-6">
+        <div className="grid gap-3">
+          <Label htmlFor="username" className="text-primary-custom-text">
+            Nombre de usuario
+          </Label>
+          <Input
+            id="username"
+            type="text"
+            placeholder="Alex Talavera"
+            className={cn("rounded border-custom-border", `bg-white `)}
+          />
+        </div>
         <div className="grid gap-3">
           <Label htmlFor="email" className="text-primary-custom-text">
             Correo
@@ -52,7 +63,7 @@ export const RegisterForm = () => {
           </Button>
         </div>
       </div>
-      <div className="mt-4 text-center text-sm text-primary-custom-text ">
+      {/* <div className="mt-4 text-center text-sm text-primary-custom-text ">
         ¿No tienes una cuenta?{" "}
         <Link
           to="#"
@@ -60,7 +71,7 @@ export const RegisterForm = () => {
         >
           Regístrate
         </Link>
-      </div>
+      </div> */}
     </form>
   );
 };
