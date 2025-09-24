@@ -23,7 +23,7 @@ export const AuthCard: React.FC<AuthCardProps> = ({
 }) => {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
+      <Card className="bg-sidebar">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           {description && <CardDescription>{description}</CardDescription>}
