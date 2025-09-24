@@ -25,6 +25,7 @@ export const RecoveryForm = () => {
 
         <Button
           type="submit"
+          disabled
           className={cn(
             "bg-primary-custom font-light hover:bg-primary-custom/80",
             `w-full`
