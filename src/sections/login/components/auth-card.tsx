@@ -25,8 +25,14 @@ export const AuthCard: React.FC<AuthCardProps> = ({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="bg-sidebar">
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
-          {description && <CardDescription>{description}</CardDescription>}
+          <CardTitle className="text-center text-2xl text-primary-custom-text mb-2">
+            {title}
+          </CardTitle>
+          {description && (
+            <CardDescription className="text-center text-primary-custom-text">
+              {description}
+            </CardDescription>
+          )}
         </CardHeader>
         <CardContent>{children}</CardContent>
       </Card>
