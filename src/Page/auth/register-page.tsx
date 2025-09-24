@@ -1,5 +1,4 @@
-
-import RegisterView from "@/sections/login/views/register-view";
+import RegisterView from "@/sections/auth/views/register-view";
 
 export const RegisterPage = () => {
   return (

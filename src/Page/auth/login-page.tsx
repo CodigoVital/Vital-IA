@@ -1,4 +1,5 @@
-import { LoginView } from "@/sections/login/views/login-view";
+import { LoginView } from "@/sections/auth/views/login-view";
+
 
 export const LoginPage = () => {
   return (

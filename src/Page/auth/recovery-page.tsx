@@ -1,4 +1,5 @@
-import { RecoveryView } from "@/sections/login/views/recovery-view";
+import { RecoveryView } from "@/sections/auth/views/recovery-view";
+
 
 export const RecoveryPage = () => {
   return (
