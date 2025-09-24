@@ -27,7 +27,7 @@ export const info: HealthInfo[] = [
     description:
       "Incluye frutas, verduras, proteínas y carbohidratos complejos en tu dieta diaria para mantenerte saludable y con energía.",
     icon: "nutrition",
-    img: "",
+    img: "./../../../assets/img/alimentacion.jpg",
   },
   {
     id: "4",
@@ -36,7 +36,7 @@ export const info: HealthInfo[] = [
     description:
       "Beber suficiente agua es esencial para el funcionamiento óptimo del cuerpo. Intenta consumir al menos 8 vasos de agua al día.",
     icon: "nutrition",
-    img: "./../../../assets/img/alimentacion.jpg",
+    img: "./../../../assets/img/hidratacion.jpg",
   },
 
   {
