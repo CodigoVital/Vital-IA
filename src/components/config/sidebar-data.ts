@@ -1,4 +1,11 @@
-import {  BookOpenText, Bot, CalendarDays, CircleCheck,  MapPin, Truck } from "lucide-react";
+import {
+  BookOpenText,
+  Bot,
+  CalendarDays,
+  CircleCheck,
+  MapPin,
+  Truck,
+} from "lucide-react";
 
 export const data = {
   user: {
@@ -22,7 +29,7 @@ export const data = {
     },
     {
       title: "Información de Salud",
-      url: "#",
+      url: "/health-info",
       icon: BookOpenText,
       isActive: false,
     },

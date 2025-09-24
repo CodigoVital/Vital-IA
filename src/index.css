@@ -42,6 +42,10 @@
   --color-custom-background: var(--customBackground);
   --color-primary-custom: var(--primary-custom);
   --color-primary-custom-text: var(--primary-custom-text);
+  --color-custom-border: var(--custom-border);
+  --color-custom-placeholder: var(--custom-placeholder);
+  --color-accent-custom: var(--accent-custom);
+  --color-info: var(--info);
 }
 
 :root {
@@ -83,6 +87,10 @@
   --customBackground: #24b0ba;
   --primary-custom: #24b0ba;
   --primary-custom-text: #2e4a70;
+  --custom-border: #cbd5e1;
+  --custom-placeholder: #a0aec0;
+  --accent-custom: #cf8a40;
+  --info: #43c9e8;
 }
 
 .dark {
