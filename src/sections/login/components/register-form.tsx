@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { Link,  useNavigate } from "react-router";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const navigate = useNavigate();
   return (
     <form>
@@ -55,7 +55,7 @@ export const LoginForm = () => {
       <div className="mt-4 text-center text-sm text-primary-custom-text ">
         ¿No tienes una cuenta?{" "}
         <Link
-          to="/register"
+          to="#"
           className="underline underline-offset-4 text-primary-custom-text"
         >
           Regístrate
