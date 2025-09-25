@@ -1,6 +1,10 @@
+import { useEffect } from "react";
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
 
 const useChatTour = () => {
-  return {}
-}
+  useEffect(() => {}, []);
+  return {};
+};
 
-export default useChatTour
+export default useChatTour;
