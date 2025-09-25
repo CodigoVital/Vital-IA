@@ -16,7 +16,7 @@ const HealthCategoryFilter = ({
 }: HealthCategoryFilterProps) => {
   const isMobile = useIsMobile();
   return (
-    <ToggleGroup className="flex gap-2 w-full" type="single">
+    <ToggleGroup id="health-category" className="flex gap-2 w-full" type="single">
       {categories.map((c) => (
         <ToggleGroupItem
           key={c.value}

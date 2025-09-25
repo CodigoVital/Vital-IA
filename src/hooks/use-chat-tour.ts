@@ -1,10 +1,12 @@
 import { useEffect, useMemo } from "react";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
+import { useNavigate } from "react-router";
 
 const TOUR_KEY = "vital-ia-chat-tour-shown";
 
 const useChatTour = () => {
+  const navigate = useNavigate();
   const driverObj = useMemo(
     () =>
       driver({
@@ -51,6 +53,69 @@ const useChatTour = () => {
               title: "Escribir",
               description: "algo aqui.",
               side: "top",
+            },
+          },
+
+          //diagnositoco
+          {
+            element: "#diagnosis",
+            popover: {
+              title: "Diagnostico",
+              description: "informacion de esta seccion.",
+              onNextClick: () => {
+                navigate("/diagnostico");
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 100);
+              },
+            },
+          },
+          {
+            element: "#common-symptom",
+            popover: {
+              title: "Sintomas comunes",
+              description: "algo aqui.",
+            },
+          },
+          {
+            element: "#description-symptom",
+            popover: {
+              title: "Descripcion del sintoma",
+              description: "algo aqui.",
+            },
+          },
+          {
+            element: "#health-info",
+            popover: {
+              title: "Informacion de salud",
+              description: "informacion de esta seccion.",
+              onNextClick: () => {
+                navigate("/health-info");
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 100);
+              },
+            },
+          },
+          {
+            element: "#health-info-search",
+            popover: {
+              title: "Buscar información de salud",
+              description: "informacion de esta seccion.",
+            },
+          },
+          {
+            element: "#health-category",
+            popover: {
+              title: "Categorías de salud",
+              description: "informacion de esta seccion.",
+            },
+          },
+          {
+            element: "#health-article-grid",
+            popover: {
+              title: "Artículos de salud",
+              description: "informacion de esta seccion.",
             },
           },
         ],
