@@ -4,13 +4,12 @@ import "driver.js/dist/driver.css";
 
 const useChatTour = () => {
   const driverObj = driver({
-    showProgress: true,
+    showProgress: false,
     animate: true,
     allowClose: false,
     overlayColor: "rgba(0,0,0,0.6)",
     stagePadding: 8,
-    popoverClass:
-      "bg-primary-custom text-white rounded-xl p-4 shadow-lg max-w-xs",
+    popoverClass: "driverjs-theme",
     steps: [
       {
         popover: {
