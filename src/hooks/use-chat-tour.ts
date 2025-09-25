@@ -2,6 +2,8 @@ import { useEffect, useMemo } from "react";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 
+const TOUR_KEY = "vital-ia-chat-tour-shown";
+
 const useChatTour = () => {
   const driverObj = useMemo(
     () =>
@@ -57,7 +59,11 @@ const useChatTour = () => {
   );
 
   useEffect(() => {
-    driverObj.drive();
+    const hasShownTour = localStorage.getItem(TOUR_KEY);
+    if (!hasShownTour) {
+      driverObj.drive();
+      localStorage.setItem(TOUR_KEY, "true");
+    }
   }, [driverObj]);
 };
 
