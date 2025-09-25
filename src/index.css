@@ -175,13 +175,15 @@
   border: none;
   cursor: pointer;
 }
-.driver-popover.driverjs-theme button:focus {
-  background: none;
-}
-.driver-popover.driverjs-theme button:active {
-  background: none;
-}
 
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: var(--primary-custom-text);
+  background: none;
+  border: none;
+}
+.driver-popover.driverjs-theme .driver-popover-close-btn:hover {
+  background: none;
+}
 .driver-popover.driverjs-theme
   .driver-popover-arrow-side-left.driver-popover-arrow {
   border-left-color: white;

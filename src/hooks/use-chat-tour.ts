@@ -6,9 +6,7 @@ const useChatTour = () => {
   const driverObj = useMemo(
     () =>
       driver({
-        showProgress: false,
         animate: true,
-        allowClose: false,
         overlayColor: "rgba(0,0,0,0.6)",
         stagePadding: 8,
         popoverClass: "driverjs-theme",
