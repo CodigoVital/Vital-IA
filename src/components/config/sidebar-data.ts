@@ -16,6 +16,7 @@ export const data = {
 
   navMain: [
     {
+      id: "chatbot",
       title: "Chat Inteligente",
       url: "/chat",
       icon: Bot,

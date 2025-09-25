@@ -19,6 +19,38 @@ const useChatTour = () => {
           side: "top",
         },
       },
+      {
+        element: "#chatbot",
+        popover: {
+          title: "Chatbot",
+          description: "Este es el área principal del chatbot.",
+          side: "top",
+        },
+      },
+      {
+        element: "#chat-window",
+        popover: {
+          title: "Mensajes",
+          description: "Aquí ves la conversación con la IA.",
+          side: "top",
+        },
+      },
+      {
+        element: "#chat-suggest",
+        popover: {
+          title: "Sugerencias",
+          description: "Toca un botón para usar preguntas rápidas.",
+          side: "top",
+        },
+      },
+      {
+        element: "#chat-input",
+        popover: {
+          title: "Escribir",
+          description: "Aquí envías tus propias preguntas.",
+          side: "top",
+        },
+      },
     ],
   });
   driverObj.drive();

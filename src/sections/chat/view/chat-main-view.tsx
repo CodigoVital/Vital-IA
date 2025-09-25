@@ -11,16 +11,16 @@ export const ChatMainView = () => {
   return (
     <section className="flex flex-col h-full">
       {!isMobile && (
-        <div className="shrink-0">
+        <div id="chat-header" className="shrink-0">
           <CustomHeader title="Vital-IA" />
         </div>
       )}
 
-      <div className="flex-1 p-0 overflow-hidden">
+      <div id="chat-window" className="flex-1 p-0 overflow-hidden">
         <ChatWindow />
       </div>
 
-      <div className="shrink-0">
+      <div id="chat-suggest" className="shrink-0">
         <ChatSuggest />
         <ChatInput />
       </div>
