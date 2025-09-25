@@ -15,7 +15,7 @@ const useChatTour = () => {
         popover: {
           title: "Bienvenido a Vital-IA",
           description:
-            "Aquí podrás conversar con el asistente y explorar sus funciones.",
+            "algun mensaje de bienvenida o introducción al tour.",
           side: "top",
         },
       },
@@ -23,7 +23,7 @@ const useChatTour = () => {
         element: "#chatbot",
         popover: {
           title: "Chatbot",
-          description: "Este es el área principal del chatbot.",
+          description: "informacion de esta seccion.",
           side: "top",
         },
       },
@@ -31,7 +31,7 @@ const useChatTour = () => {
         element: "#chat-window",
         popover: {
           title: "Mensajes",
-          description: "Aquí ves la conversación con la IA.",
+          description: "algo aqui.",
           side: "top",
         },
       },
@@ -39,7 +39,7 @@ const useChatTour = () => {
         element: "#chat-suggest",
         popover: {
           title: "Sugerencias",
-          description: "Toca un botón para usar preguntas rápidas.",
+          description: "algo aqui.",
           side: "top",
         },
       },
@@ -47,7 +47,7 @@ const useChatTour = () => {
         element: "#chat-input",
         popover: {
           title: "Escribir",
-          description: "Aquí envías tus propias preguntas.",
+          description: "algo aqui.",
           side: "top",
         },
       },

@@ -22,7 +22,7 @@ export const ChatMainView = () => {
 
       <div id="chat-suggest" className="shrink-0">
         <ChatSuggest />
-        <ChatInput />
+        <ChatInput  />
       </div>
     </section>
   );
