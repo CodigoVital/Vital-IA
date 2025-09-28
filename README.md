@@ -1,6 +1,8 @@
-# CODIGO-VITAL
+# EQUIPO CODIGO-VITAL
 
-Reto: Asistente Virtual para la salud - Aficionado
+## Reto
+
+Asistente Virtual para la salud - Aficionado
 Descripción: Desarrollar una plataforma virtual que permitirá interactuar con un modelo de inteligencia artificial para brindar información sobre recomendaciones para el cuidado de la salud, hábitos de alimentación, rutinas de ejercicio, consultas de atención, recomendaciones para vacunación, signos de alarma de enfermedades e información de la unidad de salud más cercana. Debe incorporar mecanismos de búsqueda interactiva basados en diferentes criterios para ofrecer respuestas eficientes al usuario.
 
 ### Funcionalidades

@@ -18,8 +18,7 @@ const useChatTour = () => {
           {
             popover: {
               title: "Bienvenido a Vital-IA",
-              description:
-                "algun mensaje de bienvenida o introducción al tour.",
+              description: "Vital-IA tu asistente de salud",
               side: "top",
             },
           },
@@ -27,7 +26,7 @@ const useChatTour = () => {
             element: "#chatbot",
             popover: {
               title: "Chatbot",
-              description: "informacion de esta seccion.",
+              description: "Resuelve tus dudas usando lenguaje natural",
               side: "top",
             },
           },
@@ -35,7 +34,7 @@ const useChatTour = () => {
             element: "#chat-window",
             popover: {
               title: "Mensajes",
-              description: "algo aqui.",
+              description: "El bot repondera tus mensajes de forma clara.",
               side: "top",
             },
           },
@@ -43,15 +42,8 @@ const useChatTour = () => {
             element: "#chat-suggest",
             popover: {
               title: "Sugerencias",
-              description: "algo aqui.",
-              side: "top",
-            },
-          },
-          {
-            element: "#chat-input",
-            popover: {
-              title: "Escribir",
-              description: "algo aqui.",
+              description:
+                "Selecciona preguntas de forma rapida con nuestras sugerencias",
               side: "top",
             },
           },
@@ -60,8 +52,9 @@ const useChatTour = () => {
           {
             element: "#diagnosis",
             popover: {
-              title: "Diagnostico",
-              description: "informacion de esta seccion.",
+              title: "Preclasificacion ",
+              description:
+                "Obten informacion de forma rapida con solo describir tus sintomas",
               onNextClick: () => {
                 navigate("/diagnostico");
                 setTimeout(() => {
@@ -70,20 +63,7 @@ const useChatTour = () => {
               },
             },
           },
-          {
-            element: "#common-symptom",
-            popover: {
-              title: "Sintomas comunes",
-              description: "algo aqui.",
-            },
-          },
-          {
-            element: "#description-symptom",
-            popover: {
-              title: "Descripcion del sintoma",
-              description: "algo aqui.",
-            },
-          },
+
           {
             element: "#health-info",
             popover: {
@@ -101,25 +81,27 @@ const useChatTour = () => {
             element: "#health-info-search",
             popover: {
               title: "Buscar información de salud",
-              description: "informacion de esta seccion.",
+              description: "Obten informacion actualizada sobre salud.",
             },
           },
           {
             element: "#health-category",
             popover: {
               title: "Categorías de salud",
-              description: "informacion de esta seccion.",
+              description: "Filtra por categorias.",
             },
           },
+
           {
-            element: "#health-article-grid",
+            element: "#health-article-card",
             popover: {
               title: "Artículos de salud",
-              description: "informacion de esta seccion.",
+              description: "Obtene un resumen rapido del articulo",
             },
           },
         ],
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
