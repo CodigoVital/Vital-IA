@@ -1,5 +1,11 @@
-
-export const sampleMessages = [
+interface Message {
+  id: number;
+  message: string;
+  isOwnMessage: boolean;
+  userName: string;
+  timestamp: string;
+}
+export const sampleMessages: Message[] = [
   // {
   //   id: 1,
   //   message:
