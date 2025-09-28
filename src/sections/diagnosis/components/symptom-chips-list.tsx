@@ -14,16 +14,15 @@ const SymptomChipsList = ({
   const isMobile = useIsMobile();
   return (
     <div className="w-full">
-      <ScrollArea className="w-full min-h-18 p-3 rounded-lg custom-dashed-border">
+      <ScrollArea className="w-full min-h-18 p-3 rounded-lg  custom-dashed-border">
         {sintomasSeleccionados.length === 0 ? (
-          <div
-            className={`text-gray-400 text-sm font-normal w-full text-center py-2 ${
-              isMobile ? "text-xs" : ""
-            }`}
-          >
+            <div
+            className={`flex items-center justify-center w-full h-full py-2 text-gray-400 font-normal text-center ${isMobile ? "text-xs" : "text-sm"}`}
+           
+            >
             Toca las sugerencias o escribe tus síntomas para realizar el
             análisis
-          </div>
+            </div>
         ) : (
           <div className="flex flex-row gap-2 items-center whitespace-nowrap">
             {sintomasSeleccionados.map((sintoma) => (
