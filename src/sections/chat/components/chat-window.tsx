@@ -1,12 +1,14 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ChatMessage from "./chat-message";
 import { sampleMessages } from "../view/data/message.mock";
+import Logo from "@/components/logo";
 
 export const ChatWindow = () => {
   return (
     <>
       <ScrollArea className="h-full px-4 ">
         <div className="space-y-2 pt-4">
+          {!sampleMessages.length && <Logo className="w-68.5 h-57.5" />}
           {sampleMessages.map((msg) => (
             <ChatMessage
               key={msg.id}
