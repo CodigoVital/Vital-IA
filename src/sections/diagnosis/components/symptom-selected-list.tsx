@@ -6,6 +6,7 @@ import LucideIcon from "@/components/lucide-icon-name";
 import SymptomInput from "./symptom-input";
 import SymptomChipsList from "./symptom-chips-list";
 import ResultView from "../view/result-view";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface SymptomSelectedListProps {
   sintomasSeleccionados: string[];
@@ -30,13 +31,14 @@ export const SymptomSelectedList = ({
   setOpen,
   resetSymptoms,
 }: SymptomSelectedListProps) => {
+  const isMobile = useIsMobile();
   return (
     <section
       id="description-symptom"
       className="flex flex-col gap-2 "
       aria-label="Síntomas personalizados"
     >
-      <div className="flex justify-between items-center">
+      <div className={`flex justify-between items-center`}>
         <h3 className="text-[#1A2E46] text-base font-bold mb-1">
           Describe otros síntomas
         </h3>
@@ -48,7 +50,13 @@ export const SymptomSelectedList = ({
             "bg-transparent text-primary-custom-text"
           )}
         >
-          Limpiar selección <LucideIcon name={`RotateCw`} />
+          {isMobile ? (
+            <LucideIcon name={`Trash`} />
+          ) : (
+            <>
+              Limpiar selección <LucideIcon name={`RotateCw`} />
+            </>
+          )}
         </Button>
       </div>
       <SymptomChipsList

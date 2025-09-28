@@ -27,7 +27,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       >
         {open && (
           <div className="flex flex-row items-center gap-2 transition-all duration-200 opacity-100 translate-x-0">
-            <Logo bgColor="#24B0BA" strokeColor="white" />
+            <Logo  width={34} height={34} />
             <h1 className="font-bold whitespace-nowrap text-primary-custom-text">
               Vital-IA
             </h1>
