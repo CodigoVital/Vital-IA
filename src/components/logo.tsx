@@ -4,7 +4,11 @@ type LogoProps = {
   className?: string;
 };
 
-export const Logo = ({ size = 25, fillColor, className }: LogoProps) => {
+export const Logo = ({
+  size = 25,
+  fillColor = "#cf8a40",
+  className,
+}: LogoProps) => {
   const originalWidth = 512;
   const originalHeight = 429;
   const height = (size / originalWidth) * originalHeight;
