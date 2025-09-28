@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface SymptomChipsListProps {
   sintomasSeleccionados: string[];
@@ -10,22 +11,27 @@ const SymptomChipsList = ({
   sintomasSeleccionados,
   eliminarSintoma,
 }: SymptomChipsListProps) => {
+  const isMobile = useIsMobile();
   return (
     <div className="w-full">
-      <ScrollArea className="w-full whitespace-nowrap rounded-md">
-        <div className="flex items-center gap-2 p-3 min-h-14 rounded-lg custom-dashed-border ">
-          {sintomasSeleccionados.length === 0 ? (
-            <div className="text-gray-400 text-sm font-normal w-full text-center py-2">
-              Toca las sugerencias o escribe tus síntomas para realizar el
-              análisis
-            </div>
-          ) : (
-            sintomasSeleccionados.map((sintoma) => (
+      <ScrollArea className="w-full min-h-14 p-3 rounded-lg custom-dashed-border">
+        {sintomasSeleccionados.length === 0 ? (
+          <div
+            className={`text-gray-400 text-sm font-normal w-full text-center py-2 ${
+              isMobile ? "text-xs" : ""
+            }`}
+          >
+            Toca las sugerencias o escribe tus síntomas para realizar el
+            análisis
+          </div>
+        ) : (
+          <div className="flex flex-row gap-2 items-center whitespace-nowrap">
+            {sintomasSeleccionados.map((sintoma) => (
               <div
                 key={sintoma}
                 className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 
-                       text-[#1A2E46] text-base font-medium border border-[#B2E2E1] 
-                       shadow-sm whitespace-nowrap flex-shrink-0"
+                     text-[#1A2E46] text-base font-medium border border-[#B2E2E1] 
+                     shadow-sm flex-shrink-0"
               >
                 {sintoma}
                 <Button
@@ -39,9 +45,9 @@ const SymptomChipsList = ({
                   ×
                 </Button>
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
     </div>
