@@ -14,7 +14,7 @@ const SymptomChipsList = ({
   const isMobile = useIsMobile();
   return (
     <div className="w-full">
-      <ScrollArea className="w-full min-h-14 p-3 rounded-lg custom-dashed-border">
+      <ScrollArea className="w-full min-h-18 p-3 rounded-lg custom-dashed-border">
         {sintomasSeleccionados.length === 0 ? (
           <div
             className={`text-gray-400 text-sm font-normal w-full text-center py-2 ${
