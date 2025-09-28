@@ -10,11 +10,13 @@ import {
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router";
+import useChatTour from "@/hooks/use-chat-tour";
 
 export function NavMain({
   items,
 }: {
   items: {
+    id?: string;
     title: string;
     url: string;
     icon?: LucideIcon;
@@ -27,7 +29,7 @@ export function NavMain({
 }) {
   const pathname = useLocation().pathname;
   const { open, toggleSidebar, openMobile } = useSidebar();
-
+  useChatTour();
   return (
     <SidebarGroup>
       <SidebarMenu>
@@ -44,6 +46,7 @@ export function NavMain({
               <SidebarMenuItem>
                 <Link to={item.url} className="w-full">
                   <SidebarMenuButton
+                    id={item.id}
                     onClick={() => {
                       if (openMobile) toggleSidebar();
                     }}

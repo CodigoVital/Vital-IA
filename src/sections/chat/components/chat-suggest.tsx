@@ -4,7 +4,10 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const ChatSuggest = () => {
   return (
-    <section className="text-black p-4 border-y-1 border-[#CBD5E1] flex flex-col gap-4">
+    <section
+      id="chat-suggest"
+      className="text-black p-4 border-y-1 border-[#CBD5E1] flex flex-col gap-4"
+    >
       <h2 className="text-sm">O prueba una de estas opciones:</h2>
       <div className="overflow-hidden max-w-full">
         <ScrollArea className="w-full">

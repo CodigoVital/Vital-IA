@@ -2,9 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 
 export const LoginForm = () => {
+  const [email, setEmail] = useState("alextalavera@gmail.com");
+  const [password, setPassword] = useState("********");
   const navigate = useNavigate();
   return (
     <form>
@@ -16,6 +19,8 @@ export const LoginForm = () => {
           <Input
             id="email"
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="m@example.com"
             className={cn("rounded border-custom-border", `bg-white `)}
           />
@@ -35,6 +40,8 @@ export const LoginForm = () => {
           <Input
             id="password"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className={cn("rounded border-custom-border", `bg-white `)}
             placeholder="********"
           />
