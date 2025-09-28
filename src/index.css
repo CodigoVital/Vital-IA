@@ -47,6 +47,7 @@
   --color-custom-placeholder: var(--custom-placeholder);
   --color-accent-custom: var(--accent-custom);
   --color-info: var(--info);
+  --color-border-secondary: var(--border-secondary);
 }
 
 :root {
@@ -94,6 +95,7 @@
   --custom-placeholder: #a0aec0;
   --accent-custom: #cf8a40;
   --info: #43c9e8;
+  --border-secondary: #cbd5e1;
 }
 
 .dark {
@@ -137,6 +139,41 @@
   body {
     font-family: "Inter", Helvetica, ui-sans-serif, system-ui;
     @apply bg-background text-foreground;
+  }
+
+  .custom-dashed-border {
+    border: 2px dashed transparent;
+    background-image: repeating-linear-gradient(
+        0deg,
+        #d1d5db 0px,
+        #d1d5db 12px,
+        transparent 12px,
+        transparent 24px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        #d1d5db 0px,
+        #d1d5db 12px,
+        transparent 12px,
+        transparent 24px
+      ),
+      repeating-linear-gradient(
+        180deg,
+        #d1d5db 0px,
+        #d1d5db 12px,
+        transparent 12px,
+        transparent 24px
+      ),
+      repeating-linear-gradient(
+        270deg,
+        #d1d5db 0px,
+        #d1d5db 12px,
+        transparent 12px,
+        transparent 24px
+      );
+    background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: repeat-y, repeat-x, repeat-y, repeat-x;
   }
 }
 

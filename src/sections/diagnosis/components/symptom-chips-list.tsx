@@ -12,28 +12,35 @@ const SymptomChipsList = ({
 }: SymptomChipsListProps) => {
   return (
     <div className="w-full">
-      <ScrollArea className="w-full whitespace-nowrap rounded-md  ">
-        <div className="flex items-center gap-2 min-w-max pb-3 ">
-          {sintomasSeleccionados.map((sintoma) => (
-            <div
-              key={sintoma}
-              className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 
-                     text-[#1A2E46] text-base font-medium border border-[#B2E2E1] 
-                     shadow-sm whitespace-nowrap flex-shrink-0"
-            >
-              {sintoma}
-              <Button
-                size="sm"
-                variant="ghost"
-                className="h-6 w-6 p-0 text-[#2DC6C4] hover:text-[#1A2E46] hover:bg-transparent"
-                onClick={() => eliminarSintoma(sintoma)}
-                type="button"
-                aria-label={`Eliminar ${sintoma}`}
-              >
-                ×
-              </Button>
+      <ScrollArea className="w-full whitespace-nowrap rounded-md">
+        <div className="flex items-center gap-2 p-3 min-h-14 rounded-lg custom-dashed-border ">
+          {sintomasSeleccionados.length === 0 ? (
+            <div className="text-gray-400 text-sm font-normal w-full text-center py-2">
+              Toca las sugerencias o escribe tus síntomas para realizar el
+              análisis
             </div>
-          ))}
+          ) : (
+            sintomasSeleccionados.map((sintoma) => (
+              <div
+                key={sintoma}
+                className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 
+                       text-[#1A2E46] text-base font-medium border border-[#B2E2E1] 
+                       shadow-sm whitespace-nowrap flex-shrink-0"
+              >
+                {sintoma}
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="h-6 w-6 p-0 text-[#2DC6C4] hover:text-[#1A2E46] hover:bg-transparent"
+                  onClick={() => eliminarSintoma(sintoma)}
+                  type="button"
+                  aria-label={`Eliminar ${sintoma}`}
+                >
+                  ×
+                </Button>
+              </div>
+            ))
+          )}
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
