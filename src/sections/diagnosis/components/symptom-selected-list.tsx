@@ -32,6 +32,7 @@ export const SymptomSelectedList = ({
 }: SymptomSelectedListProps) => {
   return (
     <section
+      id="description-symptom"
       className="flex flex-col gap-2 "
       aria-label="Síntomas personalizados"
     >

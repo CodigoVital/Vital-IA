@@ -8,7 +8,7 @@ interface HealthArticleGridProps {
 
 const HealthArticleGrid = ({ info }: HealthArticleGridProps) => {
   return (
-    <section className="mt-4 flex-1 min-h-0">
+    <section id="health-article-grid" className="mt-4 flex-1 min-h-0">
       <ScrollArea className="w-full h-full">
       <article className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
         {info.map((c) => (

@@ -22,6 +22,7 @@ export const HealthInfoMainView = () => {
         )}
       >
         <Input
+        id="health-info-search"
           className={cn(
             "rounded placeholder:text-custom-placeholder",
             "bg-white border border-custom-border",
