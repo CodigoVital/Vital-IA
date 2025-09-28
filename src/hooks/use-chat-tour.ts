@@ -10,6 +10,8 @@ const useChatTour = () => {
   const driverObj = useMemo(
     () =>
       driver({
+        nextBtnText: "Siguiente",
+        prevBtnText: "Anterior",
         animate: true,
         overlayColor: "rgba(0,0,0,0.6)",
         stagePadding: 8,
@@ -107,7 +109,7 @@ const useChatTour = () => {
 
   useEffect(() => {
     const hasShownTour = localStorage.getItem(TOUR_KEY);
-    if (!hasShownTour) {
+    if (hasShownTour) {
       driverObj.drive();
       localStorage.setItem(TOUR_KEY, "true");
     }
