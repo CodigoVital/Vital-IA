@@ -10,9 +10,14 @@ const ResultView = () => {
 
   return (
     <section
+      id="diagnosis-results"
       className={`
         w-full flex flex-col gap-4
-        ${isMobile ? "max-h-[calc(100dvh-50px)]  px-2" : "max-w-[930px] aspect-[930/679]"}
+        ${
+          isMobile
+            ? "max-h-[calc(100dvh-50px)]  px-2"
+            : "max-w-[930px] aspect-[930/679]"
+        }
       `}
     >
       <CustomHeader

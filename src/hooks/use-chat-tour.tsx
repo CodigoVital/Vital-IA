@@ -3,7 +3,6 @@ import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { useNavigate } from "react-router";
 
-
 const TOUR_KEY = "vital-ia-chat-tour-shown";
 
 const useChatTour = () => {
@@ -12,6 +11,7 @@ const useChatTour = () => {
     () =>
       driver({
         nextBtnText: "Siguiente",
+        // allowClose: false,
         prevBtnText: "Anterior",
         animate: true,
         overlayColor: "rgba(0,0,0,0.6)",
@@ -68,6 +68,73 @@ const useChatTour = () => {
           },
 
           {
+            element: "#diagnosis-common-symptoms",
+            popover: {
+              title: "Sintomas comunes",
+              description: "Selecciona un sintoma de la lista.",
+            },
+          },
+          {
+            element: "#add-custom-symptom",
+            popover: {
+              title: "Agrega sintomas",
+              onNextClick: () => {
+                const symptonBtn = document.querySelector(
+                  "#add-custom-symptom"
+                ) as HTMLButtonElement;
+                symptonBtn?.click();
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 200);
+              },
+            },
+          },
+          {
+            element: "#diagnosis-symptom-chips",
+            popover: {
+              title: "Sintomas seleccionados",
+              description: "Revisa y elimina sintomas seleccionados.",
+            },
+          },
+          {
+            element: "#diagnosis-symptom-input",
+            popover: {
+              title: "Descripcion de sintomas",
+              description: "Describe tus sintomas en detalle.",
+            },
+          },
+          {
+            element: "#diagnosis-submit-button",
+            popover: {
+              title: "Iniciar diagnostico",
+              description:
+                "Inicia el diagnostico con los sintomas seleccionados.",
+              onNextClick: () => {
+                const submitBtn = document.querySelector(
+                  "#diagnosis-submit-button"
+                ) as HTMLButtonElement;
+                submitBtn?.click();
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 200);
+              },
+            },
+          },
+          {
+            element: "#diagnosis-results",
+            popover: {
+              title: "Resultados",
+              description: "Revisa los resultados del diagnóstico.",
+              onNextClick: () => {
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 100);
+                navigate("/health-info");
+              },
+            },
+          },
+
+          {
             element: "#health-info",
             popover: {
               title: "Informacion de salud",
@@ -110,7 +177,7 @@ const useChatTour = () => {
 
   useEffect(() => {
     const hasShownTour = localStorage.getItem(TOUR_KEY);
-    if (!hasShownTour) {
+    if (hasShownTour) {
       driverObj.drive();
       localStorage.setItem(TOUR_KEY, "true");
     }

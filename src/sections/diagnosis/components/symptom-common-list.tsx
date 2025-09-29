@@ -14,7 +14,7 @@ export const SymptomCommonList = ({
 }: SymptomCommonListProps) => {
   return (
     <section
-      id="common-symptom"
+      id="diagnosis-common-symptoms"
       className="flex   flex-col gap-2"
       aria-label="Síntomas comunes"
     >
@@ -25,6 +25,7 @@ export const SymptomCommonList = ({
         <div className="flex gap-2 flex-nowrap p-2">
           {sintomasComunes.map((sintoma) => (
             <Button
+            id="add-custom-symptom"
               key={sintoma}
               className={cn(
                 `px-4 py-2 rounded-xl border border-[#E0E0E0] bg-[#F5F7FA] text-[#1A2E46] text-base font-medium shadow-sm transition-colors duration-150 ${
