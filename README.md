@@ -1,106 +1,105 @@
-# EQUIPO CODIGO-VITAL
+#  EQUIPO CÓDIGO-VITAL: Vital-IA
+## Asistente Virtual para la Salud 
+---
 
-## Reto
+##  Propósito y Reto del Proyecto
 
-Asistente Virtual para la salud - Aficionado
-Descripción: Desarrollar una plataforma virtual que permitirá interactuar con un modelo de inteligencia artificial para brindar información sobre recomendaciones para el cuidado de la salud, hábitos de alimentación, rutinas de ejercicio, consultas de atención, recomendaciones para vacunación, signos de alarma de enfermedades e información de la unidad de salud más cercana. Debe incorporar mecanismos de búsqueda interactiva basados en diferentes criterios para ofrecer respuestas eficientes al usuario.
+**Vital-IA** es la respuesta al reto de desarrollar una plataforma virtual interactiva que sirva como un compañero digital enfocado en el bienestar emocional y físico para quienes exploran su salud desde un enfoque aficionado y proactivo.
 
-### Funcionalidades
+### El Chatbot Vital-IA
+Construido con **React** y el sistema de componentes **shadcn/ui (radix UI)**, Vital-IA es una **interfaz conversacional empática**. Su objetivo principal es ofrecer una experiencia:
+* **Es una Plataforma que permite:** La transformación  al acompañamiento mediante un chat.
+* **Tecnología  Robusta:** Asegurando consultas, exploración y seguimiento eficientes.
 
-1. Preclasificación de enfermedades.
+---
 
-2. Promoción de información de salud.
+##  Funcionalidades Clave
 
-3. Calendario de jornadas y ferias de salud.
+Las funcionalidades combinan el soporte emocional con la información práctica de salud, utilizando un **chatbot inteligente** y mecanismos de búsqueda interactiva.
 
-4. Programación de clínicas móviles.
+### Funcionalidades Centrales de la Plataforma (Reto Principal)
 
-5. Visualización de unidad de salud más cercana.
+1.  **Ayuda al Usuario (Chatbot Inteligente):** Diálogo interactivo con un **enfoque asertivo, sereno y profesional**.
+2.  **Preclasificación de Enfermedades:** Orientación inicial basada en signos y síntomas de alarma.
+3.  **Promoción de Información de Salud:** Recomendaciones sobre hábitos de alimentación, rutinas de ejercicio y vacunación.
+4.  **Logística Sanitaria:**
+    * Visualización de la unidad de salud más cercana.
+    * Calendario de jornadas y ferias de salud.
+    * Programación de clínicas móviles.
 
-6. Ayuda al usuario a través de un chatbot inteligente.
+---
 
-------------------------------------------------------
-## Vital-IA 
+##  Stack Tecnológico
 
-"Vital-IA" es un compañero digital diseñado para apoyar el bienestar emocional y físico de personas que exploran la salud desde un enfoque aficionado. Este chatbot combina empatía, interacción personalizada y rituales simbólicos para acompañar procesos de autocuidado.
+El proyecto está construido sobre una arquitectura moderna y escalable, priorizando la accesibilidad (*accesible UI*).
 
-## Propósito
+### Tecnologías Clave
 
-Vital-IA es una interfaz conversacional empática construida con React y shadcn/ui radix UI. Su propósito es ofrecer una experiencia simbólica, emocionalmente resonante y técnicamente robusta para  consultas, exploración y acompañamiento.
+| Tecnología | Paquetes Principales | Propósito |
+| :--- | :--- | :--- |
+| **Frontend Base** | `react`, `react-dom`, `react-router` | Interfaz de usuario dinámica. |
+| **Build Tool** | `vite`, `@vitejs/plugin-react-swc` | Compilación y rendimiento. |
+| **Gestión de Estado**| `@reduxjs/toolkit`, `react-redux` | Control centralizado del estado. |
+| **Diseño/UI** | `tailwindcss`, `tailwind-merge`, `radix-ui` | Estilo utilitario y componentes accesibles. |
+| **Tipado** | `typescript` | Mantenibilidad y seguridad del código. |
 
-## Funcionalidades
+### Dependencias Específicas
 
-- Diálogo interactivo con enfoque empático.
-- Recomendaciones personalizadas según estado emocional.
-- Registro simbólico de hábitos y emociones.
-- Integración con proyectos como Vital-IA para seguimiento de mejoras.
+| Tipo | Paquetes Principales |
+| :--- | :--- |
+| **UI Accesible** | `Shadcn-UI/React` |
+| **Estilo Dinámico** | `clsx`, `tailwind-merge` |
+| **Iconografía y Animación** | `lucide-react`, `tw-animate-css` |
+| **Linting** | `eslint`, `typescript-eslint` |
 
-## Herramientas necesarias para instalación de Vital-IA
+---
 
-- Node.js (>=18)
-- npm o pnpm o yarn
+##  Configuración Técnica
 
-## Tecnologías utilizadas
+Para levantar este proyecto en local sigue estos pasos:
 
-Tecnología   | Paquetes principales
--------------|---------------------------------------------
-React        | react, react-dom, react-router
-Vite         | vite, @vitejs/plugin-react-swc
-TypeScript   | typescript
-Redux        | @reduxjs/toolkit, react-redux
-CSS Utility  | tailwindcss, tailwind-merge
-UI System    | radix-ui (avatar, dialog, tooltip, etc.)
-Iconografía  | lucide-react
-Linting      | eslint, typescript-eslint
-Animaciones  | tw-animate-css
+### Requisitos Previos
+
+* **Node.js** ($\ge18$)
+* `npm`, `pnpm` o `yarn`
+
+### Pasos de Instalación
+
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/CodigoVital/Vital-IA.git
+    ```
+   
+2.  **Accede al directorio del proyecto:**
+    ```bash
+    cd Vital-IA
+    ```
+3. **Variables de entorno**
+   ```bash
+   cp .env.template .env
+    ```
+   en el nuevo archivo que se creo se debe establecer las variables según el valor que corresponda
 
 
-## Dependencias Clave
+4.  **Instala las dependencias (ej. usando npm):**
+    ```bash
+    npm install
+    ```
 
-Tipo               | Paquetes principales
--------------------|--------------------------------------
-Estilo dinámico    | clsx, tailwind-merge
-Animaciones        | tw-animate-css
-Iconografía        | lucide-react
-UI accesible       | @radix-ui/react-\*
-Gestión de estado  | @reduxjs/toolkit, react-redux
-Enrutamiento       | react-router
+5.  **Inicia la aplicación en modo desarrollo:**
+    ```bash
+    npm run dev
+    ```
 
-## Dependencias de Desarrollo
+---
 
-Tipo               | Paquetes principales
--------------------|--------------------------------------
-Compilador React   | @vitejs/plugin-react-swc
-Linting            | eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh
-Integración TS     | typescript, typescript-eslint, @types/react, @types/react-dom, @types/node
-Globals            | globals
+##  Filosofía del Proyecto
+Humanizando la Tecnología en Salud
 
-## Configuración Técnica
+Vital-IA es más que un repositorio de código; es una manifestación de nuestra creencia en la **tecnología como medio del bienestar personal**.
 
-1. Clona el repositorio:
+1.  **Enfoque en la Empatía Digital:** Buscamos que el diálogo sea un **acompañamiento genuino**, donde el usuario se sienta comprendido, impulsando la **importancia** de los hábitos de autocuidado.
+2.  **Diseño Centrado en la Persona (DCP):** Priorizamos la **accesibilidad** y la **intuición** en la interfaz, usando sistemas como **Shadcn/UI** para garantizar que cualquier persona, independientemente de su nivel de conocimiento tecnológico, pueda interactuar con la plataforma de manera efectiva y cómoda.
+3.  **Nuestro usuario estándar:** Reconocemos y empoderamos a las personas que toman un rol **proactivo** en su salud. Vital-IA no busca reemplazar al profesional médico, sino ser un compañero de exploración, apoyo y referencia para las consultas iniciales y la promoción de la prevención.
 
-  ```bash
-  git clone https://github.com/tu-usuario/vital-ia.git
-  ```
-
-2. Accede al directorio del proyecto:
-
-  ```bash
-  cd vital-ia
-  ```
-
-3. Instala las dependencias usando npm:
-
-  ```bash
-  npm install
-  ```
-
-4. Inicia la aplicación en modo desarrollo:
-
-  ```bash
-  npm run dev
-  ```
-
-## Filosofía del Proyecto
-
-Vital-IA no es solo una interfaz. Es un espacio donde la tecnología se humaniza, la conversación se transforma en acompañamiento, y cada componente respira con intención.
+**En resumen:** Vital-IA busca que la **tecnología se humanice**, que la conversación se transforme en un **soporte emocional**, y que cada componente en el código respire con la intención de **mejorar la calidad de vida** del usuario.
