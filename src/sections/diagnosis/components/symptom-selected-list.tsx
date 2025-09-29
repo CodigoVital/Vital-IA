@@ -69,6 +69,8 @@ export const SymptomSelectedList = ({
         agregarSintoma={agregarSintoma}
       />
       <Button
+        disabled={sintomasSeleccionados.length === 0}
+        id="diagnosis-submit-button"
         onClick={analizarSintomas}
         className="mt-6 mx-auto p-5.5 bg-primary-custom rounded-md text-white font-thin  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
       >

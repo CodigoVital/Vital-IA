@@ -27,6 +27,7 @@ const SymptomChipsList = ({
           <div className="flex flex-row gap-2 items-center whitespace-nowrap">
             {sintomasSeleccionados.map((sintoma) => (
               <div
+              id="diagnosis-symptom-chips"
                 key={sintoma}
                 className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 
                      text-[#1A2E46] text-base font-medium border border-[#B2E2E1] 
