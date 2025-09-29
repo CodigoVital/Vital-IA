@@ -184,7 +184,7 @@ const useChatTour = () => {
 
   useEffect(() => {
     const hasShownTour = localStorage.getItem(TOUR_KEY);
-    if (hasShownTour) {
+    if (!hasShownTour) {
       driverObj.drive();
       localStorage.setItem(TOUR_KEY, "true");
     }
