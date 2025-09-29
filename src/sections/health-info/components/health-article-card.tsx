@@ -8,7 +8,10 @@ interface HealthArticleCardProps {
 
 const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
   return (
-    <Card id="health-article-card" className="w-full z-10 h-full flex gap-0 p-0 flex-col bg-white border border-custom-border rounded-md">
+    <Card
+      id="health-article-card"
+      className="w-full z-10 h-full flex gap-0 p-0 flex-col bg-white border border-custom-border rounded-md"
+    >
       {info.img ? (
         <div className="relative w-full h-32 rounded-t-md overflow-hidden">
           <img
@@ -49,7 +52,7 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
 
         <div className="mt-2">
           <Link
-          id="health-article-read-more"
+            id="health-article-read"
             to={`${info.id}`}
             className="text-primary-custom text-sm font-medium"
           >

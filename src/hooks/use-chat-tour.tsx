@@ -169,6 +169,13 @@ const useChatTour = () => {
               description: "Obtene un resumen rapido del articulo",
             },
           },
+          {
+            element:'#health-article-read',
+            popover: {
+              title: "Leer artículo",
+              description: "Lee el artículo completo.",
+            },
+          }
         ],
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
