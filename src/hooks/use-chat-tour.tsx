@@ -3,6 +3,7 @@ import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { useNavigate } from "react-router";
 
+
 const TOUR_KEY = "vital-ia-chat-tour-shown";
 
 const useChatTour = () => {
@@ -70,7 +71,7 @@ const useChatTour = () => {
             element: "#health-info",
             popover: {
               title: "Informacion de salud",
-              description: "informacion de esta seccion.",
+              description: "busca y filtra información de salud.",
               onNextClick: () => {
                 navigate("/health-info");
                 setTimeout(() => {
@@ -109,7 +110,7 @@ const useChatTour = () => {
 
   useEffect(() => {
     const hasShownTour = localStorage.getItem(TOUR_KEY);
-    if (hasShownTour) {
+    if (!hasShownTour) {
       driverObj.drive();
       localStorage.setItem(TOUR_KEY, "true");
     }

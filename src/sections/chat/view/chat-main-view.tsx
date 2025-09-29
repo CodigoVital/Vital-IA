@@ -3,7 +3,8 @@ import ChatInput from "../components/chat-input";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ChatWindow } from "../components/chat-window";
 import ChatSuggest from "../components/chat-suggest";
-import useChatTour from "../../../hooks/use-chat-tour";
+import useChatTour from "@/hooks/use-chat-tour";
+
 
 export const ChatMainView = () => {
   const isMobile = useIsMobile();
