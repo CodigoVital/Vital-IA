@@ -10,6 +10,9 @@ const useChatTour = () => {
   const driverObj = useMemo(
     () =>
       driver({
+        nextBtnText: "Siguiente",
+        // allowClose: false,
+        prevBtnText: "Anterior",
         animate: true,
         overlayColor: "rgba(0,0,0,0.6)",
         stagePadding: 8,
@@ -65,10 +68,77 @@ const useChatTour = () => {
           },
 
           {
+            element: "#diagnosis-common-symptoms",
+            popover: {
+              title: "Sintomas comunes",
+              description: "Selecciona un sintoma de la lista.",
+            },
+          },
+          {
+            element: "#add-custom-symptom",
+            popover: {
+              title: "Agrega sintomas",
+              onNextClick: () => {
+                const symptonBtn = document.querySelector(
+                  "#add-custom-symptom"
+                ) as HTMLButtonElement;
+                symptonBtn?.click();
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 200);
+              },
+            },
+          },
+          {
+            element: "#diagnosis-symptom-chips",
+            popover: {
+              title: "Sintomas seleccionados",
+              description: "Revisa y elimina sintomas seleccionados.",
+            },
+          },
+          {
+            element: "#diagnosis-symptom-input",
+            popover: {
+              title: "Descripcion de sintomas",
+              description: "Describe tus sintomas en detalle.",
+            },
+          },
+          {
+            element: "#diagnosis-submit-button",
+            popover: {
+              title: "Iniciar diagnostico",
+              description:
+                "Inicia el diagnostico con los sintomas seleccionados.",
+              onNextClick: () => {
+                const submitBtn = document.querySelector(
+                  "#diagnosis-submit-button"
+                ) as HTMLButtonElement;
+                submitBtn?.click();
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 200);
+              },
+            },
+          },
+          {
+            element: "#diagnosis-results",
+            popover: {
+              title: "Resultados",
+              description: "Revisa los resultados del diagnóstico.",
+              onNextClick: () => {
+                setTimeout(() => {
+                  driverObj.moveNext();
+                }, 100);
+                navigate("/health-info");
+              },
+            },
+          },
+
+          {
             element: "#health-info",
             popover: {
               title: "Informacion de salud",
-              description: "informacion de esta seccion.",
+              description: "busca y filtra información de salud.",
               onNextClick: () => {
                 navigate("/health-info");
                 setTimeout(() => {
@@ -99,6 +169,13 @@ const useChatTour = () => {
               description: "Obtene un resumen rapido del articulo",
             },
           },
+          {
+            element:'#health-article-read',
+            popover: {
+              title: "Leer artículo",
+              description: "Lee el artículo completo.",
+            },
+          }
         ],
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
