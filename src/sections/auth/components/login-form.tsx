@@ -31,7 +31,7 @@ export const LoginForm = () => {
               Contraseña
             </Label>
             <Link
-              to="/recovery"
+              to="recovery"
               className="ml-auto inline-block text-sm underline-offset-4 hover:underline text-primary-custom-text"
             >
               ¿Olvidaste tu contraseña?
@@ -65,7 +65,7 @@ export const LoginForm = () => {
       <div className="mt-4 text-center text-sm text-primary-custom-text ">
         ¿No tienes una cuenta?{" "}
         <Link
-          to="/register"
+          to="register"
           className="underline underline-offset-4 text-primary-custom-text"
         >
           Regístrate
