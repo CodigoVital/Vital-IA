@@ -3,12 +3,12 @@ import { Outlet } from "react-router";
 
 const AuthLayout = () => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col w-full">
       <AuthHeader />
-      <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <main className="flex-1 flex items-center justify-center w-full">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 
