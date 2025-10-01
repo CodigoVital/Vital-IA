@@ -39,7 +39,7 @@ export default function ChatMessage({
           "max-w-[326px]  bg-[#F0F2F2] rounded px-4 py-3 text-sm leading-relaxed"
         )}
       >
-        <p className="text-pretty">{message}</p>
+        <p className="text-primary-custom-text font-lato f">{message}</p>
         {timestamp && (
           <span className="text-xs opacity-70 mt-1 block">{timestamp}</span>
         )}
