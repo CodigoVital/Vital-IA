@@ -18,7 +18,11 @@ const ChatMessage = ({
   pending = false,
 }: ChatMessageProps) => {
   const userInitial = userName.charAt(0).toUpperCase();
-  const { displayText } = useTextAnimation({ message, pending });
+  const { displayText } = useTextAnimation({
+    message,
+    pending,
+    animate: !isOwnMessage, 
+  });
 
   return (
     <div
