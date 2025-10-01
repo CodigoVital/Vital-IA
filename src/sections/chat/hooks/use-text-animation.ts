@@ -6,7 +6,11 @@ interface UseTextAnimationProps {
   animate?: boolean;
 }
 
-const useTextAnimation = ({ message, pending, animate = false }: UseTextAnimationProps) => {
+const useTextAnimation = ({
+  message,
+  pending,
+  animate = false,
+}: UseTextAnimationProps) => {
   const [displayText, setDisplayText] = useState("");
   const safeMessage = message ?? "";
 
@@ -17,13 +21,26 @@ const useTextAnimation = ({ message, pending, animate = false }: UseTextAnimatio
     }
 
     setDisplayText("");
-    let i = 0;
+    const lines = safeMessage.split("\n"); 
+    let lineIndex = 0;
+    let charIndex = 0;
+    let currentText = "";
+
     const interval = setInterval(() => {
-      if (i < safeMessage.length) {
-        setDisplayText(safeMessage.substring(0, i + 1)); 
-        i++;
-      } else {
+      if (lineIndex >= lines.length) {
         clearInterval(interval);
+        return;
+      }
+
+      const line = lines[lineIndex];
+      currentText += line.charAt(charIndex);
+      setDisplayText(currentText);
+
+      charIndex++;
+      if (charIndex >= line.length) {
+        currentText += "\n"; 
+        charIndex = 0;
+        lineIndex++;
       }
     }, 20);
 
