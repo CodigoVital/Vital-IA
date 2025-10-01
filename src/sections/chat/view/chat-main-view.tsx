@@ -13,7 +13,7 @@ export const ChatMainView = () => {
     <section className="flex flex-col h-full">
       {!isMobile && (
         <div id="chat-header" className="shrink-0">
-          <CustomHeader title="Vital-IA" />
+          <CustomHeader title=" Asistente Vital-IA" />
         </div>
       )}
 
