@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
-
+import useTextAnimation from "../hooks/use-text-animation";
 
 interface ChatMessageProps {
   message: string | undefined;
@@ -18,6 +18,7 @@ const ChatMessage = ({
   pending = false,
 }: ChatMessageProps) => {
   const userInitial = userName.charAt(0).toUpperCase();
+  const { displayText } = useTextAnimation({ message, pending });
 
   return (
     <div
@@ -44,7 +45,7 @@ const ChatMessage = ({
         )}
       >
         <p className="text-primary-custom-text font-lato f">
-          {pending ? "⏳ Vital-IA está escribiendo..." : message}
+          {pending ? "⏳ Vital-IA está escribiendo..." : displayText}
         </p>
         {timestamp && !pending && (
           <span className="text-xs opacity-70 mt-1 block">{timestamp}</span>
