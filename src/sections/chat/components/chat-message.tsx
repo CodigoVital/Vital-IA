@@ -1,15 +1,16 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 
+
 interface ChatMessageProps {
-  message: string;
+  message: string | undefined;
   isOwnMessage?: boolean;
   userName?: string;
   timestamp?: string;
   pending?: boolean;
 }
 
-export const ChatMessage = ({
+const ChatMessage = ({
   message,
   isOwnMessage = false,
   userName = "Usuario",
