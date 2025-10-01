@@ -6,7 +6,7 @@
 
 @theme inline {
   --font-monserrat: "Montserrat", sans-serif;
-  --font-lato: "Lato", sans-serif;
+  --font-lato: "Lato", 'helvetica';
   --font-encode: "Encode Sans Expanded", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
