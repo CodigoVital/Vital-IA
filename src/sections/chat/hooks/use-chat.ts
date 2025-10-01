@@ -28,20 +28,29 @@ const useChat = () => {
 
     startTransition(async () => {
       try {
-        const response = await sendMessage({
-          question: messageText,
-          sessionId,
-        }).unwrap();
-
         dispatch(
           updateMessage({ id: tempId, text: messageText, pending: false })
         );
 
+        const botTempId = uuidv4();
         dispatch(
           addMessage({
-            id: uuidv4(),
-            text: response.answer,
+            id: botTempId,
+            text: "",
             sender: "bot",
+            pending: true,
+          })
+        );
+
+        const response = await sendMessage({
+          question: messageText,
+          sessionId,
+        }).unwrap();
+        dispatch(
+          updateMessage({
+            id: botTempId,
+            text: response.answer,
+            pending: false,
           })
         );
       } catch {

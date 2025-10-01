@@ -24,6 +24,7 @@ export const ChatWindow = () => {
             message={msg.text}
             isOwnMessage={msg.sender === "user"}
             userName={msg.sender === "user" ? "Tú" : "Vital-IA"}
+            pending={msg.sender === "bot" && msg.pending}
           />
         ))}
       </div>
