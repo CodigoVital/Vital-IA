@@ -1,20 +1,10 @@
 import { LucideIcon } from "@/components/lucide-icon-name";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useAppDispatch, useAppSelector } from "@/hooks/use-selector";
-import {
-  setInput,
-  clearInput,
-  addMessage,
-  updateMessage,
-} from "@/store/slices/chatbo-slice";
-import { useSendMessageMutation } from "@/store/services/chat/chatApi";
-import { v4 as uuidv4 } from "uuid";
-import { useTransition } from "react";
+import useChat from "../hooks/use-chat";
 
 export const ChatInput = () => {
-
-
+  const { input, isPending, handleSend, setInput, dispatch } = useChat();
   return (
     <div id="chat-input" className="flex items-center gap-5 p-5 rounded-b-lg">
       <Input
