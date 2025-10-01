@@ -12,7 +12,7 @@ const AuthHeader = () => {
         <Logo complete={true} />
       </div>
       <div className="p-4">
-        <ul className="flex gap-4 flex-row">
+        <ul className="flex gap-4 flex-row font-medium">
           {headerData.map((item) => (
             <li key={item.id}>
               <Link to={item.url}>{item.title}</Link>
