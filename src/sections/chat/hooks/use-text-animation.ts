@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 interface UseTextAnimationProps {
   message: string | undefined;
   pending: boolean | undefined;
-  animate?: boolean; 
+  animate?: boolean;
 }
 
 const useTextAnimation = ({ message, pending, animate = false }: UseTextAnimationProps) => {
@@ -12,19 +12,21 @@ const useTextAnimation = ({ message, pending, animate = false }: UseTextAnimatio
 
   useEffect(() => {
     if (pending || !animate) {
-      setDisplayText(safeMessage); 
+      setDisplayText(safeMessage);
       return;
     }
+
     setDisplayText("");
     let i = 0;
     const interval = setInterval(() => {
       if (i < safeMessage.length) {
-        setDisplayText((prev) => prev + safeMessage.charAt(i));
+        setDisplayText(safeMessage.substring(0, i + 1)); 
         i++;
       } else {
         clearInterval(interval);
       }
     }, 20);
+
     return () => clearInterval(interval);
   }, [safeMessage, pending, animate]);
 

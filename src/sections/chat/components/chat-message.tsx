@@ -49,7 +49,7 @@ const ChatMessage = ({
         )}
       >
         <p className="text-primary-custom-text font-lato f">
-          {pending ? "⏳ Vital-IA está escribiendo..." : displayText}
+          {pending ? "Vital-IA está escribiendo..." : displayText}
         </p>
         {timestamp && !pending && (
           <span className="text-xs opacity-70 mt-1 block">{timestamp}</span>
