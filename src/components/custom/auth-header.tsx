@@ -15,7 +15,7 @@ const AuthHeader = () => {
         <ul className="flex gap-4 flex-row font-medium">
           {headerData.map((item) => (
             <li
-              className="hover:bg-current/10 p-1  rounded font-monserrat"
+              className="hover:bg-current/10 p-1  rounded font-lato"
               key={item.id}
             >
               <Link to={item.url}>{item.title}</Link>
