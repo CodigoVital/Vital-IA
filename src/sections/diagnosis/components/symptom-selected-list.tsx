@@ -39,15 +39,15 @@ export const SymptomSelectedList = ({
       aria-label="Síntomas personalizados"
     >
       <div className={`flex justify-between items-center`}>
-        <h3 className="text-[#1A2E46] text-base font-bold mb-1">
+        <h3 className="text-primary-custom-text font-lato font-bold mb-1">
           Describe otros síntomas
         </h3>
         <Button
           onClick={resetSymptoms}
           className={cn(
+            "text-primary-custom-text font-lato",
             "hover:bg-[#F0F0F0] active:bg-[#E0E0E0] ",
-            "shadow-none border border-[#CBD5E1]",
-            "bg-transparent text-primary-custom-text"
+            "bg-transparent border-none text-primary-custom-text"
           )}
         >
           {isMobile ? (
