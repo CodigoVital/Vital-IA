@@ -10,7 +10,10 @@ export const RegisterForm = () => {
     <form>
       <div className="flex flex-col gap-4">
         <div className="grid gap-3">
-          <Label htmlFor="username" className="text-primary-custom-text">
+          <Label
+            htmlFor="username"
+            className="text-primary-custom-text font-lato font-bold"
+          >
             Nombre de usuario
           </Label>
           <Input
@@ -21,7 +24,10 @@ export const RegisterForm = () => {
           />
         </div>
         <div className="grid gap-3">
-          <Label htmlFor="email" className="text-primary-custom-text">
+          <Label
+            htmlFor="email"
+            className="text-primary-custom-text font-lato font-bold"
+          >
             Correo
           </Label>
           <Input
@@ -33,7 +39,10 @@ export const RegisterForm = () => {
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
-            <Label htmlFor="password" className="text-primary-custom-text">
+            <Label
+              htmlFor="password"
+              className="text-primary-custom-text font-lato font-bold"
+            >
               Contraseña
             </Label>
           </div>
@@ -60,7 +69,7 @@ export const RegisterForm = () => {
             type="submit"
             disabled
             className={cn(
-              "bg-primary-custom font-light hover:bg-primary-custom/80",
+              "bg-primary-custom  font-lato hover:bg-primary-custom/80",
               `w-full`
             )}
           >

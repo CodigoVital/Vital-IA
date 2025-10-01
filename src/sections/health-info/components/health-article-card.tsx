@@ -15,13 +15,13 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
       {info.img ? (
         <div className="relative w-full h-32 rounded-t-md overflow-hidden">
           <img
-            className="w-full h-32 object-cover"
+            className="w-full h-32 object-cover font-lato"
             src={info.img}
             alt={info.title}
           />
           <div className="absolute inset-0 bg-black/30" />
           <h1
-            className="absolute font-bold text-xl top-1/2 left-1/2 
+            className="absolute font-bold text-xl top-1/2 left-1/2  font-lato
                  -translate-x-1/2 -translate-y-1/2 text-white text-center w-full"
           >
             {info.title}
@@ -41,11 +41,13 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
 
       <div className="flex flex-col justify-between flex-1 p-3">
         <div className="flex flex-col gap-2">
-          <span className="text-sm text-accent-custom">{info.category}</span>
+          <span className="text-sm text-accent-custom font-lato">
+            {info.category}
+          </span>
           <h1 className="font-semibold text-primary-custom-text">
             {info.title}
           </h1>
-          <p className="text-sm text-primary-custom-text line-clamp-3">
+          <p className="text-sm text-primary-custom-text line-clamp-3 font-lato">
             {info.description}
           </p>
         </div>
@@ -54,7 +56,7 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
           <Link
             id="health-article-read"
             to={`${info.id}`}
-            className="text-primary-custom text-sm font-medium"
+            className="text-primary-custom text-sm font-medium font-lato"
           >
             Leer más..
           </Link>
