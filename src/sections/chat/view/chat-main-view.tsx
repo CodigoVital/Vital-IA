@@ -5,7 +5,6 @@ import { ChatWindow } from "../components/chat-window";
 import ChatSuggest from "../components/chat-suggest";
 import useChatTour from "@/hooks/use-chat-tour";
 
-
 export const ChatMainView = () => {
   const isMobile = useIsMobile();
   useChatTour();

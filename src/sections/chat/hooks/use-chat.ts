@@ -56,8 +56,7 @@ const useChat = () => {
     dispatch,
     isPending,
     handleSend,
-    setInput: (value: string) =>
-      dispatch(clearInput() || dispatch(setInput(value))),
+    setInput,
   };
 };
 

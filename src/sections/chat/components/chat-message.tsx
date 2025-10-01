@@ -6,15 +6,18 @@ interface ChatMessageProps {
   isOwnMessage?: boolean;
   userName?: string;
   timestamp?: string;
+  pending?: boolean;
 }
 
-export default function ChatMessage({
+export const ChatMessage = ({
   message,
   isOwnMessage = false,
   userName = "Usuario",
   timestamp,
-}: ChatMessageProps) {
+  pending = false,
+}: ChatMessageProps) => {
   const userInitial = userName.charAt(0).toUpperCase();
+
   return (
     <div
       className={cn(
@@ -36,14 +39,18 @@ export default function ChatMessage({
       </Avatar>
       <div
         className={cn(
-          "max-w-[326px]  bg-[#F0F2F2] rounded px-4 py-3 text-sm leading-relaxed"
+          "max-w-[326px] bg-[#F0F2F2] rounded px-4 py-3 text-sm leading-relaxed"
         )}
       >
-        <p className="text-primary-custom-text font-lato f">{message}</p>
-        {timestamp && (
+        <p className="text-primary-custom-text font-lato f">
+          {pending ? "⏳ Vital-IA está escribiendo..." : message}
+        </p>
+        {timestamp && !pending && (
           <span className="text-xs opacity-70 mt-1 block">{timestamp}</span>
         )}
       </div>
     </div>
   );
-}
+};
+
+export default ChatMessage;

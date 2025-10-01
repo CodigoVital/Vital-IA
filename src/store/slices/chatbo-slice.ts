@@ -37,6 +37,7 @@ const chatbotSlice = createSlice({
         msg.pending = action.payload.pending ?? false;
       }
     },
+
     resetChat: (state) => {
       state.messages = [];
       state.input = "";
