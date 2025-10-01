@@ -18,7 +18,7 @@ const SymptomChipsList = ({
       <ScrollArea className="w-full min-h-18 p-3 rounded-lg  custom-dashed-border">
         {sintomasSeleccionados.length === 0 ? (
           <div
-            className={`flex items-center justify-center w-full h-full py-2 pt-3 text-gray-400 font-normal text-center ${
+            className={`flex items-center justify-center w-full h-full font-lato py-2 pt-3 text-gray-400 font-normal text-center ${
               isMobile ? "text-xs" : "text-sm"
             }`}
           >

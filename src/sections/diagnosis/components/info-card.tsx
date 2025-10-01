@@ -26,14 +26,14 @@ export const InfoCard = ({
     >
       {analysis && (
         <div className="mb-2">
-          <span className="font-bold text-[#1A2E46]">Análisis General:</span>
+          <span className="font-bold text-primary-custom-text font-lato">Análisis General:</span>
           <span className="text-[#1A2E46] ml-2">{analysis}</span>
         </div>
       )}
 
       {urgencyLevel && (
         <div className="mb-2">
-          <span className="font-bold text-[#1A2E46]">Nivel de urgencia:</span>
+          <span className="font-bold text-primary-custom-text font-lato">Nivel de urgencia:</span>
           <span className="ml-2" style={{ color: urgencyColor }}>
             {urgencyLevel}
           </span>
@@ -42,7 +42,7 @@ export const InfoCard = ({
 
       {recommendations.length > 0 && (
         <>
-          <div className="font-bold text-[#1A2E46] mb-1">Recomendaciones:</div>
+          <div className="font-bold text-primary-custom-text font-lato mb-1">Recomendaciones:</div>
           <ul className="list-disc ml-6 text-[#1A2E46]">
             {recommendations.map((rec, i) => (
               <li key={i}>{rec}</li>
