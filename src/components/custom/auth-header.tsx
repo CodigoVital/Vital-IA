@@ -8,13 +8,13 @@ const AuthHeader = () => {
   if (isMobile) return null;
   return (
     <header className="bg-transparent fixed flex justify-between items-center w-full">
-      <div className="p-4">
+      <div className="p-3">
         <Logo complete={true} />
       </div>
-      <div className="p-4">
+      <div className="p-3">
         <ul className="flex gap-4 flex-row font-medium">
           {headerData.map((item) => (
-            <li key={item.id}>
+            <li className="hover:bg-current/10 p-1  rounded" key={item.id}>
               <Link to={item.url}>{item.title}</Link>
             </li>
           ))}
