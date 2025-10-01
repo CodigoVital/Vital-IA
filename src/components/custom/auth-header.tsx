@@ -1,5 +1,7 @@
 import { useIsMobile } from "@/hooks/use-mobile";
 import Logo from "../logo";
+import { headerData } from "../config/header-data";
+import { Link } from "react-router";
 
 const AuthHeader = () => {
   const isMobile = useIsMobile();
@@ -11,18 +13,11 @@ const AuthHeader = () => {
       </div>
       <div className="p-4">
         <ul className="flex gap-4 flex-row">
-          <li>
-            <a href="#">Login</a>
-          </li>
-          <li>
-            <a href="#">Register</a>
-          </li>
-          <li>
-            <a href="#">Recovery</a>
-          </li>
-          <li>
-            <a href="#">Logout</a>
-          </li>
+          {headerData.map((item) => (
+            <li key={item.id}>
+              <Link to={item.url}>{item.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
     </header>
