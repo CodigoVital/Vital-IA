@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { chatApi } from "./services/chat/chatApi";
+import chatbotReducer from "./slices/chatbo-slice";
 
 export const store = configureStore({
   reducer: {
     [chatApi.reducerPath]: chatApi.reducer,
-    // aqui se agregaran los reducers para manejar el estado global
+    chatBot: chatbotReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
