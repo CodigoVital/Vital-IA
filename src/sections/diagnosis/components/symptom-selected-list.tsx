@@ -72,7 +72,7 @@ export const SymptomSelectedList = ({
         disabled={sintomasSeleccionados.length === 0}
         id="diagnosis-submit-button"
         onClick={analizarSintomas}
-        className="mt-6 mx-auto p-5.5 bg-primary-custom rounded-md text-white font-thin  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
+        className="mt-6 mx-auto font-lato p-5.5 bg-primary-custom rounded-md text-white   text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
       >
         <Shield className="w-5 h-5" /> Analizar Síntomas
       </Button>
