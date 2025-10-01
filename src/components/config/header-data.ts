@@ -6,5 +6,5 @@ type HeaderLink = {
 };
 
 export const headerData: HeaderLink[] = [
-    { url: "#", title: "Acerca de nosotros", id: "about", icon: "" },
+  { url: "/about", title: "Acerca de nosotros", id: "about", icon: "" },
 ];
