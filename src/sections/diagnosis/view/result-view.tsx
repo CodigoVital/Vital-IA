@@ -21,7 +21,7 @@ const ResultView = () => {
       `}
     >
       <CustomHeader
-        className="text-2xl font-bold text-[#1A2E46] mb-1 text-left"
+        className="text-2xl font-bold text-primary-custom-text font-lato mb-1 text-left"
         title="Resultado del Análisis"
       />
 

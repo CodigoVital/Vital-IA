@@ -25,11 +25,11 @@ export const AuthCard: React.FC<AuthCardProps> = ({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className={cn('rounded-md',`bg-sidebar`)}>
         <CardHeader>
-          <CardTitle className="text-center text-2xl text-primary-custom-text mb-2">
+          <CardTitle className="text-center text-2xl text-primary-custom-text mb-2 font-lato">
             {title}
           </CardTitle>
           {description && (
-            <CardDescription className="text-center text-primary-custom-text">
+            <CardDescription className="text-center text-primary-custom-text font-lato">
               {description}
             </CardDescription>
           )}

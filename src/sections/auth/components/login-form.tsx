@@ -13,7 +13,7 @@ export const LoginForm = () => {
     <form>
       <div className="flex flex-col gap-4">
         <div className="grid gap-3">
-          <Label htmlFor="email" className="text-primary-custom-text">
+          <Label htmlFor="email" className="text-primary-custom-text font-lato font-bold">
             Correo
           </Label>
           <Input
@@ -27,12 +27,12 @@ export const LoginForm = () => {
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
-            <Label htmlFor="password" className="text-primary-custom-text">
+            <Label htmlFor="password" className="text-primary-custom-text font-lato font-bold">
               Contraseña
             </Label>
             <Link
               to="recovery"
-              className="ml-auto inline-block text-sm underline-offset-4 hover:underline text-primary-custom-text"
+              className="ml-auto font-lato inline-block text-sm underline-offset-4 hover:underline text-primary-custom-text"
             >
               ¿Olvidaste tu contraseña?
             </Link>
@@ -54,7 +54,7 @@ export const LoginForm = () => {
             onClick={() => navigate("/")}
             type="submit"
             className={cn(
-              "bg-primary-custom font-light hover:bg-primary-custom/80",
+              "bg-primary-custom font-lato font-light hover:bg-primary-custom/80",
               `w-full`
             )}
           >
@@ -62,11 +62,11 @@ export const LoginForm = () => {
           </Button>
         </div>
       </div>
-      <div className="mt-4 text-center text-sm text-primary-custom-text ">
+      <div className="mt-4 text-center font-lato text-sm text-primary-custom-text ">
         ¿No tienes una cuenta?{" "}
         <Link
           to="register"
-          className="underline underline-offset-4 text-primary-custom-text"
+          className="underline underline-offset-4 font-lato text-primary-custom-text"
         >
           Regístrate
         </Link>

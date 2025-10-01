@@ -8,7 +8,10 @@ export const RecoveryForm = () => {
     <form>
       <div className="flex flex-col gap-6">
         <div className="grid gap-3">
-          <Label htmlFor="email" className="text-primary-custom-text font-bold">
+          <Label
+            htmlFor="email"
+            className="text-primary-custom-text font-bold font-lato"
+          >
             Correo
           </Label>
           <Input
@@ -18,7 +21,7 @@ export const RecoveryForm = () => {
             className={cn("rounded border-custom-border", `bg-white `)}
           />
         </div>
-        <p className="text-[10px] sm:text-xs text-center text-primary-custom-text  overflow-hidden text-ellipsis">
+        <p className="text-[10px] sm:text-xs font-lato text-center text-primary-custom-text  overflow-hidden text-ellipsis">
           Si este correo está registrado, entonces enviaremos un método de
           recuperación
         </p>
@@ -27,7 +30,7 @@ export const RecoveryForm = () => {
           type="submit"
           disabled
           className={cn(
-            "bg-primary-custom font-light hover:bg-primary-custom/80",
+            "bg-primary-custom  font-lato  hover:bg-primary-custom/80",
             `w-full`
           )}
         >

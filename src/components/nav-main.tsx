@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router";
 import useChatTour from "@/hooks/use-chat-tour";
 
-
 export function NavMain({
   items,
 }: {
@@ -53,7 +52,7 @@ export function NavMain({
                     }}
                     className={cn(
                       "rounded",
-                      "p-[22px] flex items-center gap-[10px] font-medium text-[14px] text-[#475569]",
+                      "p-[22px] flex items-center gap-[10px] font-bold font-lato text-[14px] text-[#475569]",
                       isActive &&
                         "bg-[#24B0BA]/20 text-[#24B0BA]  font-bold dark:bg-slate-800 dark:text-slate-100",
                       `hover:text-none ${
@@ -66,7 +65,7 @@ export function NavMain({
                     tooltip={item.title}
                   >
                     {item.icon && (
-                      <item.icon className="!w-[19.77px] !h-[19.77px] text-primary-custom-text" />
+                      <item.icon className="!w-[19.77px] !h-[19.77px] text-primary-custom-text " />
                     )}
                     <span
                       className={cn("hover:text-inherit", !open && "hidden")}

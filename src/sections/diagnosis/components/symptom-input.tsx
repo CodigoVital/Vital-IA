@@ -28,7 +28,7 @@ const SymptomInput = ({
         aria-label="Agregar síntoma personalizado"
       />
       <Button
-        className=" bg-primary-custom rounded-xl p-6 text-white font-thin flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
+        className=" bg-primary-custom font-lato rounded-xl p-6 text-white  flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
         onClick={agregarSintoma}
         type="button"
         aria-label="Agregar síntoma"

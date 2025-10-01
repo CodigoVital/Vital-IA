@@ -6,18 +6,18 @@ export const SymptomInstructions = () => {
     <>
       <div className="flex flex-col gap-2">
         <p
-          className={`text-[#1A2E46] ${
+          className={`text-primary-custom-text font-lato ${
             isMobile ? "text-sm" : "text-base"
           } font-normal leading-snug mt-1`}
         >
           Seleccioná los síntomas de la lista o escribilos.
         </p>
-        <p className={isMobile ? "text-sm" : "text-base"}>
+        <p className={isMobile ? "text-sm text-primary-custom-text font-lato" : "text-base text-primary-custom-text font-lato"}>
           Esto dará una orientación de la enfermedad que puedes estar
           presentando.
         </p>
         <strong
-          className={`text-[#1A2E46] ${
+          className={`text-primary-custom-text font-lato ${
             isMobile ? "text-sm" : "text-base"
           } font-bold leading-snug mt-1`}
         >
