@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import useTextAnimation from "../hooks/use-text-animation";
+import ReactMarkdown from "react-markdown";
 
 interface ChatMessageProps {
   message: string | undefined;
@@ -21,7 +22,7 @@ const ChatMessage = ({
   const { displayText } = useTextAnimation({
     message,
     pending,
-    animate: !isOwnMessage, 
+    animate: !isOwnMessage,
   });
 
   return (
@@ -49,7 +50,11 @@ const ChatMessage = ({
         )}
       >
         <p className="text-primary-custom-text font-lato f">
-          {pending ? "Vital-IA está escribiendo..." : displayText}
+          {pending ? (
+            "Vital-IA está escribiendo..."
+          ) : (
+            <ReactMarkdown>{displayText}</ReactMarkdown>
+          )}
         </p>
         {timestamp && !pending && (
           <span className="text-xs opacity-70 mt-1 block">{timestamp}</span>
