@@ -45,13 +45,13 @@ const chatbotSlice = createSlice({
       state.input = "";
       state.sessionId = uuidv4();
     },
-    isAnimating: (state, action: PayloadAction<boolean>) => {
+    handleChangeAnimatingStatus: (state, action: PayloadAction<boolean>) => {
       state.isAnimating = action.payload;
     },
   },
 });
 
-export const { setInput, clearInput, addMessage, updateMessage, resetChat } =
+export const { setInput, clearInput, addMessage, updateMessage, resetChat, handleChangeAnimatingStatus } =
   chatbotSlice.actions;
 
 export default chatbotSlice.reducer;

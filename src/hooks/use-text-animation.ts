@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "./use-selector";
+import { useAppDispatch } from "./use-selector";
+import { handleChangeAnimatingStatus } from "@/store/slices/chatbo-slice";
 
 interface UseTextAnimationProps {
   message?: string | undefined;
@@ -19,8 +20,7 @@ const useTextAnimation = ({
   id,
 }: UseTextAnimationProps) => {
   const [displayText, setDisplayText] = useState("");
-  useAppSelector((state) => state.chatBot.isAnimating);
-  useAppDispatch();
+  const dispatch = useAppDispatch();
   const safeMessage = message ?? "";
 
   useEffect(() => {
@@ -42,19 +42,19 @@ const useTextAnimation = ({
     const interval = setInterval(() => {
       currentText += safeMessage.charAt(charIndex);
       setDisplayText(currentText);
- 
+      dispatch(handleChangeAnimatingStatus(true));
+
       charIndex++;
       if (charIndex >= safeMessage.length) {
-   
         animationCache[id] = currentText; // guardamos en cache
         clearInterval(interval);
       }
     }, 10);
 
     return () => clearInterval(interval);
-  }, [safeMessage, pending, animate, id]);
+  }, [safeMessage, pending, animate, id, dispatch]);
 
-  return { displayText};
+  return { displayText };
 };
 
 export default useTextAnimation;

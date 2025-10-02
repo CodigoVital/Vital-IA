@@ -2,9 +2,12 @@ import { LucideIcon } from "@/components/lucide-icon-name";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import useChat from "../hooks/use-chat";
+import { useAppSelector } from "@/hooks/use-selector";
+
 
 export const ChatInput = () => {
   const { input, isPending, handleSend, setInput, dispatch } = useChat();
+  useAppSelector((state) => state.chatBot.isAnimating);
   return (
     <div id="chat-input" className="flex items-center gap-5 p-5 rounded-b-lg">
       <Input
@@ -18,7 +21,7 @@ export const ChatInput = () => {
       <Button
         className="bg-[var(--customBackground)] text-white"
         onClick={handleSend}
-        disabled={isPending}
+        disabled={isPending }
       >
         <LucideIcon name="SendHorizontal" />
       </Button>
