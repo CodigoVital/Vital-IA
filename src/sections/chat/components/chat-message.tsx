@@ -51,15 +51,15 @@ const ChatMessage = ({
       <div
         className={cn(
           "bg-[#F0F2F2] rounded px-4 py-3 text-sm leading-relaxed",
-          isMobile ? "max-w-[326px]" : "max-w-[calc(100%-35rem)]",
-          "sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1100px]"
+          isMobile ? "max-w-[20.375rem]" : "max-w-[calc(100%-35rem)]",
+          "sm:max-w-[31.25rem] md:max-w-[43.75rem] lg:max-w-[56.25rem] xl:max-w-[56.25rem]"
         )}
       >
         <p className="text-primary-custom-text font-lato f">
           {pending ? (
-            "Vital-IA está pensando..."
+        "Vital-IA está pensando..."
           ) : (
-            <ReactMarkdown>{displayText}</ReactMarkdown>
+        <ReactMarkdown>{displayText}</ReactMarkdown>
           )}
         </p>
         {timestamp && !pending && (
