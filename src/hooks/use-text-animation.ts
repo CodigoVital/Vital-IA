@@ -1,9 +1,9 @@
-
 import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "./use-selector";
 
 interface UseTextAnimationProps {
-  message: string | undefined;
-  pending: boolean | undefined;
+  message?: string | undefined;
+  pending?: boolean | undefined;
   animate?: boolean;
   id?: string;
 }
@@ -19,6 +19,8 @@ const useTextAnimation = ({
   id,
 }: UseTextAnimationProps) => {
   const [displayText, setDisplayText] = useState("");
+  useAppSelector((state) => state.chatBot.isAnimating);
+  useAppDispatch();
   const safeMessage = message ?? "";
 
   useEffect(() => {
@@ -40,8 +42,10 @@ const useTextAnimation = ({
     const interval = setInterval(() => {
       currentText += safeMessage.charAt(charIndex);
       setDisplayText(currentText);
+ 
       charIndex++;
       if (charIndex >= safeMessage.length) {
+   
         animationCache[id] = currentText; // guardamos en cache
         clearInterval(interval);
       }
@@ -50,7 +54,7 @@ const useTextAnimation = ({
     return () => clearInterval(interval);
   }, [safeMessage, pending, animate, id]);
 
-  return { displayText };
+  return { displayText};
 };
 
 export default useTextAnimation;

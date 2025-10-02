@@ -6,12 +6,14 @@ interface ChatState {
   messages: Message[];
   input: string;
   sessionId: string;
+  isAnimating?: boolean;
 }
 
 const initialState: ChatState = {
   messages: [],
   input: "",
   sessionId: "2131n12",
+  isAnimating: false,
 };
 
 const chatbotSlice = createSlice({
@@ -42,6 +44,9 @@ const chatbotSlice = createSlice({
       state.messages = [];
       state.input = "";
       state.sessionId = uuidv4();
+    },
+    isAnimating: (state, action: PayloadAction<boolean>) => {
+      state.isAnimating = action.payload;
     },
   },
 });
