@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import useTextAnimation from "@/hooks/use-text-animation";
 import { cn } from "@/lib/utils";
-import useTextAnimation from "../hooks/use-text-animation";
 import ReactMarkdown from "react-markdown";
 
 interface ChatMessageProps {
