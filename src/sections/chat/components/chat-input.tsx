@@ -7,7 +7,9 @@ import { useAppSelector } from "@/hooks/use-selector";
 
 export const ChatInput = () => {
   const { input, isPending, handleSend, setInput, dispatch } = useChat();
-  useAppSelector((state) => state.chatBot.isAnimating);
+  const isAnimating = useAppSelector((state) => state.chatBot.isAnimating);
+
+  console.log('animate status ', isAnimating)
   return (
     <div id="chat-input" className="flex items-center gap-5 p-5 rounded-b-lg">
       <Input

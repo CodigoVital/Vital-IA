@@ -27,8 +27,6 @@ const ChatMessage = ({
     animate: !isOwnMessage,
     id: msgId,
   });
-
-  console.log("Renderizando ChatMessage:", { msgId, message, displayText });
   return (
     <div
       className={cn(

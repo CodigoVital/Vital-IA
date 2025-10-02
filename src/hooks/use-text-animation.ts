@@ -48,6 +48,7 @@ const useTextAnimation = ({
       if (charIndex >= safeMessage.length) {
         animationCache[id] = currentText; // guardamos en cache
         clearInterval(interval);
+        dispatch(handleChangeAnimatingStatus(false));
       }
     }, 10);
 
