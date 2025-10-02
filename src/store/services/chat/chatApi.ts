@@ -19,6 +19,7 @@ export const chatApi = createApi({
         url: "/webhook/chatbot",
         method: "POST",
         body: newMessage,
+      
       }),
       invalidatesTags: ["Chat"],
     }),

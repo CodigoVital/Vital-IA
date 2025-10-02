@@ -6,10 +6,19 @@ import { useAppSelector } from "@/hooks/use-selector";
 import { useSidebar } from "@/components/ui/sidebar";
 
 export const ChatInput = () => {
-  const { input, handleSend, setInput, dispatch, isLoading } = useChat();
+  const {
+    input,
+    handleSend,
+    setInput,
+    dispatch,
+    isLoading,
+    handleCancelMessage,
+  } = useChat();
   const isAnimating = useAppSelector((state) => state.chatBot.isAnimating);
   const { open } = useSidebar();
 
+
+  console.log("isLoading", isLoading);
   return (
     <div
       id="chat-input"
@@ -26,8 +35,10 @@ export const ChatInput = () => {
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
       {isLoading || isAnimating ? (
-        //TODOL: implementar metodo para cancelar la peticion
-        <Button className="bg-accent-custom text-white">
+        <Button
+          onClick={handleCancelMessage}
+          className="bg-accent-custom text-white"
+        >
           <LucideIcon name="X" />
         </Button>
       ) : (
