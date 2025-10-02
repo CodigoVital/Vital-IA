@@ -2,20 +2,14 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import ChatMessage from "./chat-message";
 import Logo from "@/components/logo";
 import { useAppSelector } from "@/hooks/use-selector";
-import { useEffect, useRef } from "react";
+import useAutoScroll from "@/hooks/use-auto-scroll";
 
 export const ChatWindow = () => {
   const messages = useAppSelector((state) => state.chatBot.messages);
-  const bottomRef = useRef<HTMLDivElement | null>(null);
-
-  // efecto que hace que scrollee al final cuando se agregan mensajes
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
+  const { containerRef, bottomRef } = useAutoScroll<HTMLDivElement>();
   return (
     <ScrollArea className="h-full px-4">
-      <div className="space-y-2 pt-4">
+      <div ref={containerRef} className="space-y-2 pt-4">
         {!messages.length && (
           <div className="flex flex-col items-center justify-center w-full min-h-[60vh] text-center text-gray-500">
             <Logo
@@ -34,8 +28,7 @@ export const ChatWindow = () => {
             pending={msg.sender === "bot" && msg.pending}
           />
         ))}
-        {/* marcador invisible para scrollear al final */}
-        <div className="p-3" ref={bottomRef} />
+        <div className="p-1" ref={bottomRef} />
       </div>
     </ScrollArea>
   );
