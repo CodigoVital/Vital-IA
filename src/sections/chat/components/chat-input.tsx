@@ -18,14 +18,20 @@ export const ChatInput = () => {
         onChange={(e) => dispatch(setInput(e.target.value))}
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
-
-      <Button
-        className="bg-[var(--customBackground)] text-white"
-        onClick={handleSend}
-        disabled={isAnimating || !input.trim() || isLoading}
-      >
-        <LucideIcon name="SendHorizontal" />
-      </Button>
+      {isLoading || isAnimating ? (
+        //TODOL: implementar metodo para cancelar la peticion
+        <Button className="bg-accent-custom text-white">
+          <LucideIcon name="X" />
+        </Button>
+      ) : (
+        <Button
+          className="bg-[var(--customBackground)] text-white"
+          onClick={handleSend}
+          disabled={!input.trim()}
+        >
+          <LucideIcon name="SendHorizontal" />
+        </Button>
+      )}
     </div>
   );
 };
