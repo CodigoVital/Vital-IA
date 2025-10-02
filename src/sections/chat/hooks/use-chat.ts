@@ -7,10 +7,9 @@ import {
 } from "@/store/slices/chatbo-slice";
 import { useSendMessageMutation } from "@/store/services/chat/chatApi";
 import { v4 as uuidv4 } from "uuid";
-import { useRef } from "react";
+
 
 const useChat = () => {
-  const abortControllerRef = useRef<AbortController | null>(null);
   const dispatch = useAppDispatch();
   const { input, sessionId } = useAppSelector((state) => state.chatBot);
   const [sendMessage, { isLoading }] = useSendMessageMutation();
@@ -66,9 +65,7 @@ const useChat = () => {
   };
 
  const handleCancelMessage = () => {
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort(); 
-    }
+
   };
   return {
     input,
