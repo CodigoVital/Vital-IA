@@ -35,7 +35,7 @@ export const ChatWindow = () => {
           />
         ))}
         {/* marcador invisible para scrollear al final */}
-        <div ref={bottomRef} />
+        <div className="p-3" ref={bottomRef} />
       </div>
     </ScrollArea>
   );
