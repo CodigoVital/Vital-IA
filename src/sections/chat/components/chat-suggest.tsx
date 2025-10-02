@@ -10,7 +10,7 @@ interface ChatSuggestProps {
 }
 
 const ChatSuggest = ({ handleSendSuggestion, isLoading }: ChatSuggestProps) => {
-  const isAnimating = useAppSelector((state) => state.chatBot.isAnimating);
+  const isAnimating = useAppSelector((state) => state.textAnimation.isAnimating);
   const { open } = useSidebar();
   return (
     <section

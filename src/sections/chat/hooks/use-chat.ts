@@ -7,14 +7,12 @@ import {
 } from "@/store/slices/chatbo-slice";
 import { useSendMessageMutation } from "@/store/services/chat/chatApi";
 import { v4 as uuidv4 } from "uuid";
-
+import { cancelAnimation } from "@/store/slices/text-animation-slice";
 
 const useChat = () => {
   const dispatch = useAppDispatch();
   const { input, sessionId } = useAppSelector((state) => state.chatBot);
   const [sendMessage, { isLoading }] = useSendMessageMutation();
-
-  console.log("isLoading", isLoading);
 
   const sendMessageFlow = async (messageText: string) => {
     const tempId = uuidv4();
@@ -64,8 +62,8 @@ const useChat = () => {
     sendMessageFlow(suggestion);
   };
 
- const handleCancelMessage = () => {
-
+  const handleCancelMessage = () => {
+    dispatch(cancelAnimation());
   };
   return {
     input,
