@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { suggestions } from "../view/data/suggest.mock";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import useChat from "../hooks/use-chat";
 
-const ChatSuggest = () => {
-  const { handleSendSuggestion } = useChat();
+interface ChatSuggestProps {
+  handleSendSuggestion: (suggestion: string) => void;
+}
+
+const ChatSuggest = ({ handleSendSuggestion }: ChatSuggestProps) => {
   return (
     <section
       id="chat-suggest"
