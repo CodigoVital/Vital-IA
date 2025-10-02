@@ -15,33 +15,26 @@ const useChat = () => {
   const [sendMessage] = useSendMessageMutation();
   const [isPending, startTransition] = useTransition();
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
-
+  const sendMessageFlow = (messageText: string) => {
     const tempId = uuidv4();
-
     dispatch(
-      addMessage({ id: tempId, text: input, sender: "user", pending: true })
+      addMessage({
+        id: tempId,
+        text: messageText,
+        sender: "user",
+        pending: true,
+      })
     );
-    const messageText = input;
-    dispatch(clearInput());
 
     startTransition(async () => {
       try {
         dispatch(
           updateMessage({ id: tempId, text: messageText, pending: false })
         );
-
         const botTempId = uuidv4();
         dispatch(
-          addMessage({
-            id: botTempId,
-            text: "",
-            sender: "bot",
-            pending: true,
-          })
+          addMessage({ id: botTempId, text: "", sender: "bot", pending: true })
         );
-
         const response = await sendMessage({
           question: messageText,
           sessionId,
@@ -61,15 +54,15 @@ const useChat = () => {
     });
   };
 
-  const handleSendSuggestion = (suggestion: string, tempId: string = uuidv4()) => {
-    dispatch(
-      addMessage({
-        id: tempId,
-        text: suggestion,
-        sender: "user",
-        pending: true,
-      })
-    );
+  const handleSend = () => {
+    if (!input.trim()) return;
+    const messageText = input;
+    dispatch(clearInput());
+    sendMessageFlow(messageText);
+  };
+
+  const handleSendSuggestion = (suggestion: string) => {
+    sendMessageFlow(suggestion);
   };
 
   return {
