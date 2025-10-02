@@ -60,12 +60,25 @@ const useChat = () => {
       }
     });
   };
+
+  const handleSendSuggestion = (suggestion: string, tempId: string = uuidv4()) => {
+    dispatch(
+      addMessage({
+        id: tempId,
+        text: suggestion,
+        sender: "user",
+        pending: true,
+      })
+    );
+  };
+
   return {
     input,
     dispatch,
     isPending,
     handleSend,
     setInput,
+    handleSendSuggestion,
   };
 };
 

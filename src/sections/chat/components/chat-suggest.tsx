@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { suggestions } from "../view/data/suggest.mock";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import useChat from "../hooks/use-chat";
 
 const ChatSuggest = () => {
+  const { handleSendSuggestion } = useChat();
   return (
     <section
       id="chat-suggest"
@@ -16,6 +18,7 @@ const ChatSuggest = () => {
           <div className="flex gap-2 px-1 pb-2">
             {suggestions.map((suggestion, index) => (
               <Button
+                onClick={() => handleSendSuggestion(suggestion)}
                 key={index}
                 className="rounded-xl border-y-1 text-primary-custom-text font-lato bg-white border-[#CBD5E1] text-sm font-normal flex-shrink-0 whitespace-nowrap "
                 variant="outline"
