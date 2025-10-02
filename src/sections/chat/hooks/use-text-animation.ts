@@ -42,7 +42,7 @@ const useTextAnimation = ({
         charIndex = 0;
         lineIndex++;
       }
-    }, 20);
+    }, 10);
 
     return () => clearInterval(interval);
   }, [safeMessage, pending, animate]);
