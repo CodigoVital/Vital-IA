@@ -9,8 +9,8 @@ import useChat from "../hooks/use-chat";
 
 export const ChatMainView = () => {
   const isMobile = useIsMobile();
-  const { handleSendSuggestion, isLoading } = useChat();
 
+  const { handleSendSuggestion, isLoading } = useChat();
 
   useChatTour();
   return (
@@ -25,8 +25,11 @@ export const ChatMainView = () => {
         <ChatWindow />
       </div>
 
-      <div className="shrink-0">
-        <ChatSuggest handleSendSuggestion={handleSendSuggestion} isLoading={isLoading}  />
+      <div className={`shrink-0 `}>
+        <ChatSuggest
+          handleSendSuggestion={handleSendSuggestion}
+          isLoading={isLoading}
+        />
         <ChatInput />
       </div>
     </section>
