@@ -9,6 +9,7 @@ interface ChatMessageProps {
   userName?: string;
   timestamp?: string;
   pending?: boolean;
+  msgId: string;
 }
 
 const ChatMessage = ({
@@ -17,14 +18,17 @@ const ChatMessage = ({
   userName = "Usuario",
   timestamp,
   pending = false,
+  msgId,
 }: ChatMessageProps) => {
   const userInitial = userName.charAt(0).toUpperCase();
   const { displayText } = useTextAnimation({
     message,
     pending,
     animate: !isOwnMessage,
+    id: msgId,
   });
 
+  console.log("Renderizando ChatMessage:", { msgId, message, displayText });
   return (
     <div
       className={cn(
