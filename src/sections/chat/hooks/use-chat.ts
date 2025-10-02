@@ -4,6 +4,7 @@ import {
   addMessage,
   updateMessage,
   setInput,
+  setIsPending,
 } from "@/store/slices/chatbo-slice";
 import { useSendMessageMutation } from "@/store/services/chat/chatApi";
 import { v4 as uuidv4 } from "uuid";
@@ -12,7 +13,7 @@ import { cancelAnimation } from "@/store/slices/text-animation-slice";
 const useChat = () => {
   const dispatch = useAppDispatch();
   const { input, sessionId } = useAppSelector((state) => state.chatBot);
-  const [sendMessage, { isLoading }] = useSendMessageMutation();
+  const [sendMessage] = useSendMessageMutation();
 
   const sendMessageFlow = async (messageText: string) => {
     const tempId = uuidv4();
@@ -31,6 +32,7 @@ const useChat = () => {
     dispatch(
       addMessage({ id: botTempId, text: "", sender: "bot", pending: true })
     );
+    dispatch(setIsPending(true));
 
     try {
       const response = await sendMessage({
@@ -48,6 +50,8 @@ const useChat = () => {
           pending: false,
         })
       );
+    } finally {
+      dispatch(setIsPending(false));
     }
   };
 
@@ -68,7 +72,6 @@ const useChat = () => {
   return {
     input,
     dispatch,
-    isLoading,
     handleSend,
     setInput,
     handleSendSuggestion,

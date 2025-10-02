@@ -11,15 +11,15 @@ export const ChatInput = () => {
     handleSend,
     setInput,
     dispatch,
-    isLoading,
     handleCancelMessage,
   } = useChat();
   const isAnimating = useAppSelector(
     (state) => state.textAnimation.isAnimating
   );
+
+  const isPending = useAppSelector((state) => state.chatBot.isPending);
   const { open } = useSidebar();
 
-  console.log("isLoading", isLoading);
   return (
     <div
       id="chat-input"
@@ -31,11 +31,11 @@ export const ChatInput = () => {
         placeholder="Escribe tu consulta aqui..."
         className="rounded border-1 bg-white border-[#CBD5E1]"
         value={input}
-        disabled={isAnimating || isLoading}
+        disabled={isAnimating || isPending}
         onChange={(e) => dispatch(setInput(e.target.value))}
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
-      {isLoading || isAnimating ? (
+      {isPending || isAnimating ? (
         <Button
           onClick={handleCancelMessage}
           className="bg-accent-custom text-white"

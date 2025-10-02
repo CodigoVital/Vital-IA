@@ -1,16 +1,18 @@
 import type { Message } from "@/types/messages/messages-types";
-import { createSlice,  type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
 interface ChatState {
   messages: Message[];
   input: string;
   sessionId: string;
+  isPending: boolean;
 }
 
 const initialState: ChatState = {
   messages: [],
   input: "",
+  isPending: false,
   sessionId: "2131n12",
 };
 
@@ -23,6 +25,9 @@ const chatbotSlice = createSlice({
     },
     clearInput: (state) => {
       state.input = "";
+    },
+    setIsPending: (state, action: PayloadAction<boolean>) => {
+      state.isPending = action.payload;
     },
 
     addMessage: (state, action: PayloadAction<Message>) => {
@@ -57,6 +62,7 @@ export const {
   updateMessage,
   resetChat,
   removeMessage,
+  setIsPending,
 } = chatbotSlice.actions;
 
 export default chatbotSlice.reducer;
