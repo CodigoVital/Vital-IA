@@ -6,14 +6,12 @@ interface ChatState {
   messages: Message[];
   input: string;
   sessionId: string;
-  isAnimating?: boolean;
 }
 
 const initialState: ChatState = {
   messages: [],
   input: "",
   sessionId: "2131n12",
-  isAnimating: false,
 };
 
 const chatbotSlice = createSlice({
@@ -40,14 +38,14 @@ const chatbotSlice = createSlice({
         msg.pending = action.payload.pending ?? false;
       }
     },
+    removeMessage: (state, action: PayloadAction<string>) => {
+      state.messages = state.messages.filter((m) => m.id !== action.payload);
+    },
 
     resetChat: (state) => {
       state.messages = [];
       state.input = "";
       state.sessionId = uuidv4();
-    },
-    handleChangeAnimatingStatus: (state, action: PayloadAction<boolean>) => {
-      state.isAnimating = action.payload;
     },
   },
 });
@@ -58,7 +56,7 @@ export const {
   addMessage,
   updateMessage,
   resetChat,
-  handleChangeAnimatingStatus,
+  removeMessage,
 } = chatbotSlice.actions;
 
 export default chatbotSlice.reducer;

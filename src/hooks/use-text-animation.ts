@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "./use-selector";
-import { handleChangeAnimatingStatus } from "@/store/slices/chatbo-slice";
+import { useAppDispatch, useAppSelector } from "./use-selector";
+import { setAnimating } from "@/store/slices/text-animation-slice";
 
 interface UseTextAnimationProps {
-  message?: string | undefined;
-  pending?: boolean | undefined;
+  message?: string;
+  pending?: boolean;
   animate?: boolean;
   id?: string;
 }
 
 // Cache global para almacenar los mensajes animados
-//esta afuera del hook para que no se pierda la refencia entre renders
 const animationCache: Record<string, string> = {};
 
 const useTextAnimation = ({
@@ -21,15 +20,20 @@ const useTextAnimation = ({
 }: UseTextAnimationProps) => {
   const [displayText, setDisplayText] = useState("");
   const dispatch = useAppDispatch();
+  const cancelAnimation = useAppSelector(
+    (state) => state.textAnimation.cancelAnimation
+  );
   const safeMessage = message ?? "";
 
   useEffect(() => {
-    if (!id || pending || !animate) {
+    // si no hay una id, esta pendiente, no se debe animar o se canceló
+    if (!id || pending || !animate || cancelAnimation) {
       setDisplayText(safeMessage);
+      dispatch(setAnimating(false));
       return;
     }
 
-    // Si ya está en la cache global, usamos ese texto
+    // Si ya está en cache
     if (animationCache[id]) {
       setDisplayText(animationCache[id]);
       return;
@@ -39,21 +43,23 @@ const useTextAnimation = ({
     let charIndex = 0;
     let currentText = "";
 
+    dispatch(setAnimating(true));
+
     const interval = setInterval(() => {
       currentText += safeMessage.charAt(charIndex);
       setDisplayText(currentText);
-      dispatch(handleChangeAnimatingStatus(true));
 
       charIndex++;
       if (charIndex >= safeMessage.length) {
-        animationCache[id] = currentText; // guardamos en cache
+        animationCache[id] = currentText;
         clearInterval(interval);
-        dispatch(handleChangeAnimatingStatus(false));
+        dispatch(setAnimating(false));
       }
     }, 10);
 
+    // limpiar intervalo al desmontar o reiniciar
     return () => clearInterval(interval);
-  }, [safeMessage, pending, animate, id, dispatch]);
+  }, [safeMessage, pending, animate, id, cancelAnimation, dispatch]);
 
   return { displayText };
 };

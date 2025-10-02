@@ -14,9 +14,10 @@ export const ChatInput = () => {
     isLoading,
     handleCancelMessage,
   } = useChat();
-  const isAnimating = useAppSelector((state) => state.chatBot.isAnimating);
+  const isAnimating = useAppSelector(
+    (state) => state.textAnimation.isAnimating
+  );
   const { open } = useSidebar();
-
 
   console.log("isLoading", isLoading);
   return (

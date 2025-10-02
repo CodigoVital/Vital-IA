@@ -57,9 +57,9 @@ const ChatMessage = ({
       >
         <p className="text-primary-custom-text font-lato f">
           {pending ? (
-        "Vital-IA está pensando..."
+            "Vital-IA está pensando..."
           ) : (
-        <ReactMarkdown>{displayText}</ReactMarkdown>
+            <ReactMarkdown>{displayText}</ReactMarkdown>
           )}
         </p>
         {timestamp && !pending && (
