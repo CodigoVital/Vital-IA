@@ -5,7 +5,7 @@ import useChat from "../hooks/use-chat";
 import { useAppSelector } from "@/hooks/use-selector";
 
 export const ChatInput = () => {
-  const { input, handleSend, setInput, dispatch } = useChat();
+  const { input, handleSend, setInput, dispatch, isLoading } = useChat();
   const isAnimating = useAppSelector((state) => state.chatBot.isAnimating);
 
   return (
@@ -14,7 +14,7 @@ export const ChatInput = () => {
         placeholder="Escribe tu consulta aqui..."
         className="rounded border-1 bg-white border-[#CBD5E1]"
         value={input}
-        disabled={isAnimating}
+        disabled={isAnimating || isLoading}
         onChange={(e) => dispatch(setInput(e.target.value))}
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
@@ -22,7 +22,7 @@ export const ChatInput = () => {
       <Button
         className="bg-[var(--customBackground)] text-white"
         onClick={handleSend}
-        disabled={isAnimating || !input.trim()}
+        disabled={isAnimating || !input.trim() || isLoading}
       >
         <LucideIcon name="SendHorizontal" />
       </Button>

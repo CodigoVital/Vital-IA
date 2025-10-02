@@ -13,6 +13,8 @@ const useChat = () => {
   const { input, sessionId } = useAppSelector((state) => state.chatBot);
   const [sendMessage, { isLoading }] = useSendMessageMutation();
 
+  console.log("isLoading", isLoading);
+
   const sendMessageFlow = async (messageText: string) => {
     const tempId = uuidv4();
     dispatch(
