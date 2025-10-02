@@ -7,15 +7,13 @@ import {
 } from "@/store/slices/chatbo-slice";
 import { useSendMessageMutation } from "@/store/services/chat/chatApi";
 import { v4 as uuidv4 } from "uuid";
-import { useTransition } from "react";
 
 const useChat = () => {
   const dispatch = useAppDispatch();
   const { input, sessionId } = useAppSelector((state) => state.chatBot);
-  const [sendMessage] = useSendMessageMutation();
-  const [isPending, startTransition] = useTransition();
+  const [sendMessage, { isLoading }] = useSendMessageMutation();
 
-  const sendMessageFlow = (messageText: string) => {
+  const sendMessageFlow = async (messageText: string) => {
     const tempId = uuidv4();
     dispatch(
       addMessage({
@@ -26,32 +24,30 @@ const useChat = () => {
       })
     );
 
-    startTransition(async () => {
-      try {
-        dispatch(
-          updateMessage({ id: tempId, text: messageText, pending: false })
-        );
-        const botTempId = uuidv4();
-        dispatch(
-          addMessage({ id: botTempId, text: "", sender: "bot", pending: true })
-        );
-        const response = await sendMessage({
-          question: messageText,
-          sessionId,
-        }).unwrap();
-        dispatch(
-          updateMessage({
-            id: botTempId,
-            text: response.answer,
-            pending: false,
-          })
-        );
-      } catch {
-        dispatch(
-          updateMessage({ id: tempId, text: "Error al enviar", pending: false })
-        );
-      }
-    });
+    dispatch(updateMessage({ id: tempId, text: messageText, pending: false }));
+
+    const botTempId = uuidv4();
+    dispatch(
+      addMessage({ id: botTempId, text: "", sender: "bot", pending: true })
+    );
+
+    try {
+      const response = await sendMessage({
+        question: messageText,
+        sessionId,
+      }).unwrap();
+      dispatch(
+        updateMessage({ id: botTempId, text: response.answer, pending: false })
+      );
+    } catch {
+      dispatch(
+        updateMessage({
+          id: botTempId,
+          text: "Error al enviar",
+          pending: false,
+        })
+      );
+    }
   };
 
   const handleSend = () => {
@@ -68,7 +64,7 @@ const useChat = () => {
   return {
     input,
     dispatch,
-    isPending,
+    isLoading,
     handleSend,
     setInput,
     handleSendSuggestion,

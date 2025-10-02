@@ -26,6 +26,7 @@ const chatbotSlice = createSlice({
     clearInput: (state) => {
       state.input = "";
     },
+
     addMessage: (state, action: PayloadAction<Message>) => {
       state.messages.push(action.payload);
     },
@@ -51,7 +52,13 @@ const chatbotSlice = createSlice({
   },
 });
 
-export const { setInput, clearInput, addMessage, updateMessage, resetChat, handleChangeAnimatingStatus } =
-  chatbotSlice.actions;
+export const {
+  setInput,
+  clearInput,
+  addMessage,
+  updateMessage,
+  resetChat,
+  handleChangeAnimatingStatus,
+} = chatbotSlice.actions;
 
 export default chatbotSlice.reducer;
