@@ -43,7 +43,7 @@ const ChatMessage = ({
             isOwnMessage
               ? "bg-white text-[var(--customBackground)]"
               : "bg-[var(--customBackground)] text-white",
-            "text-sm border-t-1 border-[#CBD5E1]"
+            "text-sm border-1 border-[#CBD5E1]"
           )}
         >
           {userInitial}
