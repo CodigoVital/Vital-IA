@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { chatApi } from "./services/chat/chatApi";
-import chatbotReducer from "./slices/chatbot-slice";
-import textAnimationReducer from "./slices/text-animation-slice";
+import chatbotReducer from "./slices/chatbot/chatbot-slice";
+import textAnimationReducer from "./slices/chatbot/text-animation-slice";
 
 export const store = configureStore({
   reducer: {
