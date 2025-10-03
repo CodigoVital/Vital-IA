@@ -31,7 +31,7 @@ const SymptomChipsList = ({
               <div
                 id="diagnosis-symptom-chips"
                 key={sintoma}
-                className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl flex items-center gap-2 
+                className="px-4 py-2 bg-[#73C7E3]/20 rounded-xl  flex items-center gap-2 
                      text-primary-custom-text font-medium border font-lato
                       flex-shrink-0"
               >
@@ -40,7 +40,7 @@ const SymptomChipsList = ({
                   size="sm"
                   variant="ghost"
                   className={cn(
-                    `h-6 w-6 p-0 text-[#2DC6C4]  hover:text-[#1A2E46] hover:bg-transparent`
+                    `h-6 w-6 p-0 text-[#2DC6C4] hover:cursor-pointer hover:text-[#1A2E46] hover:bg-transparent`
                   )}
                   onClick={() => eliminarSintoma(sintoma)}
                   type="button"
