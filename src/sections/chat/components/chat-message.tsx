@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useTextAnimation from "@/hooks/use-text-animation";
 import { cn } from "@/lib/utils";
@@ -57,9 +58,13 @@ const ChatMessage = ({
       >
         <p className="text-primary-custom-text font-lato">
           {pending ? (
-            <span className=" f animate-pulse text-primary-custom-text font-lato ">
-              Vital-IA está pensando...
-            </span>
+            <>
+              <Skeleton className="w-[150px] h-5 rounded-xl">
+                <span className="text-primary-custom-text font-lato">
+                  Vital-IA está pensando...
+                </span>
+              </Skeleton>
+            </>
           ) : (
             <ReactMarkdown>{displayText}</ReactMarkdown>
           )}
