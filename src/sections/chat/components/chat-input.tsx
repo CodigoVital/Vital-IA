@@ -24,7 +24,7 @@ export const ChatInput = () => {
     >
       <Input
         placeholder="Escribe tu consulta aqui..."
-        className="rounded border-1 bg-white border-[#CBD5E1]"
+        className="rounded border-1 bg-white border-[#CBD5E1] placeholder:font-lato"
         value={input}
         disabled={isAnimating || isPending}
         onChange={(e) => dispatch(setInput(e.target.value))}
