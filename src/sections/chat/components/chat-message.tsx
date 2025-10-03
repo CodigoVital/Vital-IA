@@ -55,9 +55,11 @@ const ChatMessage = ({
           "sm:max-w-[31.25rem] md:max-w-[43.75rem] lg:max-w-[56.25rem] xl:max-w-[56.25rem]"
         )}
       >
-        <p className="text-primary-custom-text font-lato f">
+        <p className="text-primary-custom-text font-lato">
           {pending ? (
-            "Vital-IA está pensando..."
+            <span className=" f animate-pulse text-primary-custom-text font-lato ">
+              Vital-IA está pensando...
+            </span>
           ) : (
             <ReactMarkdown>{displayText}</ReactMarkdown>
           )}
