@@ -16,7 +16,7 @@ const SymptomInput = ({
   return (
     <div className="flex gap-2 items-center">
       <Input
-      id="diagnosis-symptom-input"
+        id="diagnosis-symptom-input"
         className="flex-1 h-12 px-4 py-2 bg-[white] rounded border border-[#E0E0E0] text-[#1A2E46] text-base font-normal focus:outline-none focus:border-[#2DC6C4]"
         type="text"
         placeholder="Escribe un síntoma..."
@@ -28,7 +28,7 @@ const SymptomInput = ({
         aria-label="Agregar síntoma personalizado"
       />
       <Button
-        className=" bg-primary-custom font-lato rounded-xl p-6 text-white  flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
+        className=" bg-primary-custom font-lato rounded-xl p-6 hover:cursor-pointer text-white  flex items-center gap-2 text-base shadow hover:bg-[#1A2E46] hover:text-white w-auto"
         onClick={agregarSintoma}
         type="button"
         aria-label="Agregar síntoma"

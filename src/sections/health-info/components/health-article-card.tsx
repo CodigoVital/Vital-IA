@@ -56,7 +56,7 @@ const HealthArticleCard = ({ info }: HealthArticleCardProps) => {
           <Link
             id="health-article-read"
             to={`${info.id}`}
-            className="text-primary-custom text-sm font-medium font-lato"
+            className="text-primary-custom text-sm font-medium font-lato hover:cursor-pointer"
           >
             Leer más..
           </Link>

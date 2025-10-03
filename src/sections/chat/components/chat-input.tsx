@@ -6,13 +6,8 @@ import { useAppSelector } from "@/hooks/use-selector";
 import { useSidebar } from "@/components/ui/sidebar";
 
 export const ChatInput = () => {
-  const {
-    input,
-    handleSend,
-    setInput,
-    dispatch,
-    handleCancelMessage,
-  } = useChat();
+  const { input, handleSend, setInput, dispatch, handleCancelMessage } =
+    useChat();
   const isAnimating = useAppSelector(
     (state) => state.textAnimation.isAnimating
   );
@@ -23,13 +18,13 @@ export const ChatInput = () => {
   return (
     <div
       id="chat-input"
-      className={`flex items-center gap-5 p-5 rounded-b-lg  ${
+      className={`flex items-center gap-5 p-5 rounded-b-lg border-t-1 border-[#CBD5E1]  ${
         open ? "" : " px-35 "
       }`}
     >
       <Input
         placeholder="Escribe tu consulta aqui..."
-        className="rounded border-1 bg-white border-[#CBD5E1]"
+        className="rounded border-1 bg-white border-[#CBD5E1] placeholder:font-lato"
         value={input}
         disabled={isAnimating || isPending}
         onChange={(e) => dispatch(setInput(e.target.value))}
@@ -44,7 +39,7 @@ export const ChatInput = () => {
         </Button>
       ) : (
         <Button
-          className="bg-[var(--customBackground)] text-white"
+          className="bg-[var(--customBackground)] text-white hover:cursor-pointer"
           onClick={handleSend}
           disabled={!input.trim()}
         >

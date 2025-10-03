@@ -27,13 +27,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       >
         {open && (
           <div className="flex flex-row items-center gap-0 transition-all duration-200 opacity-100 translate-x-0">
-            <Logo  width={34} height={34} className="p-0 m-0" />
+            <Logo width={34} height={34} className="p-0 m-0" />
             <h1 className="font-bold whitespace-nowrap text-[#24B0BA]">
               Vital-<span className="text-[#73C7E3]">IA</span>
             </h1>
           </div>
         )}
-        <SidebarTrigger className={cn("shrink-0 ")} />
+        <SidebarTrigger className={cn("shrink-0  cursor-pointer")} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />

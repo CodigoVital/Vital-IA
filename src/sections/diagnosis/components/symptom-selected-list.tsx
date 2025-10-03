@@ -45,7 +45,7 @@ export const SymptomSelectedList = ({
         <Button
           onClick={resetSymptoms}
           className={cn(
-            "text-primary-custom-text font-lato",
+            "text-primary-custom-text font-lato cursor-pointer",
             "hover:bg-[#F0F0F0] active:bg-[#E0E0E0] ",
             "bg-transparent border-none text-primary-custom-text"
           )}
@@ -72,7 +72,7 @@ export const SymptomSelectedList = ({
         disabled={sintomasSeleccionados.length === 0}
         id="diagnosis-submit-button"
         onClick={analizarSintomas}
-        className="mt-6 mx-auto font-lato p-5.5 bg-primary-custom rounded-md text-white   text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
+        className="mt-6 mx-auto font-lato p-5.5 bg-primary-custom rounded-md text-white hover:cursor-pointer  text-base shadow hover:bg-[#1A2E46] hover:text-white w-full"
       >
         <Shield className="w-5 h-5" /> Analizar Síntomas
       </Button>
