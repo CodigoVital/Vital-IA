@@ -26,7 +26,7 @@ const HealthCategoryFilter = ({
           key={c.value}
           value={c.value}
           onClick={() => setCategory(c.value)}
-          className={`rounded-lg flex items-center space-x-2 px-4 py-2 ${
+          className={`rounded-lg flex items-center space-x-2 hover:cursor-pointer px-4 py-2 ${
             isMobile ? "flex-col justify-center space-x-0 space-y-1" : ""
           } ${className}`}
         >

@@ -28,7 +28,7 @@ export const SymptomCommonList = ({
               id="add-custom-symptom"
               key={sintoma}
               className={cn(
-                `px-4 py-2 rounded-xl border-2 border-[#E0E0E0] bg-[#F5F7FA] text-primary-custom-text font-lato  font-medium transition-colors duration-150 ${
+                `px-4 py-2 rounded-xl border-2 hover:cursor-pointer border-[#E0E0E0] bg-[#F5F7FA] text-primary-custom-text font-lato  font-medium transition-colors duration-150 ${
                   sintomasSeleccionados.includes(sintoma)
                     ? "bg-[#2DC6C4] text-white border-[#2DC6C4]"
                     : "hover:bg-[#E6F7F6] hover:text-[#1A2E46] focus:text-[#1A2E46]"

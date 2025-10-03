@@ -9,6 +9,7 @@ export const ChatWindow = () => {
   const messages = useAppSelector((state) => state.chatBot.messages);
   const { open } = useSidebar();
   const { containerRef, bottomRef } = useAutoScroll<HTMLDivElement>();
+
   return (
     <ScrollArea className="h-full px-4">
       <div
@@ -16,7 +17,7 @@ export const ChatWindow = () => {
         className={`space-y-2 pt-4 ${open ? "" : "px-30"}`}
       >
         {!messages.length && (
-          <div className="flex flex-col items-center justify-center w-full min-h-[60vh] text-center text-gray-500">
+          <div className="flex fixed flex-col items-center justify-center w-full min-h-[60vh] text-center text-gray-500">
             <Logo
               className="w-68.5 h-57.5"
               bgColor="transparent"
@@ -24,6 +25,7 @@ export const ChatWindow = () => {
             />
           </div>
         )}
+
         {messages.map((msg) => (
           <ChatMessage
             key={msg.id}

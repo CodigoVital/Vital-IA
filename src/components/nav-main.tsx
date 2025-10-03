@@ -51,7 +51,7 @@ export function NavMain({
                       if (openMobile) toggleSidebar();
                     }}
                     className={cn(
-                      "rounded",
+                      "rounded cursor-pointer",
                       "p-[22px] flex items-center gap-[10px] font-bold font-lato text-[14px] text-[#475569]",
                       isActive &&
                         "bg-[#24B0BA]/20 text-[#24B0BA]  font-bold dark:bg-slate-800 dark:text-slate-100",
