@@ -6,13 +6,8 @@ import { useAppSelector } from "@/hooks/use-selector";
 import { useSidebar } from "@/components/ui/sidebar";
 
 export const ChatInput = () => {
-  const {
-    input,
-    handleSend,
-    setInput,
-    dispatch,
-    handleCancelMessage,
-  } = useChat();
+  const { input, handleSend, setInput, dispatch, handleCancelMessage } =
+    useChat();
   const isAnimating = useAppSelector(
     (state) => state.textAnimation.isAnimating
   );
@@ -44,7 +39,7 @@ export const ChatInput = () => {
         </Button>
       ) : (
         <Button
-          className="bg-[var(--customBackground)] text-white"
+          className="bg-[var(--customBackground)] text-white hover:cursor-pointer"
           onClick={handleSend}
           disabled={!input.trim()}
         >
