@@ -6,11 +6,10 @@ import ChatSuggest from "../components/chat-suggest";
 import useChatTour from "@/hooks/use-chat-tour";
 import useChat from "../hooks/use-chat";
 
-
 export const ChatMainView = () => {
   const isMobile = useIsMobile();
 
-  const { handleSendSuggestion, isLoading } = useChat();
+  const { handleSendSuggestion } = useChat();
 
   useChatTour();
   return (
@@ -26,10 +25,7 @@ export const ChatMainView = () => {
       </div>
 
       <div className={`shrink-0 `}>
-        <ChatSuggest
-          handleSendSuggestion={handleSendSuggestion}
-          isLoading={isLoading}
-        />
+        <ChatSuggest handleSendSuggestion={handleSendSuggestion} />
         <ChatInput />
       </div>
     </section>

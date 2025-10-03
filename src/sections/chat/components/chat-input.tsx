@@ -35,7 +35,7 @@ export const ChatInput = () => {
         onChange={(e) => dispatch(setInput(e.target.value))}
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
       />
-      {isPending || isAnimating ? (
+      {isPending ? (
         <Button
           onClick={handleCancelMessage}
           className="bg-accent-custom text-white"

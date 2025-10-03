@@ -5,7 +5,7 @@ import {
   updateMessage,
   setInput,
   setIsPending,
-} from "@/store/slices/chatbo-slice";
+} from "@/store/slices/chatbot-slice";
 import { useSendMessageMutation } from "@/store/services/chat/chatApi";
 import { v4 as uuidv4 } from "uuid";
 import { cancelAnimation } from "@/store/slices/text-animation-slice";

@@ -7,6 +7,7 @@ interface ChatState {
   input: string;
   sessionId: string;
   isPending: boolean;
+  abortController: (() => void) | null;
 }
 
 const initialState: ChatState = {
@@ -14,6 +15,7 @@ const initialState: ChatState = {
   input: "",
   isPending: false,
   sessionId: "2131n12",
+  abortController: null,
 };
 
 const chatbotSlice = createSlice({
@@ -25,6 +27,9 @@ const chatbotSlice = createSlice({
     },
     clearInput: (state) => {
       state.input = "";
+    },
+    setAbortController: (state, action: PayloadAction<(() => void) | null>) => {
+      state.abortController = action.payload;
     },
     setIsPending: (state, action: PayloadAction<boolean>) => {
       state.isPending = action.payload;
@@ -63,6 +68,7 @@ export const {
   resetChat,
   removeMessage,
   setIsPending,
+  setAbortController,
 } = chatbotSlice.actions;
 
 export default chatbotSlice.reducer;

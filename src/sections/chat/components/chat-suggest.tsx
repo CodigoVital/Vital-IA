@@ -6,11 +6,13 @@ import { useSidebar } from "@/components/ui/sidebar";
 
 interface ChatSuggestProps {
   handleSendSuggestion: (suggestion: string) => void;
-  isLoading: boolean;
 }
 
-const ChatSuggest = ({ handleSendSuggestion, isLoading }: ChatSuggestProps) => {
-  const isAnimating = useAppSelector((state) => state.textAnimation.isAnimating);
+const ChatSuggest = ({ handleSendSuggestion }: ChatSuggestProps) => {
+  const isAnimating = useAppSelector(
+    (state) => state.textAnimation.isAnimating
+  );
+  const isPending = useAppSelector((state) => state.chatBot.isPending);
   const { open } = useSidebar();
   return (
     <section
@@ -29,7 +31,7 @@ const ChatSuggest = ({ handleSendSuggestion, isLoading }: ChatSuggestProps) => {
           <div className="flex gap-2 px-1 pb-2">
             {suggestions.map((suggestion, index) => (
               <Button
-                disabled={isAnimating || isLoading}
+                disabled={isAnimating || isPending}
                 onClick={() => handleSendSuggestion(suggestion)}
                 key={index}
                 className="rounded-xl border-y-1 text-primary-custom-text font-lato bg-white border-[#CBD5E1] text-sm font-normal flex-shrink-0 whitespace-nowrap "
