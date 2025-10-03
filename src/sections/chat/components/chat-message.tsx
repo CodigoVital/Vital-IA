@@ -43,7 +43,7 @@ const ChatMessage = ({
             isOwnMessage
               ? "bg-white text-[var(--customBackground)]"
               : "bg-[var(--customBackground)] text-white",
-            "text-sm border-1 border-[#CBD5E1]"
+            "text-sm border-t-1 border-[#CBD5E1]"
           )}
         >
           {userInitial}
@@ -59,7 +59,7 @@ const ChatMessage = ({
         <p className="text-primary-custom-text font-lato">
           {pending ? (
             <>
-              <Skeleton className="w-[150px] h-5 rounded-xl">
+              <Skeleton className="w-[150px] h-5 rounded-xl bg-transparent">
                 <span className="text-primary-custom-text font-lato">
                   Vital-IA está pensando...
                 </span>

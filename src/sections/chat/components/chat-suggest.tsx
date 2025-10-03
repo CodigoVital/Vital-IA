@@ -38,7 +38,7 @@ const ChatSuggest = ({ handleSendSuggestion }: ChatSuggestProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className={`text-black p-4 border-y-1 border-[#CBD5E1] flex flex-col gap-4 ${
+            className={`text-black p-4 border-t-1 border-[#CBD5E1] flex flex-col gap-4 ${
               open ? "" : " px-30 "
             }`}
           >

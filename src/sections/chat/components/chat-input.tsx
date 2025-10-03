@@ -18,7 +18,7 @@ export const ChatInput = () => {
   return (
     <div
       id="chat-input"
-      className={`flex items-center gap-5 p-5 rounded-b-lg  ${
+      className={`flex items-center gap-5 p-5 rounded-b-lg border-t-1 border-[#CBD5E1]  ${
         open ? "" : " px-35 "
       }`}
     >
