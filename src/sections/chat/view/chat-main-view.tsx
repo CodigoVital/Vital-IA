@@ -4,10 +4,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { ChatWindow } from "../components/chat-window";
 import ChatSuggest from "../components/chat-suggest";
 import useChatTour from "@/hooks/use-chat-tour";
-
+import useChat from "../hooks/use-chat";
 
 export const ChatMainView = () => {
   const isMobile = useIsMobile();
+
+  const { handleSendSuggestion } = useChat();
+
   useChatTour();
   return (
     <section className="flex flex-col h-full">
@@ -21,8 +24,8 @@ export const ChatMainView = () => {
         <ChatWindow />
       </div>
 
-      <div className="shrink-0">
-        <ChatSuggest />
+      <div className={`shrink-0 `}>
+        <ChatSuggest handleSendSuggestion={handleSendSuggestion} />
         <ChatInput />
       </div>
     </section>

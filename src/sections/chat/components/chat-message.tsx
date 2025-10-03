@@ -1,20 +1,34 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useIsMobile } from "@/hooks/use-mobile";
+import useTextAnimation from "@/hooks/use-text-animation";
 import { cn } from "@/lib/utils";
+import ReactMarkdown from "react-markdown";
 
 interface ChatMessageProps {
-  message: string;
+  message: string | undefined;
   isOwnMessage?: boolean;
   userName?: string;
   timestamp?: string;
+  pending?: boolean;
+  msgId: string;
 }
 
-export default function ChatMessage({
+const ChatMessage = ({
   message,
   isOwnMessage = false,
   userName = "Usuario",
   timestamp,
-}: ChatMessageProps) {
+  pending = false,
+  msgId,
+}: ChatMessageProps) => {
   const userInitial = userName.charAt(0).toUpperCase();
+  const isMobile = useIsMobile();
+  const { displayText } = useTextAnimation({
+    message,
+    pending,
+    animate: !isOwnMessage,
+    id: msgId,
+  });
   return (
     <div
       className={cn(
@@ -36,14 +50,24 @@ export default function ChatMessage({
       </Avatar>
       <div
         className={cn(
-          "max-w-[326px]  bg-[#F0F2F2] rounded px-4 py-3 text-sm leading-relaxed"
+          "bg-[#F0F2F2] rounded px-4 py-3 text-sm leading-relaxed",
+          isMobile ? "max-w-[20.375rem]" : "max-w-[calc(100%-35rem)]",
+          "sm:max-w-[31.25rem] md:max-w-[43.75rem] lg:max-w-[56.25rem] xl:max-w-[56.25rem]"
         )}
       >
-        <p className="text-primary-custom-text font-lato f">{message}</p>
-        {timestamp && (
+        <p className="text-primary-custom-text font-lato f">
+          {pending ? (
+            "Vital-IA está pensando..."
+          ) : (
+            <ReactMarkdown>{displayText}</ReactMarkdown>
+          )}
+        </p>
+        {timestamp && !pending && (
           <span className="text-xs opacity-70 mt-1 block">{timestamp}</span>
         )}
       </div>
     </div>
   );
-}
+};
+
+export default ChatMessage;
