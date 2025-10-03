@@ -48,7 +48,19 @@ const useChat = () => {
       dispatch(
         updateMessage({ id: botTempId, text: response.answer, pending: false })
       );
-    } catch {
+    } catch (error) {
+      type ChatError = { name: string; message: string };
+      const e = error as ChatError;
+      if (e.name === "AbortError") {
+        dispatch(
+          updateMessage({
+            id: botTempId,
+            text: "Mensaje cancelado",
+            pending: false,
+          })
+        );
+        return;
+      }
       dispatch(
         updateMessage({
           id: botTempId,
