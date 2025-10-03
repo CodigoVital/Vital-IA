@@ -5,11 +5,7 @@ import { useAppSelector } from "@/hooks/use-selector";
 import { useSidebar } from "@/components/ui/sidebar";
 import LucideIcon from "@/components/lucide-icon-name";
 import { useState } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import SuggestToggleButton from "./suggest-toggle-button";
 
 interface ChatSuggestProps {
   handleSendSuggestion: (suggestion: string) => void;
@@ -22,22 +18,13 @@ const ChatSuggest = ({ handleSendSuggestion }: ChatSuggestProps) => {
   );
   const isPending = useAppSelector((state) => state.chatBot.isPending);
   const { open } = useSidebar();
+
   if (hidden) {
     return (
-      <div className="fixed bottom-20 right-4 z-50">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              variant="ghost"
-              onClick={() => setHidden(false)}
-              className="rounded-lg text-gray-400 hover:text-gray-600 font-lato text-xs font-normal h-8 px-3 shadow-sm"
-            >
-              <LucideIcon name="MessageCircle" className="mr-2" size={14} />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="left">Mostrar sugerencias</TooltipContent>
-        </Tooltip>
-      </div>
+      <SuggestToggleButton
+        onShow={() => setHidden(false)}
+        className={`${open ? "" : " px-30 "}`}
+      />
     );
   }
 
