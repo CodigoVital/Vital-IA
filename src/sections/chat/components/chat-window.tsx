@@ -16,7 +16,7 @@ export const ChatWindow = () => {
         className={`space-y-2 pt-4 ${open ? "" : "px-30"}`}
       >
         {!messages.length && (
-          <div className="flex flex-col items-center justify-center w-full min-h-[60vh] text-center text-gray-500">
+          <div className="flex flex-col items-center justify-center w-full min-h-[50vh] text-center text-gray-500">
             <Logo
               className="w-68.5 h-57.5"
               bgColor="transparent"
