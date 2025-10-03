@@ -5,6 +5,7 @@ import {
   updateMessage,
   setInput,
   setIsPending,
+  setAbortController,
 } from "@/store/slices/chatbot-slice";
 import { useSendMessageMutation } from "@/store/services/chat/chatApi";
 import { v4 as uuidv4 } from "uuid";
@@ -12,7 +13,9 @@ import { cancelAnimation } from "@/store/slices/text-animation-slice";
 
 const useChat = () => {
   const dispatch = useAppDispatch();
-  const { input, sessionId } = useAppSelector((state) => state.chatBot);
+  const { input, sessionId, abortController } = useAppSelector(
+    (state) => state.chatBot
+  );
   const [sendMessage] = useSendMessageMutation();
 
   const sendMessageFlow = async (messageText: string) => {
@@ -35,10 +38,13 @@ const useChat = () => {
     dispatch(setIsPending(true));
 
     try {
-      const response = await sendMessage({
+      const mutationPromise = sendMessage({
         question: messageText,
         sessionId,
-      }).unwrap();
+      });
+      dispatch(setAbortController(mutationPromise.abort));
+
+      const response = await mutationPromise.unwrap();
       dispatch(
         updateMessage({ id: botTempId, text: response.answer, pending: false })
       );
@@ -67,6 +73,10 @@ const useChat = () => {
   };
 
   const handleCancelMessage = () => {
+    if (abortController) {
+      abortController();
+    }
+
     dispatch(cancelAnimation());
   };
   return {
