@@ -50,8 +50,24 @@ export const authApi = createApi({
       async queryFn(email) {
         try {
           const { data, error } = await supabase.auth.resetPasswordForEmail(
-            email
+            email,
+            {
+              redirectTo: "https://vital-ia-dev2.onrender.com/auth/recovery/reset",
+            }
           );
+          if (error) return { error };
+          return { data };
+        } catch (error) {
+          return { error };
+        }
+      },
+    }),
+    resetPassword: builder.mutation({
+      async queryFn(newPassword: string) {
+        try {
+          const { data, error } = await supabase.auth.updateUser({
+            password: newPassword,
+          });
           if (error) return { error };
           return { data };
         } catch (error) {
@@ -62,5 +78,9 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation, useRecoveryMutation } =
-  authApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useRecoveryMutation,
+  useResetPasswordMutation,
+} = authApi;
