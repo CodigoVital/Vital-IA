@@ -1,5 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/use-selector";
-import { useRegisterMutation } from "@/store/services/auth/authApi";
+import {
+  useLoginMutation,
+} from "@/store/services/auth/authApi";
 import { setUser } from "@/store/slices/auth/auth-slice";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
@@ -13,7 +15,7 @@ const useAuth = () => {
   const user = useAppSelector((state) => state.authSlice.user);
   const location = useLocation();
   const navigate = useNavigate();
-  const [register] = useRegisterMutation();
+  const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const useAuth = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const data = await register({ email, password }).unwrap();
+      const data = await login({ email, password }).unwrap();
       if (data && data.user) {
         dispatch(setUser(data.user));
         localStorage.setItem("user", JSON.stringify(data.user));
