@@ -7,9 +7,14 @@ import { toFormikValidationSchema } from "zod-formik-adapter";
 import { z } from "zod";
 import { useResetPasswordMutation } from "@/store/services/auth/authApi";
 
-const resetSchema = z.object({
-  password: z.string().min(6, "Mínimo 6 caracteres"),
-});
+const resetSchema = z
+  .object({
+    password: z.string().min(6, "Mínimo 6 caracteres"),
+    confirmPassword: z.string().min(6, "Mínimo 6 caracteres"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Las contraseñas no coinciden",
+  });
 
 const ResetPasswordForm = () => {
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
@@ -34,9 +39,30 @@ const ResetPasswordForm = () => {
       }}
     >
       {({ isValid, dirty }) => (
-        <Form className="flex flex-col gap-6 max-w-sm mx-auto mt-20">
+        <Form className="flex flex-col gap-6 max-w-sm ">
           <div className="grid gap-3">
-            <Label htmlFor="password">Nueva contraseña</Label>
+            <Label
+              htmlFor="password"
+              className="text-primary-custom-text font-lato"
+            >
+              Nueva contraseña
+            </Label>
+            <Field
+              as={Input}
+              id="password"
+              name="password"
+              type="password"
+              placeholder="********"
+              className={cn("rounded border-1 border-border-secondary")}
+            />
+          </div>
+          <div className="grid gap-3">
+            <Label
+              htmlFor="confirmPassword"
+              className="text-primary-custom-text font-lato"
+            >
+              Confirmar nueva contraseña
+            </Label>
             <Field
               as={Input}
               id="password"
@@ -50,7 +76,7 @@ const ResetPasswordForm = () => {
           <Button
             type="submit"
             disabled={!isValid || !dirty || isLoading}
-            className="bg-primary-custom"
+            className="bg-primary-custom  font-lato"
           >
             {isLoading ? "Actualizando..." : "Cambiar contraseña"}
           </Button>
