@@ -1,36 +1,25 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/use-selector";
+import { useAppDispatch } from "@/hooks/use-selector";
 import { useLoginMutation } from "@/store/services/auth/authApi";
 import { setUser } from "@/store/slices/auth/auth-slice";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import getAuthErrorMessage from "../helper/get-auth-error-message";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
+import type { LoginFormValues } from "../schemas/login";
+import { useState } from "react";
 
-const useLogin = () => {
-  const [email, setEmail] = useState("eddytalavera073@gmail.com");
-  const [password, setPassword] = useState("plumx34045");
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const isAuthenticated = useAppSelector(
-    (state) => state.authSlice.isAuthenticated
-  );
-  const user = useAppSelector((state) => state.authSlice.user);
-  const location = useLocation();
+const useLoginForm = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [login, { isLoading }] = useLoginMutation();
-  const dispatch = useAppDispatch();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (user && isAuthenticated) {
-      if (location.pathname === "/auth") {
-        navigate("/");
-      }
-    }
-  }, [user, navigate, location.pathname, isAuthenticated]);
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const initialValues: LoginFormValues = { email: "", password: "" };
+  const handleSubmit = async (
+    values: LoginFormValues,
+  ) => {
     try {
-      const data = await login({ email, password }).unwrap();
+      const data = await login(values).unwrap();
       if (data?.user) {
         dispatch(setUser(data.user));
         localStorage.setItem("user", JSON.stringify(data.user));
@@ -43,16 +32,8 @@ const useLogin = () => {
       setErrorMessage(msg);
     }
   };
-  return {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    handleSubmit,
-    navigate,
-    isLoading,
-    errorMessage,
-  };
+
+  return { initialValues, handleSubmit, isLoading, errorMessage };
 };
 
-export default useLogin;
+export default useLoginForm;
