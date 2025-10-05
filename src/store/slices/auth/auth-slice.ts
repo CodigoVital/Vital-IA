@@ -38,9 +38,11 @@ export const authSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.user = action.payload;
+      state.isAuthenticated = !!action.payload;
     },
     setLogout: (state, action) => {
       state.logout = action.payload;
+      state.isAuthenticated = false;
     },
     setAvatarUrl: (state, action) => {
       state.avatarUrl = action.payload;

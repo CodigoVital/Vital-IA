@@ -1,15 +1,28 @@
-import { useAppDispatch } from "@/hooks/use-selector";
+import { useAppDispatch, useAppSelector } from "@/hooks/use-selector";
 import { useRegisterMutation } from "@/store/services/auth/authApi";
 import { setUser } from "@/store/slices/auth/auth-slice";
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 
-const useLogin = () => {
+const useAuth = () => {
   const [email, setEmail] = useState("eddytalavera073@gmail.com");
   const [password, setPassword] = useState("plumx34045");
+  const isAuthenticated = useAppSelector(
+    (state) => state.authSlice.isAuthenticated
+  );
+  const user = useAppSelector((state) => state.authSlice.user);
+  const location = useLocation();
   const navigate = useNavigate();
   const [register] = useRegisterMutation();
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (user && isAuthenticated) {
+      if (location.pathname === "/auth") {
+        navigate("/");
+      }
+    }
+  }, [user, navigate, location.pathname, isAuthenticated]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,7 +31,6 @@ const useLogin = () => {
       if (data && data.user) {
         dispatch(setUser(data.user));
         localStorage.setItem("user", JSON.stringify(data.user));
-        console.log("Registration successful:", data);
         navigate("/");
       } else {
         console.error("Registration failed: No user data returned");
@@ -30,4 +42,4 @@ const useLogin = () => {
   return { email, setEmail, password, setPassword, handleSubmit, navigate };
 };
 
-export default useLogin;
+export default useAuth;

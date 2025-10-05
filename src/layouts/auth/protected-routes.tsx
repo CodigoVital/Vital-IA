@@ -11,6 +11,8 @@ const ProtectedRoutes = ({ children }: PropsWithChildren) => {
     return <Navigate to="/auth" replace />;
   }
 
+  
+
   return <>{children}</>;
 };
 

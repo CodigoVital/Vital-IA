@@ -3,10 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router";
-import useLogin from "../hooks/use-login";
+import useAuth from "../hooks/use-auth";
 
 export const LoginForm = () => {
-  const { email, setEmail, password, setPassword, handleSubmit } = useLogin();
+  const { email, setEmail, password, setPassword, handleSubmit } = useAuth();
 
   return (
     <form onSubmit={handleSubmit}>
