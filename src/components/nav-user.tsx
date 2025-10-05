@@ -1,5 +1,4 @@
 import { BadgeCheck, Bell, LogOut } from "lucide-react";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -25,8 +24,6 @@ export function NavUser() {
   const { open } = useSidebar();
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector((state) => state.authSlice.user);
-
-  console.log("Current User:", currentUser);
 
   return (
     <SidebarMenu>
