@@ -4,9 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import { PasswordRequirements } from "./password-requierments";
-import { registerSchema } from "../schemas/register";
-import useRegister from "../hooks/use-register";
+import { PasswordRequirements } from "../password-requierments";
+import { registerSchema } from "../../schemas/register";
+import useRegister from "../../hooks/use-register";
 
 export const RegisterForm = () => {
   const { initialValues, handleSubmit, isRegistering } = useRegister();

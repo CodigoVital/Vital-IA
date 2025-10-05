@@ -1,5 +1,5 @@
 import { AuthCard } from "../components/auth-card";
-import { RegisterForm } from "../components/register-form";
+import { RegisterForm } from "../components/Forms/register-form";
 
 const RegisterView = () => {
   return (

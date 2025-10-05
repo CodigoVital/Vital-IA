@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 import { Link } from "react-router";
 import LucideIcon from "@/components/lucide-icon-name";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import { loginSchema } from "../schemas/login";
-import useLoginForm from "../hooks/use-login";
+import { loginSchema } from "../../schemas/login";
+import useLoginForm from "../../hooks/use-login";
 
 export const LoginForm = () => {
   const { initialValues, handleSubmit, isLoading, errorMessage } =

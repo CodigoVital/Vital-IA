@@ -1,5 +1,5 @@
 import { AuthCard } from "../components/auth-card";
-import ResetPasswordForm from "../components/reset-password-form";
+import ResetPasswordForm from "../components/Forms/reset-password-form";
 
 const ResetPasswordView = () => {
   return (

@@ -4,21 +4,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import useRecovery from "../hooks/use-recovery";
-import { resetSchema } from "../schemas/recovery";
+import useRecovery from "../../hooks/use-recovery";
+import { resetSchema } from "../../schemas/recovery";
+import { PasswordRequirements } from "../password-requierments";
 
 const ResetPasswordForm = () => {
   const { handleResetPassword, isLoading } = useRecovery();
 
   return (
     <Formik
-      initialValues={{ password: "" }}
+      initialValues={{ password: "" , confirmPassword: "" }}
       validationSchema={toFormikValidationSchema(resetSchema)}
       onSubmit={async (values, { setSubmitting }) => {
         await handleResetPassword(values, setSubmitting);
       }}
     >
-      {({ isValid, dirty }) => (
+      {({ isValid, dirty, values }) => (
         <Form className="flex flex-col gap-6 max-w-sm ">
           <div className="grid gap-3">
             <Label
@@ -66,6 +67,7 @@ const ResetPasswordForm = () => {
           >
             {isLoading ? "Actualizando..." : "Cambiar contraseña"}
           </Button>
+          <PasswordRequirements password={values.password} />
         </Form>
       )}
     </Formik>
