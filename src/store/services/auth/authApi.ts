@@ -1,6 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { supabase } from "@/constants";
 
+
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: async (args) => {
@@ -30,8 +31,21 @@ export const authApi = createApi({
         }
       },
     }),
+    register: builder.mutation({
+      async queryFn(credentials) {
+        try {
+          const { data, error } = await supabase.auth.signUp({
+            email: credentials.email,
+            password: credentials.password,
+          });
+          if (error) return { error };
+          return { data };
+        } catch (error) {
+          return { error };
+        }
+      },
+    }),
   }),
 });
 
-
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation } = authApi;

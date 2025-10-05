@@ -7,8 +7,12 @@ interface AuthState {
   avatarUrl?: string | null;
 }
 
+const user: User = localStorage.getItem("user")
+  ? JSON.parse(localStorage.getItem("user") as string)
+  : null;
+
 const initialState: AuthState = {
-  user: null,
+  user: user,
   avatarUrl: null,
   logout: undefined,
 };
@@ -28,3 +32,5 @@ export const authSlice = createSlice({
     },
   },
 });
+
+export const { setUser, setLogout, setAvatarUrl } = authSlice.actions;

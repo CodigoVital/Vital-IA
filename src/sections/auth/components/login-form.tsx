@@ -1,19 +1,44 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAppDispatch } from "@/hooks/use-selector";
 import { cn } from "@/lib/utils";
+import { useRegisterMutation } from "@/store/services/auth/authApi";
+import { setUser } from "@/store/slices/auth/auth-slice";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState("alextalavera@gmail.com");
-  const [password, setPassword] = useState("********");
+  const [email, setEmail] = useState("eddytalavera073@gmail.com");
+  const [password, setPassword] = useState("plumx34045");
   const navigate = useNavigate();
+  const [register] = useRegisterMutation();
+  const dispatch = useAppDispatch();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const data = await register({ email, password }).unwrap();
+      if (data && data.user) {
+        dispatch(setUser(data.user));
+        console.log("Registration successful:", data);
+        navigate("/");
+      } else {
+        console.error("Registration failed: No user data returned");
+      }
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4">
         <div className="grid gap-3">
-          <Label htmlFor="email" className="text-primary-custom-text font-lato font-bold">
+          <Label
+            htmlFor="email"
+            className="text-primary-custom-text font-lato font-bold"
+          >
             Correo
           </Label>
           <Input
@@ -27,7 +52,10 @@ export const LoginForm = () => {
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
-            <Label htmlFor="password" className="text-primary-custom-text font-lato font-bold">
+            <Label
+              htmlFor="password"
+              className="text-primary-custom-text font-lato font-bold"
+            >
               Contraseña
             </Label>
             <Link
