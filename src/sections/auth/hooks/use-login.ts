@@ -7,7 +7,7 @@ import getAuthErrorMessage from "../helper/get-auth-error-message";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 
-const useAuth = () => {
+const useLogin = () => {
   const [email, setEmail] = useState("eddytalavera073@gmail.com");
   const [password, setPassword] = useState("plumx34045");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -55,4 +55,4 @@ const useAuth = () => {
   };
 };
 
-export default useAuth;
+export default useLogin;

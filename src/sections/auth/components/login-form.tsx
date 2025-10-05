@@ -3,11 +3,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router";
-import useAuth from "../hooks/use-auth";
+import useLogin from "../hooks/use-login";
+import LucideIcon from "@/components/lucide-icon-name";
 
 export const LoginForm = () => {
-  const { email, setEmail, password, setPassword, handleSubmit, errorMessage } =
-    useAuth();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleSubmit,
+    errorMessage,
+    isLoading,
+  } = useLogin();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -60,10 +68,18 @@ export const LoginForm = () => {
             type="submit"
             className={cn(
               "bg-primary-custom font-lato font-light hover:bg-primary-custom/80",
-              `w-full`
+              `w-full flex items-center justify-center gap-2`
             )}
+            disabled={isLoading}
           >
-            Iniciar sesión
+            {isLoading ? (
+              <>
+                <LucideIcon name="Loader2" className="animate-spin w-4 h-4" />
+                Cargando...
+              </>
+            ) : (
+              "Iniciar sesión"
+            )}
           </Button>
         </div>
       </div>
