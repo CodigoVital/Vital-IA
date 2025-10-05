@@ -6,9 +6,10 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import LucideIcon from "@/components/lucide-icon-name";
 import useRecovery from "../hooks/use-recovery";
+import { recoverySchema } from "../schemas/recovery";
 
 export const RecoveryForm = () => {
-  const { handleSubmit, isLoading, recoverySchema } = useRecovery();
+  const { handleSubmit, isLoading } = useRecovery();
 
   return (
     <Formik

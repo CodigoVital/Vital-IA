@@ -19,13 +19,14 @@ const useRecovery = () => {
       toast.success("Correo de recuperación enviado", {
         description: "Revisa tu bandeja de entrada",
         position: "top-right",
+        duration: 5000,
       });
-      navigate("/auth/login");
     } catch (error) {
       console.error(error);
       toast.error("Error al enviar el correo de recuperación", {
         description: "Por favor, intenta de nuevo.",
         position: "top-right",
+        duration: 5000,
       });
     }
   };
