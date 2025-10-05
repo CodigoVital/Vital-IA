@@ -7,7 +7,6 @@ import { toFormikValidationSchema } from "zod-formik-adapter";
 import { toast } from "sonner";
 import { recoverySchema } from "../schemas/recovery";
 
-
 const useRecovery = () => {
   const [recovery, { isLoading }] = useRecoveryMutation();
   const [resetPassword, { isLoading: isLoadingReset }] =
@@ -37,12 +36,22 @@ const useRecovery = () => {
   ) => {
     try {
       await resetPassword(values.password).unwrap();
-      alert(" Contraseña actualizada con éxito");
+      toast.success("Contraseña actualizada", {
+        description: "Ahora puedes iniciar sesión con tu nueva contraseña",
+        position: "top-right",
+      });
+      navigate("/auth/login");
     } catch (e: unknown) {
       if (e instanceof Error) {
-        alert(" Error: " + e.message);
+        toast.error("Error al actualizar la contraseña", {
+          description: e.message,
+          position: "top-right",
+        });
       } else {
-        alert(" Error inesperado");
+        toast.error("Error al actualizar la contraseña", {
+          description: "Por favor, intenta de nuevo.",
+          position: "top-right",
+        });
       }
     } finally {
       setSubmitting(false);
