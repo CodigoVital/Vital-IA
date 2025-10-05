@@ -25,7 +25,6 @@ export function NavUser() {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector((state) => state.authSlice.user);
 
-  console.log("Current User:", currentUser);
 
   return (
     <SidebarMenu>
@@ -96,7 +95,7 @@ export function NavUser() {
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">
-                    {currentUser?.user_metadata.displayName ||
+                    {currentUser?.user_metadata.display_name ||
                       "Nombre no disponible"}
                   </span>
                   <span className="truncate text-xs">
