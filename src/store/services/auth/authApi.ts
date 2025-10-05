@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { supabase } from "@/constants";
+import { RESET_PASSWORD_URL, supabase } from "@/constants";
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -52,7 +52,7 @@ export const authApi = createApi({
           const { data, error } = await supabase.auth.resetPasswordForEmail(
             email,
             {
-              redirectTo: "http://localhost:3000/auth/recovery/reset",
+              redirectTo: RESET_PASSWORD_URL,
             }
           );
           if (error) return { error };
