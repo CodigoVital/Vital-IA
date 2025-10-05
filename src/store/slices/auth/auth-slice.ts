@@ -5,6 +5,7 @@ interface AuthState {
   user: User | null;
   logout?: () => void;
   avatarUrl?: string | null;
+  isAuthenticated: boolean;
 }
 
 const initialState = (): AuthState => {
@@ -16,6 +17,7 @@ const initialState = (): AuthState => {
         user: user,
         avatarUrl: user?.user_metadata?.avatar_url || null,
         logout: undefined,
+        isAuthenticated: true,
       };
     }
   } catch (e) {
@@ -26,6 +28,7 @@ const initialState = (): AuthState => {
     user: null,
     avatarUrl: null,
     logout: undefined,
+    isAuthenticated: false,
   };
 };
 
