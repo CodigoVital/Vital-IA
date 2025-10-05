@@ -1,9 +1,12 @@
+import { useAppSelector } from "@/hooks/use-selector";
+import type { PropsWithChildren } from "react";
 
+const ProtectedRoutes = ({ children }: PropsWithChildren) => {
+  const isAuthenticated = useAppSelector(
+    (state) => state.authSlice.isAuthenticated
+  );
 
-const ProtectedRoutes = () => {
-  return (
-    <div>ProtectedRoutes</div>
-  )
-}
+  return <>{children}</>;
+};
 
-export default ProtectedRoutes
+export default ProtectedRoutes;
