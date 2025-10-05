@@ -33,7 +33,10 @@ const ResetPasswordForm = () => {
               name="password"
               type="password"
               placeholder="********"
-              className={cn("rounded border-1 border-border-secondary")}
+              className={cn(
+                "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+                `bg-white `
+              )}
             />
           </div>
           <div className="grid gap-3">
@@ -49,7 +52,10 @@ const ResetPasswordForm = () => {
               name="confirmPassword"
               type="password"
               placeholder="********"
-              className={cn("rounded border-1 border-border-secondary")}
+              className={cn(
+                "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+                `bg-white `
+              )}
             />
           </div>
 
