@@ -1,8 +1,15 @@
+import { AuthCard } from "../components/auth-card";
+import ResetPasswordForm from "../components/reset-password-form";
 
 const ResetPasswordView = () => {
   return (
-    <div>ResetPasswordView</div>
-  )
-}
+    <AuthCard
+      title="Registrarse"
+      description="Establece tus datos para continuar"
+    >
+      <ResetPasswordForm />
+    </AuthCard>
+  );
+};
 
-export default ResetPasswordView
+export default ResetPasswordView;
