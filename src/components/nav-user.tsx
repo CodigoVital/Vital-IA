@@ -1,4 +1,4 @@
-import { BadgeCheck, Bell, CreditCard, LogOut, Sparkles } from "lucide-react";
+import { BadgeCheck, Bell, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -17,21 +17,16 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { useAppDispatch } from "@/hooks/use-selector";
+import { useAppDispatch, useAppSelector } from "@/hooks/use-selector";
 import { setLogout } from "@/store/slices/auth/auth-slice";
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string;
-    email: string;
-    avatar: string;
-  };
-}) {
+export function NavUser() {
   const { isMobile } = useSidebar();
   const { open } = useSidebar();
   const dispatch = useAppDispatch();
+  const currentUser = useAppSelector((state) => state.authSlice.user);
+
+  console.log("Current User:", currentUser);
 
   return (
     <SidebarMenu>
@@ -51,18 +46,28 @@ export function NavUser({
                   open ? "" : "mx-auto"
                 )}
               >
-                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarImage
+                  src={currentUser?.user_metadata.avatar_url}
+                  alt={currentUser?.user_metadata.name}
+                />
                 <AvatarFallback className="text-sm font-light ">
-                  A
+                  {currentUser?.user_metadata.name
+                    ? currentUser.user_metadata.name
+                        .split(" ")
+                        .map((n: string) => n[0])
+                        .join("")
+                    : "NN"}
                 </AvatarFallback>
               </Avatar>
 
               {open && (
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium h-[17px]">
-                    {user.name}
+                    {currentUser?.user_metadata.name || "Nombre no disponible"}
                   </span>
-                  <span className="truncate text-xs">{user.email}</span>
+                  <span className="truncate text-xs">
+                    {currentUser?.email || "Email no disponible"}
+                  </span>
                 </div>
               )}
             </SidebarMenuButton>
@@ -76,41 +81,44 @@ export function NavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarImage
+                    src={currentUser?.user_metadata.avatar_url}
+                    alt={currentUser?.user_metadata.name || "NN"}
+                  />
+                  <AvatarFallback className="rounded-lg">
+                    {currentUser?.user_metadata.name
+                      ? currentUser.user_metadata.name
+                          .split(" ")
+                          .map((n: string) => n[0])
+                          .join("")
+                      : "NN"}
+                  </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs">{user.email}</span>
+                  <span className="truncate font-medium">
+                    {currentUser?.user_metadata.name || "Nombre no disponible"}
+                  </span>
+                  <span className="truncate text-xs">
+                    {currentUser?.user_metadata.email || "Email no disponible"}
+                  </span>
                 </div>
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Sparkles />
-                Upgrade to Pro
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
                 <BadgeCheck />
-                Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCard />
-                Billing
+                Cuenta
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Bell />
-                Notifications
+                Notificaciones
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => dispatch(setLogout())}>
               <LogOut />
-              Log out
+              Cerrar sesión
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
