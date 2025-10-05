@@ -17,6 +17,8 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
+import { useAppDispatch } from "@/hooks/use-selector";
+import { setLogout } from "@/store/slices/auth/auth-slice";
 
 export function NavUser({
   user,
@@ -29,6 +31,7 @@ export function NavUser({
 }) {
   const { isMobile } = useSidebar();
   const { open } = useSidebar();
+  const dispatch = useAppDispatch();
 
   return (
     <SidebarMenu>
@@ -56,7 +59,9 @@ export function NavUser({
 
               {open && (
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium h-[17px]">{user.name}</span>
+                  <span className="truncate font-medium h-[17px]">
+                    {user.name}
+                  </span>
                   <span className="truncate text-xs">{user.email}</span>
                 </div>
               )}
@@ -103,7 +108,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => dispatch(setLogout())}>
               <LogOut />
               Log out
             </DropdownMenuItem>

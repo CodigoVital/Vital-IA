@@ -40,9 +40,10 @@ export const authSlice = createSlice({
       state.user = action.payload;
       state.isAuthenticated = !!action.payload;
     },
-    setLogout: (state, action) => {
-      state.logout = action.payload;
+    setLogout: (state) => {
       state.isAuthenticated = false;
+      state.user = null;
+      localStorage.removeItem("user");
     },
     setAvatarUrl: (state, action) => {
       state.avatarUrl = action.payload;
