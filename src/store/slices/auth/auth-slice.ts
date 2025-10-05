@@ -13,7 +13,7 @@ const user: User = localStorage.getItem("user")
 
 const initialState: AuthState = {
   user: user,
-  avatarUrl: null,
+  avatarUrl: user?.user_metadata?.avatar_url || null,
   logout: undefined,
 };
 
