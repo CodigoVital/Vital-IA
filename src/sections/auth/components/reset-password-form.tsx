@@ -4,38 +4,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { toFormikValidationSchema } from "zod-formik-adapter";
-import { z } from "zod";
-import { useResetPasswordMutation } from "@/store/services/auth/authApi";
-
-const resetSchema = z
-  .object({
-    password: z.string().min(6, "Mínimo 6 caracteres"),
-    confirmPassword: z.string().min(6, "Mínimo 6 caracteres"),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Las contraseñas no coinciden",
-  });
+import useRecovery from "../hooks/use-recovery";
+import { resetSchema } from "../schemas/recovery";
 
 const ResetPasswordForm = () => {
-  const [resetPassword, { isLoading }] = useResetPasswordMutation();
+  const { handleResetPassword, isLoading } = useRecovery();
 
   return (
     <Formik
       initialValues={{ password: "" }}
       validationSchema={toFormikValidationSchema(resetSchema)}
       onSubmit={async (values, { setSubmitting }) => {
-        try {
-          await resetPassword(values.password).unwrap();
-          alert(" Contraseña actualizada con éxito");
-        } catch (e: unknown) {
-          if (e instanceof Error) {
-            alert(" Error: " + e.message);
-          } else {
-            alert(" Error inesperado");
-          }
-        } finally {
-          setSubmitting(false);
-        }
+        await handleResetPassword(values, setSubmitting);
       }}
     >
       {({ isValid, dirty }) => (
