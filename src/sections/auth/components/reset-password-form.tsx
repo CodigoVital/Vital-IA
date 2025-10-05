@@ -65,8 +65,8 @@ const ResetPasswordForm = () => {
             </Label>
             <Field
               as={Input}
-              id="password"
-              name="password"
+              id="confirmPassword"
+              name="confirmPassword"
               type="password"
               placeholder="********"
               className={cn("rounded border-1 border-border-secondary")}
