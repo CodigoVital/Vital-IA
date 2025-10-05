@@ -25,6 +25,8 @@ export function NavUser() {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector((state) => state.authSlice.user);
 
+  console.log("Current User:", currentUser);
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -48,8 +50,8 @@ export function NavUser() {
                   alt={currentUser?.user_metadata.name}
                 />
                 <AvatarFallback className="text-sm font-light ">
-                  {currentUser?.user_metadata.name
-                    ? currentUser.user_metadata.name
+                  {currentUser?.user_metadata.display_name
+                    ? currentUser.user_metadata.display_name
                         .split(" ")
                         .map((n: string) => n[0])
                         .join("")
@@ -60,7 +62,8 @@ export function NavUser() {
               {open && (
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium h-[17px]">
-                    {currentUser?.user_metadata.name || "Nombre no disponible"}
+                    {currentUser?.user_metadata.display_name ||
+                      "Nombre no disponible"}
                   </span>
                   <span className="truncate text-xs">
                     {currentUser?.email || "Email no disponible"}
@@ -80,11 +83,11 @@ export function NavUser() {
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage
                     src={currentUser?.user_metadata.avatar_url}
-                    alt={currentUser?.user_metadata.name || "NN"}
+                    alt={currentUser?.user_metadata.display_name || "NN"}
                   />
                   <AvatarFallback className="rounded-lg">
-                    {currentUser?.user_metadata.name
-                      ? currentUser.user_metadata.name
+                    {currentUser?.user_metadata.display_name
+                      ? currentUser.user_metadata.display_name
                           .split(" ")
                           .map((n: string) => n[0])
                           .join("")
@@ -93,7 +96,8 @@ export function NavUser() {
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">
-                    {currentUser?.user_metadata.name || "Nombre no disponible"}
+                    {currentUser?.user_metadata.displayName ||
+                      "Nombre no disponible"}
                   </span>
                   <span className="truncate text-xs">
                     {currentUser?.user_metadata.email || "Email no disponible"}

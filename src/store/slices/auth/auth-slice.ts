@@ -1,6 +1,5 @@
+import type { User } from "@/types/auth/user";
 import { createSlice } from "@reduxjs/toolkit";
-import type { User } from "@supabase/supabase-js";
-
 interface AuthState {
   user: User | null;
   logout?: () => void;
