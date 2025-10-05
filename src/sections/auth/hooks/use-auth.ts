@@ -1,7 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/use-selector";
-import {
-  useLoginMutation,
-} from "@/store/services/auth/authApi";
+import { useLoginMutation } from "@/store/services/auth/authApi";
 import { setUser } from "@/store/slices/auth/auth-slice";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
@@ -15,7 +13,7 @@ const useAuth = () => {
   const user = useAppSelector((state) => state.authSlice.user);
   const location = useLocation();
   const navigate = useNavigate();
-  const [login] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -41,7 +39,15 @@ const useAuth = () => {
       console.error("Registration failed:", error);
     }
   };
-  return { email, setEmail, password, setPassword, handleSubmit, navigate };
+  return {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleSubmit,
+    navigate,
+    isLoading,
+  };
 };
 
 export default useAuth;
