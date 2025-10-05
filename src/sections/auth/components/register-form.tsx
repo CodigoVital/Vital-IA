@@ -29,7 +29,9 @@ export const RegisterForm = () => {
               )}
             />
             {errors.username && touched.username && (
-              <p className="text-red-600 text-sm">{errors.username}</p>
+              <p className="text-[#991B1B] font-lato text-xs">
+                {errors.username}
+              </p>
             )}
           </div>
 
@@ -44,7 +46,7 @@ export const RegisterForm = () => {
               )}
             />
             {errors.email && touched.email && (
-              <p className="text-red-600 text-sm">{errors.email}</p>
+              <p className="text-[#991B1B] font-lato text-xs">{errors.email}</p>
             )}
           </div>
 
@@ -59,10 +61,8 @@ export const RegisterForm = () => {
                 `bg-white `
               )}
             />
+
             <PasswordRequirements password={values.password} />
-            {errors.password && touched.password && (
-              <p className="text-red-600 text-sm">{errors.password}</p>
-            )}
           </div>
 
           <Button
