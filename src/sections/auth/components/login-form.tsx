@@ -1,4 +1,3 @@
-
 import { Formik, Form } from "formik";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,7 +28,14 @@ export const LoginForm = () => {
             >
               Correo
             </Label>
-            <Input {...getFieldProps("email")} placeholder="m@example.com" />
+            <Input
+              {...getFieldProps("email")}
+              placeholder="m@example.com"
+              className={cn(
+                "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+                `bg-white `
+              )}
+            />
           </div>
 
           <div className="grid gap-3">
@@ -51,6 +57,10 @@ export const LoginForm = () => {
               {...getFieldProps("password")}
               type="password"
               placeholder="********"
+              className={cn(
+                "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+                `bg-white `
+              )}
             />
           </div>
           {errorMessage && (
@@ -62,7 +72,7 @@ export const LoginForm = () => {
             <Button
               type="submit"
               className={cn(
-                "bg-primary-custom font-lato font-light hover:bg-primary-custom/80 w-full flex items-center justify-center gap-2"
+                "bg-primary-custom font-lato hover:bg-primary-custom/80 w-full flex items-center justify-center gap-2"
               )}
               disabled={isLoading}
             >

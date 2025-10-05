@@ -18,7 +18,10 @@ export const RecoveryForm = () => {
             id="email"
             type="email"
             placeholder="m@example.com"
-            className={cn("rounded border-custom-border", `bg-white `)}
+            className={cn(
+              "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+              `bg-white `
+            )}
           />
         </div>
         <p className="text-[10px] sm:text-xs font-lato text-center text-primary-custom-text  overflow-hidden text-ellipsis">

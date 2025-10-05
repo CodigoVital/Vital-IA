@@ -20,7 +20,14 @@ export const RegisterForm = () => {
         <Form className="flex flex-col gap-4">
           <div className="grid gap-3">
             <Label htmlFor="username">Nombre de usuario</Label>
-            <Input {...getFieldProps("username")} placeholder="Alex Talavera" />
+            <Input
+              {...getFieldProps("username")}
+              placeholder="Alex Talavera"
+              className={cn(
+                "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+                `bg-white `
+              )}
+            />
             {errors.username && touched.username && (
               <p className="text-red-600 text-sm">{errors.username}</p>
             )}
@@ -28,7 +35,14 @@ export const RegisterForm = () => {
 
           <div className="grid gap-3">
             <Label htmlFor="email">Correo</Label>
-            <Input {...getFieldProps("email")} placeholder="m@example.com" />
+            <Input
+              {...getFieldProps("email")}
+              placeholder="m@example.com"
+              className={cn(
+                "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+                `bg-white `
+              )}
+            />
             {errors.email && touched.email && (
               <p className="text-red-600 text-sm">{errors.email}</p>
             )}
@@ -40,6 +54,10 @@ export const RegisterForm = () => {
               {...getFieldProps("password")}
               type="password"
               placeholder="********"
+              className={cn(
+                "rounded border-1 border-border-secondary placeholder:text-border-secondary",
+                `bg-white `
+              )}
             />
             <PasswordRequirements password={values.password} />
             {errors.password && touched.password && (
