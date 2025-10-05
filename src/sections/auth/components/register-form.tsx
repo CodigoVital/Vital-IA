@@ -3,27 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { useNavigate } from "react-router";
-import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { PasswordRequirements } from "./password-requierments";
 import { registerSchema } from "../schemas/register";
-
-type RegisterFormValues = z.infer<typeof registerSchema>;
+import useRegister from "../hooks/use-register";
 
 export const RegisterForm = () => {
-  const navigate = useNavigate();
-  const initialValues: RegisterFormValues = {
-    username: "",
-    email: "",
-    password: "",
-  };
-
-  const handleSubmit = (values: RegisterFormValues) => {
-    console.log(values);
-    navigate("/");
-  };
-
+  const { initialValues, handleSubmit, isRegistering } = useRegister();
   return (
     <Formik
       initialValues={initialValues}
@@ -67,7 +53,7 @@ export const RegisterForm = () => {
               "bg-primary-custom hover:bg-primary-custom/80 w-full"
             )}
           >
-            Registrarse
+            {isRegistering ? "Cargando..." : "Registrarse"}
           </Button>
         </Form>
       )}

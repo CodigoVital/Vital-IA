@@ -1,7 +1,48 @@
+import { useAppDispatch } from "@/hooks/use-selector";
+import { useRegisterMutation } from "@/store/services/auth/authApi";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import type { registerSchema } from "../schemas/register";
+import type z from "zod";
+import { setUser } from "@/store/slices/auth/auth-slice";
+import getAuthErrorMessage from "../helper/get-auth-error-message";
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
+
+type RegisterFormValues = z.infer<typeof registerSchema>;
 
 const useRegister = () => {
-    
-  return {}
-}
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [register, { isLoading: isRegistering }] = useRegisterMutation();
+  const dispatch = useAppDispatch();
+  const initialValues: RegisterFormValues = {
+    username: "",
+    email: "",
+    password: "",
+  };
+  const handleSubmit = async (values: RegisterFormValues) => {
+    try {
+      const data = await register(values);
+      if (data?.data?.user) {
+        dispatch(setUser(data.data.user));
+        localStorage.setItem("user", JSON.stringify(data.data.user));
+        navigate("/");
+      }
+    } catch (err) {
+      const msg = getAuthErrorMessage(
+        err as FetchBaseQueryError | SerializedError
+      );
+      setErrorMessage(msg);
+    }
+  };
 
-export default useRegister
+  return {
+    initialValues,
+    handleSubmit,
+    isRegistering,
+    errorMessage,
+  };
+};
+
+export default useRegister;
