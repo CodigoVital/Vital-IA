@@ -3,10 +3,14 @@ import { useLoginMutation } from "@/store/services/auth/authApi";
 import { setUser } from "@/store/slices/auth/auth-slice";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import getAuthErrorMessage from "../helper/get-auth-error-message";
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
 
 const useAuth = () => {
   const [email, setEmail] = useState("eddytalavera073@gmail.com");
   const [password, setPassword] = useState("plumx34045");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const isAuthenticated = useAppSelector(
     (state) => state.authSlice.isAuthenticated
   );
@@ -23,20 +27,20 @@ const useAuth = () => {
       }
     }
   }, [user, navigate, location.pathname, isAuthenticated]);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const data = await login({ email, password }).unwrap();
-      if (data && data.user) {
+      if (data?.user) {
         dispatch(setUser(data.user));
         localStorage.setItem("user", JSON.stringify(data.user));
         navigate("/");
-      } else {
-        console.error("Registration failed: No user data returned");
       }
-    } catch (error) {
-      console.error("Registration failed:", error);
+    } catch (err) {
+      const msg = getAuthErrorMessage(
+        err as FetchBaseQueryError | SerializedError
+      );
+      setErrorMessage(msg);
     }
   };
   return {
@@ -47,6 +51,7 @@ const useAuth = () => {
     handleSubmit,
     navigate,
     isLoading,
+    errorMessage,
   };
 };
 
