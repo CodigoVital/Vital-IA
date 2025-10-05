@@ -2,12 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 export const RegisterForm = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log({ username, email, password });
+    navigate("/");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4">
         <div className="grid gap-3">
           <Label
@@ -19,6 +30,8 @@ export const RegisterForm = () => {
           <Input
             id="username"
             type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             placeholder="Alex Talavera"
             className={cn("rounded border-custom-border", `bg-white `)}
           />

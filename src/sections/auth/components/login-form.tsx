@@ -61,7 +61,9 @@ export const LoginForm = () => {
           />
         </div>
         {errorMessage && (
-          <p className="text-xs text-center text-[#991B1B] ">{errorMessage}</p>
+          <p className="text-xs text-center font-lato text-[#991B1B] ">
+            {errorMessage}
+          </p>
         )}
         <div className="flex flex-col gap-3">
           <Button
