@@ -6,7 +6,8 @@ import { Link } from "react-router";
 import useAuth from "../hooks/use-auth";
 
 export const LoginForm = () => {
-  const { email, setEmail, password, setPassword, handleSubmit } = useAuth();
+  const { email, setEmail, password, setPassword, handleSubmit, errorMessage } =
+    useAuth();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -51,9 +52,9 @@ export const LoginForm = () => {
             placeholder="********"
           />
         </div>
-        {/* <p className="text-xs text-center text-[#991B1B] ">
-          Correo o contraseña erróneos
-        </p> */}
+        {errorMessage && (
+          <p className="text-xs text-center text-[#991B1B] ">{errorMessage}</p>
+        )}
         <div className="flex flex-col gap-3">
           <Button
             type="submit"
