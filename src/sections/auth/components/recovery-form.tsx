@@ -57,7 +57,7 @@ export const RecoveryForm = () => {
                 enviando...
               </>
             ) : (
-              "Continuar"
+              "Recuperar"
             )}
           </Button>
         </Form>
