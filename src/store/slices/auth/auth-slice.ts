@@ -7,14 +7,26 @@ interface AuthState {
   avatarUrl?: string | null;
 }
 
-const user: User = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user") as string)
-  : null;
+const initialState = (): AuthState => {
+  try {
+    const userStr = localStorage.getItem("user");
+    if (userStr) {
+      const user: User = JSON.parse(userStr);
+      return {
+        user: user,
+        avatarUrl: user?.user_metadata?.avatar_url || null,
+        logout: undefined,
+      };
+    }
+  } catch (e) {
+    console.error("Failed to parse user from localStorage", e);
+  }
 
-const initialState: AuthState = {
-  user: user,
-  avatarUrl: user?.user_metadata?.avatar_url || null,
-  logout: undefined,
+  return {
+    user: null,
+    avatarUrl: null,
+    logout: undefined,
+  };
 };
 
 export const authSlice = createSlice({
