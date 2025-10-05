@@ -36,6 +36,7 @@ export const authApi = createApi({
           const { data, error } = await supabase.auth.signUp({
             email: credentials.email,
             password: credentials.password,
+            options: { data: { display_name: credentials.displayName } },
           });
           if (error) return { error };
           return { data };

@@ -18,7 +18,7 @@ const useRegister = () => {
   const [register, { isLoading: isRegistering }] = useRegisterMutation();
   const dispatch = useAppDispatch();
   const initialValues: RegisterFormValues = {
-    username: "",
+    displayName: "",
     email: "",
     password: "",
   };

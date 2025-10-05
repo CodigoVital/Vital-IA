@@ -19,18 +19,18 @@ export const RegisterForm = () => {
       {({ getFieldProps, errors, touched, values }) => (
         <Form className="flex flex-col gap-4">
           <div className="grid gap-3">
-            <Label htmlFor="username">Nombre de usuario</Label>
+            <Label htmlFor="displayName">Nombre de usuario</Label>
             <Input
-              {...getFieldProps("username")}
+              {...getFieldProps("displayName")}
               placeholder="Alex Talavera"
               className={cn(
                 "rounded border-1 border-border-secondary placeholder:text-border-secondary",
                 `bg-white `
               )}
             />
-            {errors.username && touched.username && (
+            {errors.displayName && touched.displayName && (
               <p className="text-[#991B1B] font-lato text-xs">
-                {errors.username}
+                {errors.displayName}
               </p>
             )}
           </div>
