@@ -8,6 +8,7 @@ import { setUser } from "@/store/slices/auth/auth-slice";
 import getAuthErrorMessage from "../helper/get-auth-error-message";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
@@ -26,6 +27,11 @@ const useRegister = () => {
       const data = await register(values);
       if (data?.data?.user) {
         dispatch(setUser(data.data.user));
+        toast.success("Registro exitoso", {
+          description: "se ha enviado un correo de verificación",
+          position: "top-right",
+          duration: 5000,
+        });
         localStorage.setItem("user", JSON.stringify(data.data.user));
         navigate("/");
       }
