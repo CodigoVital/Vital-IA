@@ -11,7 +11,7 @@ const resetSchema = z.object({
   password: z.string().min(6, "Mínimo 6 caracteres"),
 });
 
-export const ResetPasswordForm = () => {
+const ResetPasswordForm = () => {
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
 
   return (
@@ -21,9 +21,13 @@ export const ResetPasswordForm = () => {
       onSubmit={async (values, { setSubmitting }) => {
         try {
           await resetPassword(values.password).unwrap();
-          alert("Contraseña actualizada con éxito");
-        } catch (e) {
-          alert("Error: " + error.message);
+          alert(" Contraseña actualizada con éxito");
+        } catch (e: unknown) {
+          if (e instanceof Error) {
+            alert(" Error: " + e.message);
+          } else {
+            alert(" Error inesperado");
+          }
         } finally {
           setSubmitting(false);
         }

@@ -52,7 +52,7 @@ export const authApi = createApi({
           const { data, error } = await supabase.auth.resetPasswordForEmail(
             email,
             {
-              redirectTo: "https://vital-ia-dev2.onrender.com/auth/recovery/reset",
+              redirectTo: "http://localhost:3000/auth/recovery/reset",
             }
           );
           if (error) return { error };
