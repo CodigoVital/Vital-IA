@@ -6,6 +6,7 @@ const ProtectedRoutes = ({ children }: PropsWithChildren) => {
   const isAuthenticated = useAppSelector(
     (state) => state.authSlice.isAuthenticated
   );
+
   if (!isAuthenticated) {
     return <Navigate to="/auth" replace />;
   }

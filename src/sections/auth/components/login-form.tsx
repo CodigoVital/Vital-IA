@@ -6,8 +6,7 @@ import { Link } from "react-router";
 import useLogin from "../hooks/use-login";
 
 export const LoginForm = () => {
-  const { email, setEmail, password, setPassword, handleSubmit, navigate } =
-    useLogin();
+  const { email, setEmail, password, setPassword, handleSubmit } = useLogin();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -57,7 +56,6 @@ export const LoginForm = () => {
         </p> */}
         <div className="flex flex-col gap-3">
           <Button
-            onClick={() => navigate("/")}
             type="submit"
             className={cn(
               "bg-primary-custom font-lato font-light hover:bg-primary-custom/80",
