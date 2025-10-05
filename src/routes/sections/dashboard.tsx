@@ -1,5 +1,5 @@
 // DashboardRoutes.tsx
-import { DashboardLayout } from "@/layouts/dashboard-layout";
+import { DashboardLayout } from "@/layouts/dashboard/dashboard-layout";
 import { ChatPage } from "@/Page/chat/chat-page";
 import DiagnosisPage from "@/Page/diagnosis/diagnosisPage";
 import { HealthInfoPage } from "@/Page/health-info/health-info-page";
