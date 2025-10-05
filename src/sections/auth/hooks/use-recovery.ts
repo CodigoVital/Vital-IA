@@ -41,7 +41,7 @@ const useRecovery = () => {
         description: "Ahora puedes iniciar sesión con tu nueva contraseña",
         position: "top-right",
       });
-      navigate("/auth/login");
+      navigate("/auth");
     } catch (e: unknown) {
       if (e instanceof Error) {
         toast.error("Error al actualizar la contraseña", {
