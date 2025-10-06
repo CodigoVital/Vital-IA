@@ -6,10 +6,10 @@ import {
   setInput,
   setIsPending,
   setAbortController,
-} from "@/store/slices/chatbot-slice";
+} from "@/store/slices/chatbot/chatbot-slice";
 import { useSendMessageMutation } from "@/store/services/chat/chatApi";
 import { v4 as uuidv4 } from "uuid";
-import { cancelAnimation } from "@/store/slices/text-animation-slice";
+import { cancelAnimation } from "@/store/slices/chatbot/text-animation-slice";
 
 const useChat = () => {
   const dispatch = useAppDispatch();

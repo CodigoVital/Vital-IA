@@ -24,6 +24,7 @@ const ChatMessage = ({
 }: ChatMessageProps) => {
   const userInitial = userName.charAt(0).toUpperCase();
   const isMobile = useIsMobile();
+
   const { displayText } = useTextAnimation({
     message,
     pending,

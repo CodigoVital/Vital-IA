@@ -1,9 +1,16 @@
+
 import AuthHeader from "@/components/custom/auth-header";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Outlet } from "react-router";
 
 const AuthLayout = () => {
+  const isMobile = useIsMobile();
   return (
-    <div className="min-h-screen flex flex-col w-full">
+    <div
+      className={`flex flex-col w-full ${
+        isMobile ? "h-dvh overflow-hidden" : "min-h-screen"
+      }`}
+    >
       <AuthHeader />
       <main className="flex-1 flex items-center justify-center w-full">
         <Outlet />

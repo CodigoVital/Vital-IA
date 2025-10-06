@@ -1,0 +1,53 @@
+import type { User } from "@/types/auth/user";
+import { createSlice } from "@reduxjs/toolkit";
+interface AuthState {
+  user: User | null;
+  logout?: () => void;
+  avatarUrl?: string | null;
+  isAuthenticated: boolean;
+}
+
+const initialState = (): AuthState => {
+  try {
+    const userStr = localStorage.getItem("user");
+    if (userStr) {
+      const user: User = JSON.parse(userStr);
+      return {
+        user: user,
+        avatarUrl: user?.user_metadata?.avatar_url || null,
+        logout: undefined,
+        isAuthenticated: true,
+      };
+    }
+  } catch (e) {
+    console.error("Failed to parse user from localStorage", e);
+  }
+
+  return {
+    user: null,
+    avatarUrl: null,
+    logout: undefined,
+    isAuthenticated: false,
+  };
+};
+
+export const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload;
+      state.isAuthenticated = !!action.payload;
+    },
+    setLogout: (state) => {
+      state.isAuthenticated = false;
+      state.user = null;
+      localStorage.removeItem("user");
+    },
+    setAvatarUrl: (state, action) => {
+      state.avatarUrl = action.payload;
+    },
+  },
+});
+
+export const { setUser, setLogout, setAvatarUrl } = authSlice.actions;
