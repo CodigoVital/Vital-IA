@@ -32,7 +32,7 @@ const useRecovery = () => {
   };
 
   const handleResetPassword = async (
-    values: { password: string },
+    values: { password: string; confirmPassword: string },
     setSubmitting: (isSubmitting: boolean) => void
   ) => {
     try {

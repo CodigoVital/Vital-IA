@@ -1,4 +1,4 @@
-import z from "zod";
+import { z } from "zod";
 
 export const recoverySchema = z.object({
   email: z.string().email("Correo inválido"),
@@ -11,4 +11,5 @@ export const resetSchema = z
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Las contraseñas no coinciden",
+    path: ["confirmPassword"], 
   });
