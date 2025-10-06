@@ -19,7 +19,12 @@ export const RegisterForm = () => {
       {({ getFieldProps, errors, touched, values }) => (
         <Form className="flex flex-col gap-4">
           <div className="grid gap-3">
-            <Label htmlFor="displayName">Nombre de usuario</Label>
+            <Label
+              htmlFor="displayName"
+              className="text-primary-custom-text font-lato font-bold"
+            >
+              Nombre de usuario
+            </Label>
             <Input
               {...getFieldProps("displayName")}
               placeholder="Alex Talavera"
@@ -36,7 +41,12 @@ export const RegisterForm = () => {
           </div>
 
           <div className="grid gap-3">
-            <Label htmlFor="email">Correo</Label>
+            <Label
+              htmlFor="email"
+              className="text-primary-custom-text font-lato font-bold"
+            >
+              Correo
+            </Label>
             <Input
               {...getFieldProps("email")}
               placeholder="m@example.com"
@@ -51,7 +61,12 @@ export const RegisterForm = () => {
           </div>
 
           <div className="grid gap-3">
-            <Label htmlFor="password">Contraseña</Label>
+            <Label
+              htmlFor="password"
+              className="text-primary-custom-text font-lato font-bold"
+            >
+              Contraseña
+            </Label>
             <Input
               {...getFieldProps("password")}
               type="password"
@@ -68,7 +83,7 @@ export const RegisterForm = () => {
           <Button
             type="submit"
             className={cn(
-              "bg-primary-custom hover:bg-primary-custom/80 w-full"
+              "bg-primary-custom hover:bg-primary-custom/80 w-full font-lato"
             )}
           >
             {isRegistering ? "Cargando..." : "Registrarse"}

@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm } from "../components/Forms/login-form";
+import { LoginForm } from "../components/forms/login-form";
 import { AuthCard } from "../components/auth-card";
 
 export const LoginView: React.FC = () => {

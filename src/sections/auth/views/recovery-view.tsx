@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthCard } from "../components/auth-card";
-import { RecoveryForm } from "../components/Forms/recovery-form";
+import { RecoveryForm } from "../components/forms/recovery-form";
 
 export const RecoveryView: React.FC = () => {
   return (
