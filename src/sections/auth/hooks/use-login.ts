@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@/hooks/use-selector";
 import { useLoginMutation } from "@/store/services/auth/authApi";
-import { setUser } from "@/store/slices/auth/auth-slice";
+import { setLogout, setUser } from "@/store/slices/auth/auth-slice";
 import { useNavigate } from "react-router";
 import getAuthErrorMessage from "../helper/get-auth-error-message";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
@@ -36,7 +36,14 @@ const useLoginForm = () => {
     }
   };
 
-  return { initialValues, handleSubmit, isLoading, errorMessage };
+  const handleLogout = () => {
+    dispatch(setLogout());
+    toast.success("Cierre de sesión exitoso", {
+      position: "top-right",
+    });
+  };
+
+  return { initialValues, handleSubmit, isLoading, errorMessage, handleLogout };
 };
 
 export default useLoginForm;

@@ -16,15 +16,14 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { useAppDispatch, useAppSelector } from "@/hooks/use-selector";
-import { setLogout } from "@/store/slices/auth/auth-slice";
+import { useAppSelector } from "@/hooks/use-selector";
+import useLoginForm from "@/sections/auth/hooks/use-login";
 
 export function NavUser() {
   const { isMobile } = useSidebar();
   const { open } = useSidebar();
-  const dispatch = useAppDispatch();
+  const { handleLogout } = useLoginForm();
   const currentUser = useAppSelector((state) => state.authSlice.user);
-
 
   return (
     <SidebarMenu>
@@ -116,7 +115,7 @@ export function NavUser() {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => dispatch(setLogout())}>
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Cerrar sesión
             </DropdownMenuItem>
