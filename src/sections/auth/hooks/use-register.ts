@@ -8,10 +8,12 @@ import getAuthErrorMessage from "../helper/get-auth-error-message";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { toast } from "sonner";
+import { useNavigate } from "react-router";
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
 const useRegister = () => {
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [register, { isLoading: isRegistering }] = useRegisterMutation();
   const dispatch = useAppDispatch();
@@ -31,6 +33,7 @@ const useRegister = () => {
           position: "top-right",
           duration: 5000,
         });
+        navigate("/auth");
       }
     } catch (err) {
       const msg = getAuthErrorMessage(
