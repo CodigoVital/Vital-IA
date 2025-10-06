@@ -31,7 +31,6 @@ const useRegister = () => {
           position: "top-right",
           duration: 5000,
         });
-        localStorage.setItem("user", JSON.stringify(data.data.user));
       }
     } catch (err) {
       const msg = getAuthErrorMessage(
