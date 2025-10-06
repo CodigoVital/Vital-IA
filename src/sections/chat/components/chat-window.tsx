@@ -9,6 +9,7 @@ export const ChatWindow = () => {
   const messages = useAppSelector((state) => state.chatBot.messages);
   const { open } = useSidebar();
   const { containerRef, bottomRef } = useAutoScroll<HTMLDivElement>();
+  const user = useAppSelector((state) => state.authSlice.user);
 
   return (
     <ScrollArea className="h-full px-4">
@@ -32,7 +33,11 @@ export const ChatWindow = () => {
             message={msg.text}
             msgId={msg.id}
             isOwnMessage={msg.sender === "user"}
-            userName={msg.sender === "user" ? "Tú" : "Vital-IA"}
+            userName={
+              msg.sender === "user"
+                ? user?.user_metadata.display_name || "Tú"
+                : "Vital-IA"
+            }
             pending={msg.sender === "bot" && msg.pending}
           />
         ))}

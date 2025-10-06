@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "./use-selector";
-import { setAnimating } from "@/store/slices/text-animation-slice";
+import { setAnimating } from "@/store/slices/chatbot/text-animation-slice";
 
 interface UseTextAnimationProps {
   message?: string;

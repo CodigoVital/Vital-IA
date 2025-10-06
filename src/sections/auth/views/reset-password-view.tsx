@@ -1,15 +1,15 @@
 import { AuthCard } from "../components/auth-card";
-import { RegisterForm } from "../components/forms/register-form";
+import ResetPasswordForm from "../components/forms/reset-password-form";
 
-const RegisterView = () => {
+const ResetPasswordView = () => {
   return (
     <AuthCard
       title="Registrarse"
       description="Establece tus datos para continuar"
     >
-      <RegisterForm />
+      <ResetPasswordForm />
     </AuthCard>
   );
 };
 
-export default RegisterView;
+export default ResetPasswordView;
