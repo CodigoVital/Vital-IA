@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthCard } from "../components/auth-card";
-import { LoginForm } from "../components/forms/login-form";
+import LoginForm from "../components/Forms/login-form";
 
 export const LoginView: React.FC = () => {
   return (

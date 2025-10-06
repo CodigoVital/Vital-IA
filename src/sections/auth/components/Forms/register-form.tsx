@@ -93,3 +93,5 @@ export const RegisterForm = () => {
     </Formik>
   );
 };
+
+export default RegisterForm;

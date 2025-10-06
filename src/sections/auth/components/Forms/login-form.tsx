@@ -101,3 +101,5 @@ export const LoginForm = () => {
     </Formik>
   );
 };
+
+export default LoginForm;

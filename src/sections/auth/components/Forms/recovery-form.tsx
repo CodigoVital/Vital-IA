@@ -66,3 +66,5 @@ export const RecoveryForm = () => {
     </Formik>
   );
 };
+
+export default RecoveryForm;
