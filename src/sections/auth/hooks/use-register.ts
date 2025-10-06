@@ -1,7 +1,6 @@
 import { useAppDispatch } from "@/hooks/use-selector";
 import { useRegisterMutation } from "@/store/services/auth/authApi";
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import type { registerSchema } from "../schemas/register";
 import type z from "zod";
 import { setUser } from "@/store/slices/auth/auth-slice";
@@ -13,7 +12,6 @@ import { toast } from "sonner";
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
 const useRegister = () => {
-  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [register, { isLoading: isRegistering }] = useRegisterMutation();
   const dispatch = useAppDispatch();
@@ -28,12 +26,12 @@ const useRegister = () => {
       if (data?.data?.user) {
         dispatch(setUser(data.data.user));
         toast.success("Registro exitoso", {
-          description: "se ha enviado un correo de verificación",
+          description:
+            "se ha enviado un correo de verificación una vez que verifiques tu correo podrás iniciar sesión",
           position: "top-right",
           duration: 5000,
         });
         localStorage.setItem("user", JSON.stringify(data.data.user));
-        navigate("/");
       }
     } catch (err) {
       const msg = getAuthErrorMessage(
